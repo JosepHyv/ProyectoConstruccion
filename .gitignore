@@ -1,0 +1,18 @@
+# En este archivo van todas las cosas que no queremos que se incluyan 
+# cuando hagamos git add . 
+# debajo de esta linea comenzamos con los archivos separados
+
+
+*.log 
+*.a
+*.class
+*.o
+*.jar
+
+# ahora con las depenendcias
+
+/ProyectoConstruccion/*.xml
+/ProyectoConstruccion/*.mf
+/ProyectoConstruccion/build/
+/ProyectoConstruccion/dist/
+
