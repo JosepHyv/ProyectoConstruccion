@@ -12,6 +12,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.image.Image;
 import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
 
@@ -26,8 +27,10 @@ public class ProyectoConstruccion extends Application {
         Parent root = FXMLLoader.load(getClass().getResource("vistas/FXMLInicioSesion.fxml"));
         
         Scene scene = new Scene(root);
+        stage.setResizable(false);
+        stage.getIcons().add(new Image("proyectoconstruccion/resources/icono.png"));
         stage.setScene(scene);
-        stage.setTitle("Inicio de sesión");
+        stage.setTitle("Inicio de Sesión");
         stage.show();
     }
 
