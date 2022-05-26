@@ -1,11 +1,30 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.text.*?>
 <?import java.lang.*?>
 <?import java.util.*?>
 <?import javafx.scene.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns:fx="http://javafx.com/fxml/1" fx:controller="proyectoconstruccion.vistas.FXMLOfertaAcademicaController">
-    
+<AnchorPane id="AnchorPane" prefHeight="480.0" prefWidth="720.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="proyectoconstruccion.vistas.FXMLOfertaAcademicaController">
+   <children>
+      <Label layoutX="259.0" layoutY="26.0" text="Oferta Academica">
+         <font>
+            <Font name="System Bold" size="24.0" />
+         </font>
+      </Label>
+      <Label layoutX="44.0" layoutY="70.0" text="Buscar:" />
+      <TextField fx:id="tfBuscar" layoutX="110.0" layoutY="66.0" promptText="NRC/Nombre" />
+      <TableView fx:id="tbExperiencias" layoutY="120.0" prefHeight="320.0" prefWidth="720.0">
+        <columns>
+          <TableColumn fx:id="colNombre" prefWidth="173.0" text="Nombre" />
+          <TableColumn fx:id="colNRC" prefWidth="62.0" text="NRC" />
+            <TableColumn fx:id="colProgramaEducativo" prefWidth="245.0" text="Programa Educativo" />
+            <TableColumn fx:id="colSemestreRecomendado" prefWidth="144.0" text="Semestre Recomendado" />
+            <TableColumn fx:id="colArea" prefWidth="95.0" text="Área" />
+        </columns>
+      </TableView>
+      <Button layoutX="642.0" layoutY="447.0" mnemonicParsing="false" onAction="#btnSalir" prefHeight="25.0" prefWidth="64.0" text="Salir" />
+   </children>
 </AnchorPane>
