@@ -24,7 +24,7 @@ public class ProyectoConstruccion extends Application {
     
     @Override
     public void start(Stage stage) throws Exception {
-        Parent root = FXMLLoader.load(getClass().getResource("vistas/FXMLInicioSesion.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("vistas/FXMLOfertaAcademica.fxml"));
         
         Scene scene = new Scene(root);
         stage.setResizable(false);

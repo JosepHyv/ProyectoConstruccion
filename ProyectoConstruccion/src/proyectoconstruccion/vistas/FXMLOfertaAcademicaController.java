@@ -6,15 +6,23 @@
 package proyectoconstruccion.vistas;
 
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.ResourceBundle;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Alert;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
+import proyectoconstruccion.modelo.DAO.ExperienciaEducativaDAO;
+import proyectoconstruccion.modelo.pojo.ExperienciaEducativa;
+import proyectoconstruccion.util.Utilidades;
 
 /**
  * FXML Controller class
@@ -24,35 +32,48 @@ import javafx.stage.Stage;
 public class FXMLOfertaAcademicaController implements Initializable {
 
     @FXML
-    private TableView<?> tbExperiencias;
+    private TableView<ExperienciaEducativa> tbExperiencias;
     @FXML
     private TextField tfBuscar;
     @FXML
-    private TableColumn<?, ?> colNombre;
+    private TableColumn colNombre;
     @FXML
-    private TableColumn<?, ?> colNRC;
+    private TableColumn colNRC;
     @FXML
-    private TableColumn<?, ?> colProgramaEducativo;
+    private TableColumn colProgramaEducativo;
     @FXML
-    private TableColumn<?, ?> colSemestreRecomendado;
+    private TableColumn colSemestreRecomendado;
     @FXML
-    private TableColumn<?, ?> colArea;
-
+    private TableColumn colArea;
+    
+    private ObservableList<ExperienciaEducativa> infoExperienciasEducativas;
     /**
      * Initializes the controller class.
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        //configurarColumnasTabla();
-        //cargarInformacion();
+        configurarColumnasTabla();
+        cargarInformacion();
     }
 
     private void configurarColumnasTabla() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        colNombre.setCellValueFactory (new PropertyValueFactory ("nombre"));
+        colNRC.setCellValueFactory (new PropertyValueFactory ("nrc"));
+        colProgramaEducativo.setCellValueFactory (new PropertyValueFactory ("programaEducativo"));
+        colSemestreRecomendado.setCellValueFactory (new PropertyValueFactory ("semestreRecomendado"));
+        colArea.setCellValueFactory (new PropertyValueFactory ("area"));
+        infoExperienciasEducativas = FXCollections.observableArrayList();
     }
 
     private void cargarInformacion() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        ArrayList<ExperienciaEducativa> resultadoConsulta = ExperienciaEducativaDAO.obtenerExperienciaEducativas();
+        if (resultadoConsulta != null) {
+            infoExperienciasEducativas.addAll(resultadoConsulta);
+            tbExperiencias.setItems(infoExperienciasEducativas);
+        }else{
+            Utilidades.mostrarAlerta ("Error de conexión",
+            "Por el momento no hay conexión con la Base de Datos", Alert.AlertType.ERROR);
+        }
     }
     
     private void cerrarVentana(){
