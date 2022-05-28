@@ -5,6 +5,7 @@
 package proyectoconstruccion.modelo;
 
 import java.sql.Connection;
+import java.sql.DriverManager;
 
 /**
  *
@@ -12,8 +13,24 @@ import java.sql.Connection;
  */
 public class ConexionBD {
 
-    public static Connection abrirConexionBD() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    private static final String DRIVER = "com.mysql.cj.jdbc.Driver";
+    private static final String DATABASE = "sistematutorias";
+    private static final String HOSTNAME = "localhost";
+    private static final String PORT = "3306";
+    private static final String URL_CONEXION = "jdbc:mysql://"+HOSTNAME+":"+PORT+"/"+DATABASE+"?serverTimezone=UTC";
+
+    private static final String USERNAME = "administrador";
+    private static final String PASSWORD = "";
+
+    public static Connection abrirConexionBD(){
+        Connection conexionBD = null;
+        try{ 
+            Class.forName(DRIVER);
+            conexionBD = DriverManager.getConnection(URL_CONEXION, USERNAME, PASSWORD);
+        }catch(Exception e){
+            e.printStackTrace();
+        }
+        return conexionBD;
     }
     
 }
