@@ -12,52 +12,62 @@ public class ExperienciaEducativa {
     private int semestreRecomendado;
 
     private String area;
+    
+    private int idExperienciaEducativa;
 
-    private String getNombre() {
+    public int getIdExperienciaEducativa() {
+        return idExperienciaEducativa;
+    }
+
+    public void setIdExperienciaEducativa(int idExperienciaEducativa) {
+        this.idExperienciaEducativa = idExperienciaEducativa;
+    }
+
+    public String getNombre() {
         return nombre;
     }
 
-    private String getNrc() {
+    public String getNrc() {
         return nrc;
     }
 
-    private String getProgramaEducativo() {
+    public String getProgramaEducativo() {
         return programaEducativo;
     }
 
-    private boolean isEsOfertada() {
+    public boolean isEsOfertada() {
         return esOfertada;
     }
 
-    private int getSemestreRecomendado() {
+    public int getSemestreRecomendado() {
         return semestreRecomendado;
     }
 
-    private String getArea() {
+    public String getArea() {
         return area;
     }
 
-    private void setNombre(String nombre) {
+    public void setNombre(String nombre) {
         this.nombre = nombre;
     }
 
-    private void setNrc(String nrc) {
+    public void setNrc(String nrc) {
         this.nrc = nrc;
     }
 
-    private void setProgramaEducativo(String programaEducativo) {
+    public void setProgramaEducativo(String programaEducativo) {
         this.programaEducativo = programaEducativo;
     }
 
-    private void setEsOfertada(boolean esOfertada) {
+    public void setEsOfertada(boolean esOfertada) {
         this.esOfertada = esOfertada;
     }
 
-    private void setSemestreRecomendado(int semestreRecomendado) {
+    public void setSemestreRecomendado(int semestreRecomendado) {
         this.semestreRecomendado = semestreRecomendado;
     }
 
-    private void setArea(String area) {
+    public void setArea(String area) {
         this.area = area;
     }
 
