@@ -8,6 +8,8 @@
 *.class
 *.o
 *.jar
+# permitiendo que el .jar de libs jale
+!/ProyectoConstruccion/libs/*.jar
 
 # ahora con las depenendcias
 
