@@ -1,6 +1,10 @@
 package proyectoconstruccion.modelo.pojo;
 
 public class Profesor {
+    private String nombreCompleto;
+    
+    private int idProfesor;
+    
     private String nombres;
 
     private String apellidoPaterno;
@@ -13,51 +17,67 @@ public class Profesor {
 
     private boolean esActivo;
 
-    private String getNombres() {
+    public String getNombreCompleto() {
+        return nombreCompleto;
+    }
+
+    public void setNombreCompleto(String nombreCompleto) {
+        this.nombreCompleto = nombreCompleto;
+    }
+
+    public int getIdProfesor() {
+        return idProfesor;
+    }
+
+    public void setIdProfesor(int idProfesor) {
+        this.idProfesor = idProfesor;
+    }
+    
+    public String getNombres() {
         return nombres;
     }
 
-    private String getApellidoPaterno() {
+    public String getApellidoPaterno() {
         return apellidoPaterno;
     }
 
-    private String getApellidoMaterno() {
+    public String getApellidoMaterno() {
         return apellidoMaterno;
     }
 
-    private String getCorreo() {
+    public String getCorreo() {
         return correo;
     }
 
-    private String getTipoProfesor() {
+    public String getTipoProfesor() {
         return tipoProfesor;
     }
 
-    private boolean isEsActivo() {
+    public boolean isEsActivo() {
         return esActivo;
     }
 
-    private void setNombres(String nombres) {
+    public void setNombres(String nombres) {
         this.nombres = nombres;
     }
 
-    private void setApellidoPaterno(String apellidoPaterno) {
+    public void setApellidoPaterno(String apellidoPaterno) {
         this.apellidoPaterno = apellidoPaterno;
     }
 
-    private void setApellidoMaterno(String apellidoMaterno) {
+    public void setApellidoMaterno(String apellidoMaterno) {
         this.apellidoMaterno = apellidoMaterno;
     }
 
-    private void setCorreo(String correo) {
+    public void setCorreo(String correo) {
         this.correo = correo;
     }
 
-    private void setTipoProfesor(String tipoProfesor) {
+    public void setTipoProfesor(String tipoProfesor) {
         this.tipoProfesor = tipoProfesor;
     }
 
-    private void setEsActivo(boolean esActivo) {
+    public void setEsActivo(boolean esActivo) {
         this.esActivo = esActivo;
     }
 
