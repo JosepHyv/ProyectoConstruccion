@@ -1,8 +1,9 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+* Autor: Juan Pablo Peredo Martínez
+* Fecha de creacion: 29/05/22
+* Fecha de modificacion: 09/05/22
+* Descripcion: Controlador para la ventana AsignarExperienciaAProfesor.
+*/
 package proyectoconstruccion.vistas;
 
 import java.io.IOException;
@@ -35,7 +36,7 @@ import proyectoconstruccion.util.Utilidades;
  *
  * @author Panther
  */
-public class FXMLAsignarExperienciaAProfesorController implements Initializable,NotificarAsignacion {
+public class FXMLAsignarExperienciaAProfesorController implements Initializable{
     
     @FXML
     private TableView<ExperienciaEducativa> tbExperienciasEducativas;
@@ -55,24 +56,7 @@ public class FXMLAsignarExperienciaAProfesorController implements Initializable,
         configurarColumnasTabla();
         cargarInformacion();
     }
-    
-    private void irSeleccionProfesor(){
-        try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("FXMLSeleccionProfesor.fxml"));
-            Parent root = loader.load();
-            FXMLSeleccionProfesorController controladorFormulario = loader.getController();
-            controladorFormulario.configurarEscena(this);
-            Scene escenaFormulario = new Scene(root);
-            Stage escenarioFormulario = new Stage();
-            escenarioFormulario.setScene(escenaFormulario);
-            escenarioFormulario.initModality(Modality.APPLICATION_MODAL);
-            escenarioFormulario.showAndWait();
             
-        } catch (Exception ex) {
-            ex.printStackTrace();
-        }
-    }
-    
     private void configurarColumnasTabla() {
         colExperienciaEducativa.setCellValueFactory (new PropertyValueFactory ("nombre"));
         colNRC.setCellValueFactory (new PropertyValueFactory ("nrc"));
@@ -103,16 +87,27 @@ public class FXMLAsignarExperienciaAProfesorController implements Initializable,
         }
     }
     
-    private void asignarProfesor(Profesor profesor, ExperienciaEducativa experienciaEducativa){
-        ExperienciaEducativaDAO.asignarProfesorAExperiencia(profesor,experienciaEducativa);
-        System.out.println();
-        cargarInformacion();
+    public void asignarProfesor(Profesor profesor, ExperienciaEducativa experienciaEducativa){
+        if(profesor != null){
+            ExperienciaEducativaDAO.asignarProfesorAExperiencia(profesor,experienciaEducativa);
+            cargarInformacion();
+        }
     }
     
-    @Override
-    public void notificarCambio(Profesor profesor) {
-        System.out.println("Profesor: " + profesor.getNombreCompleto() + "EE: " + experienciaEducativa.getIdExperienciaEducativa());
-        asignarProfesor(profesor,experienciaEducativa);
+    private void irSeleccionProfesor(){
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("FXMLSeleccionProfesor.fxml"));
+            Parent root = loader.load();
+            FXMLSeleccionProfesorController controladorFormulario = loader.getController();
+            controladorFormulario.pasarExperienciaEducativa(experienciaEducativa);
+            Stage escenarioPrincipal = (Stage) tbExperienciasEducativas.getScene().getWindow();
+            Scene pantallaAlumnos = new Scene(root);
+            escenarioPrincipal.setScene(pantallaAlumnos);
+            escenarioPrincipal.setTitle("Seleccionar profesor");
+            escenarioPrincipal.show();            
+        } catch (IOException ex) {
+            ex.printStackTrace();
+        }
     }
     
     private void cerrarVentana(){
