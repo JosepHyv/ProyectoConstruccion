@@ -1,7 +1,10 @@
 package proyectoconstruccion.modelo.pojo;
 
 public class ProblemáticaAcadémica {
-    private int numAlum;
+    
+    private Integer idProblemáticaAcadémica;
+    
+    private Integer numAlum;
 
     private String descripcion;
 
@@ -10,45 +13,73 @@ public class ProblemáticaAcadémica {
     private String categoria;
 
     private String solucion;
+    
+    private Integer idPeriodo;
+    
+    private Integer idReporteTutoria;
 
-    private int getNumAlum() {
+    public Integer getIdProblemáticaAcadémica() {
+        return idProblemáticaAcadémica;
+    }
+
+    public void setIdProblemáticaAcadémica(Integer idProblemáticaAcadémica) {
+        this.idProblemáticaAcadémica = idProblemáticaAcadémica;
+    }
+    
+    public Integer getNumAlum() {
         return numAlum;
     }
 
-    private String getDescripcion() {
-        return descripcion;
-    }
-
-    private String getGravedad() {
-        return gravedad;
-    }
-
-    private String getCategoria() {
-        return categoria;
-    }
-
-    private String getSolucion() {
-        return solucion;
-    }
-
-    private void setNumAlum(int numAlum) {
+    public void setNumAlum(Integer numAlum) {
         this.numAlum = numAlum;
     }
 
-    private void setDescripcion(String descripcion) {
+    public String getDescripcion() {
+        return descripcion;
+    }
+
+    public void setDescripcion(String descripcion) {
         this.descripcion = descripcion;
     }
 
-    private void setGravedad(String gravedad) {
+    public String getGravedad() {
+        return gravedad;
+    }
+
+    public void setGravedad(String gravedad) {
         this.gravedad = gravedad;
     }
 
-    private void setCategoria(String categoria) {
+    public String getCategoria() {
+        return categoria;
+    }
+
+    public void setCategoria(String categoria) {
         this.categoria = categoria;
     }
 
-    private void setSolucion(String solucion) {
+    public String getSolucion() {
+        return solucion;
+    }
+
+    public void setSolucion(String solucion) {
         this.solucion = solucion;
+    }
+
+    public Integer getIdPeriodo() {
+        return idPeriodo;
+    }
+
+    public void setIdPeriodo(Integer idPeriodo) {
+        this.idPeriodo = idPeriodo;
+    }
+
+    public Integer getIdReporteTutoria() {
+        return idReporteTutoria;
+    }
+
+    public void setIdReporteTutoria(Integer idReporteTutoria) {
+        this.idReporteTutoria = idReporteTutoria;
     }
 
 }
