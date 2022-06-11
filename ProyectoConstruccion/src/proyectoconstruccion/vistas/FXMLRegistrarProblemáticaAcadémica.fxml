@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+
+
+<AnchorPane id="AnchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="480.0" prefWidth="720.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8.0.171" fx:controller="proyectoconstruccion.vistas.FXMLRegistrarProblemáticaAcadémicaController">
+   <children>
+      <Label layoutX="40.0" layoutY="46.0" text="Numero de alumnos" />
+      <Label layoutX="40.0" layoutY="164.0" text="Gravedad" />
+      <Label layoutX="40.0" layoutY="302.0" text="Categoria" />
+      <Label layoutX="297.0" layoutY="46.0" text="Descripcion" />
+      <Label layoutX="297.0" layoutY="240.0" text="Solucion" />
+      <TextField fx:id="tfNumeroAlumnos" layoutX="40.0" layoutY="64.0" />
+      <TextField fx:id="tfGravedad" layoutX="40.0" layoutY="182.0" />
+      <TextField fx:id="tfCategoria" layoutX="40.0" layoutY="320.0" />
+      <TextArea fx:id="taDescripcion" layoutX="297.0" layoutY="64.0" prefHeight="167.0" prefWidth="374.0" />
+      <TextArea fx:id="taSolucion" layoutX="297.0" layoutY="258.0" prefHeight="167.0" prefWidth="374.0" />
+   </children>
+</AnchorPane>
