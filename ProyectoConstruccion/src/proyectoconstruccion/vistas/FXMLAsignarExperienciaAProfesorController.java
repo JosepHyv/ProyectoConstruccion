@@ -1,7 +1,7 @@
 /*
 * Autor: Juan Pablo Peredo Martínez
 * Fecha de creacion: 29/05/22
-* Fecha de modificacion: 09/05/22
+* Fecha de modificacion: 13/06/22
 * Descripcion: Controlador para la ventana AsignarExperienciaAProfesor.
 */
 package proyectoconstruccion.vistas;
@@ -23,9 +23,7 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
-import javafx.stage.Modality;
 import javafx.stage.Stage;
-import proyectoconstruccion.interfaces.NotificarAsignacion;
 import proyectoconstruccion.modelo.DAO.ExperienciaEducativaDAO;
 import proyectoconstruccion.modelo.pojo.ExperienciaEducativa;
 import proyectoconstruccion.modelo.pojo.Profesor;
@@ -69,6 +67,9 @@ public class FXMLAsignarExperienciaAProfesorController implements Initializable{
             infoExperienciasEducativas.clear();
             infoExperienciasEducativas.addAll(resultadoConsulta);
             tbExperienciasEducativas.setItems(infoExperienciasEducativas);
+            if (resultadoConsulta.isEmpty()) {
+                Utilidades.mostrarAlerta("Advertencia", "No hay Experiencias educativas sin asignar", Alert.AlertType.WARNING);
+            }
         }else{
             Utilidades.mostrarAlerta ("Error de conexión",
             "Por el momento no hay conexión con la Base de Datos", Alert.AlertType.ERROR);

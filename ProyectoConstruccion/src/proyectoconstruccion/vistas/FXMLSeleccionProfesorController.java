@@ -1,7 +1,7 @@
 /*
 * Autor: Juan Pablo Peredo Martínez
 * Fecha de creacion: 29/05/22
-* Fecha de modificacion: 09/05/22
+* Fecha de modificacion: 13/06/22
 * Descripcion: Controlador para la ventana SeleccionProfesor.
 */
 package proyectoconstruccion.vistas;

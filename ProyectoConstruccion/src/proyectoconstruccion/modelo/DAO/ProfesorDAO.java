@@ -1,8 +1,9 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+* Autor: Juan Pablo Peredo Martínez
+* Fecha de creacion: 29/05/22
+* Fecha de modificacion: 13/06/22
+* Descripcion: Operaciones en la base de datos relacionadas con Profesores.
+*/
 package proyectoconstruccion.modelo.DAO;
 
 import java.sql.Connection;
@@ -24,7 +25,7 @@ public class ProfesorDAO {
         ArrayList<Profesor> profesores = new ArrayList<>();
         Connection conexionBD = ConexionBD.abrirConexionBD();
         if(conexionBD != null){
-            String query = "SELECT * FROM profesor;";
+            String query = "SELECT * FROM profesor WHERE esActivo = 1;";
             try{
                 PreparedStatement configurarConsulta = conexionBD.prepareStatement(query);
                 ResultSet resultadoConsulta = configurarConsulta.executeQuery();

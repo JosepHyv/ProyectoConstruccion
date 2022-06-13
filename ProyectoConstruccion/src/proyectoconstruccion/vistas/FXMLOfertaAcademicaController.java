@@ -1,8 +1,9 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+* Autor: Juan Pablo Peredo Martínez
+* Fecha de creacion: 25/05/22
+* Fecha de modificacion: 13/06/22
+* Descripcion: Controlador para la ventana OfertaAcademica.
+*/
 package proyectoconstruccion.vistas;
 
 import java.net.URL;

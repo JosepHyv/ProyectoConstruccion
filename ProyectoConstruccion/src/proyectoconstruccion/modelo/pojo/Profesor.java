@@ -1,3 +1,9 @@
+/*
+* Autor: Juan Pablo Peredo Martínez
+* Fecha de creacion: 25/05/22
+* Fecha de modificacion: 13/06/22
+* Descripcion: Clase que representa a un maestro.
+*/
 package proyectoconstruccion.modelo.pojo;
 
 public class Profesor {
