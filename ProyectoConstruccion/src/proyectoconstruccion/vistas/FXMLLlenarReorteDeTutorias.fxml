@@ -24,7 +24,7 @@
             <TableColumn fx:id="coRiesgo" prefWidth="68.0" text="Riesgo" />
         </columns>
       </TableView>
-      <TextArea fx:id="taComentarios" layoutX="25.0" layoutY="260.0" prefHeight="151.0" prefWidth="423.0" />
+      <TextArea fx:id="taComentarios" layoutX="25.0" layoutY="260.0" prefHeight="151.0" prefWidth="423.0" wrapText="true" />
       <Button fx:id="btnRegistroProblematica" layoutX="502.0" layoutY="260.0" mnemonicParsing="false" onAction="#irRegistrarProblematica" prefHeight="70.0" prefWidth="174.0" text="Registrar Problemática Académica" textAlignment="CENTER" textOverrun="CENTER_ELLIPSIS" wrapText="true" />
       <Button fx:id="btnGuardar" layoutX="478.0" layoutY="427.0" mnemonicParsing="false" text="Guardar" />
       <Button fx:id="btnCancelar" layoutX="616.0" layoutY="427.0" mnemonicParsing="false" onAction="#btCancelar" text="Cancelar" />
