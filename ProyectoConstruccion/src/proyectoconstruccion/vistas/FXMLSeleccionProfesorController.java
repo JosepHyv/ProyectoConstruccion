@@ -100,7 +100,7 @@ public class FXMLSeleccionProfesorController implements Initializable {
             Stage escenarioPrincipal = (Stage) tbProfesores.getScene().getWindow();
             Scene pantallaAlumnos = new Scene(root);
             escenarioPrincipal.setScene(pantallaAlumnos);
-            escenarioPrincipal.setTitle("Asignar profesor a experiencia");
+            escenarioPrincipal.setTitle("Asignar profesor a experiencia educativa");
             escenarioPrincipal.show();
         } catch (IOException e) {
             System.err.println("Error al cargar la pantalla...");
