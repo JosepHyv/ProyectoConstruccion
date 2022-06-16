@@ -1,3 +1,9 @@
+/*
+* Autor: Leonardo Criollo Ramírez
+* Fecha de creacion: 29/05/22
+* Fecha de modificacion: 15/06/22
+* Descripcion: Definicion de la clase Usuario.
+*/
 package proyectoconstruccion.modelo.pojo;
 
 public class Usuario {

@@ -1,17 +1,15 @@
 /*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
+* Autor: Leonardo Criollo Ramírez
+* Fecha de creacion: 26/05/22
+* Fecha de modificacion: 15/06/22
+* Descripcion: Clase contenedora de utilidades para el sistema.
+*/
 package proyectoconstruccion.util;
 
 import java.util.Optional;
 import javafx.scene.control.Alert;
 import javafx.scene.control.ButtonType;
 
-/**
- *
- * @author ctr305
- */
 public class Utilidades {
     
     public static void mostrarAlerta(String titulo, String mensaje, Alert.AlertType tipoAlerta){

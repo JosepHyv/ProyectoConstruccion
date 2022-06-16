@@ -1,7 +1,9 @@
 /*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/javafx/FXMLController.java to edit this template
- */
+* Autor: Joseph Hynimoto
+* Fecha de creacion: 13/06/22
+* Fecha de modificacion: 15/06/22
+* Descripcion: Controlador de la Ventana de inicio de sesión.
+*/
 package proyectoconstruccion.vistas;
 
 import java.io.IOException;
@@ -23,11 +25,6 @@ import proyectoconstruccion.util.Constantes;
 import proyectoconstruccion.modelo.DAO.UsuarioDAO;
 import proyectoconstruccion.modelo.pojo.Usuario;
 
-/**
- * FXML Controller class
- *
- * @author JosepHy
- */
 public class FXMLInicioDeSesionController implements Initializable {
 
     @FXML
