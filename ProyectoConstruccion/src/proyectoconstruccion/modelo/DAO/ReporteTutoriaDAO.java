@@ -22,7 +22,7 @@ public class ReporteTutoriaDAO {
         if(conexionBD != null){
             try{
                 String sentencia = "INSERT INTO reportetutoria "
-                        + "(numAlum, fecha, programaEducativo, numAsistencia, numRiesgo, comentarios) "
+                        + "(numReporte, fecha, programaEducativo, numAsistencia, numRiesgo, comentarios) "
                         + "VALUES (?, ?, ?, ?, ?, ?)";
                 PreparedStatement configurarConsulta = conexionBD.prepareStatement(sentencia);
                 configurarConsulta.setInt(1, reporteTutoriaRegistro.getNumReporte());

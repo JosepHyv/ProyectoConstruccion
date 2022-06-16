@@ -149,6 +149,7 @@ public class FXMLLlenarReorteDeTutoriasController implements Initializable {
         reporteRegistro.setFecha("null");
         reporteRegistro.setNumAsistencia(tbReporte.getItems().size());
         reporteRegistro.setNumReporte(tbReporte.getItems().size());
+        reporteRegistro.setNumRiesgo(0);
         ReporteTutoriaDAO.insertarReporteTutoria(reporteRegistro);
     }
     
