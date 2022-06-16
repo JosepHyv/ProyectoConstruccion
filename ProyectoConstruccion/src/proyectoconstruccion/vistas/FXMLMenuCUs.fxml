@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="480.0" prefWidth="720.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="proyectoconstruccion.vistas.FXMLMenuCUsController">
+   <children>
+      <Label fx:id="lbBienvenido" layoutX="28.0" layoutY="53.0" text="Bienvenido al Sistema de Gestion de Tutorias de la FEI">
+         <font>
+            <Font name="System Bold Italic" size="23.0" />
+         </font>
+      </Label>
+      <Label layoutX="28.0" layoutY="86.0" text="Seleccione una opcion">
+         <font>
+            <Font size="17.0" />
+         </font>
+      </Label>
+      <Button layoutX="54.0" layoutY="150.0" mnemonicParsing="false" onAction="#btLlenarReporteTutorias" prefHeight="28.0" prefWidth="267.0" text="Llenar Reporte de Tutorias Academicas" />
+      <Button layoutX="54.0" layoutY="240.0" mnemonicParsing="false" onAction="#btRegistrarProblematica" prefHeight="28.0" prefWidth="267.0" text="Registrar Problematica Academica" />
+      <Button layoutX="55.0" layoutY="339.0" mnemonicParsing="false" onAction="#btnConsultarProblematica" prefHeight="28.0" prefWidth="267.0" text="Consultar Problematica Academica" />
+      <Button layoutX="357.0" layoutY="150.0" mnemonicParsing="false" onAction="#btConsultarOfertaAcademica" prefHeight="28.0" prefWidth="267.0" text="Consultar Oferta Academica" />
+      <Button layoutX="357.0" layoutY="240.0" mnemonicParsing="false" onAction="#btAsignarExperienciaEducativa" prefHeight="28.0" prefWidth="267.0" text="Asignar Experiencia Educativa a Profesor" />
+      <Button layoutX="357.0" layoutY="339.0" mnemonicParsing="false" onAction="#btSalir" prefHeight="28.0" prefWidth="267.0" text="Salir" />
+   </children>
+</AnchorPane>
