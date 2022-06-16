@@ -16,18 +16,31 @@ import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
+import proyectoconstruccion.modelo.pojo.Usuario;
 import proyectoconstruccion.util.Utilidades;
 
 public class FXMLMenuCUsController implements Initializable {
 
     @FXML
     private Label lbBienvenido;
+    @FXML
+    private Button btnLlenarReporte;
+    @FXML
+    private Button btnRegistrarProblematicaAcademica;
+    @FXML
+    private Button btnConsultarProblematicaAcademica;
+    @FXML
+    private Button btnConsultarOfertaAcademica;
+    @FXML
+    private Button btnAsignarExperienciaEducativa;
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
+        
     }    
 
     @FXML
@@ -118,6 +131,29 @@ public class FXMLMenuCUsController implements Initializable {
     private void cerrarVentana() {
         Stage escenario = (Stage) lbBienvenido.getScene().getWindow();
         escenario.close();
+    }
+
+    private void configurarBotones(Usuario usuarioLogin) {
+        String rolUsuario = usuarioLogin.getRol();
+        if(rolUsuario.toLowerCase() == "tutor"){
+            btnAsignarExperienciaEducativa.setDisable(true);
+        }else if(rolUsuario.toLowerCase() == "coordinador"){
+            btnLlenarReporte.setDisable(true);
+            btnRegistrarProblematicaAcademica.setDisable(true);
+            btnConsultarProblematicaAcademica.setDisable(true);
+            btnAsignarExperienciaEducativa.setDisable(true);
+        }else if(rolUsuario.toLowerCase() == "jefedecarrera"){
+            btnLlenarReporte.setDisable(true);
+            btnRegistrarProblematicaAcademica.setDisable(true);
+            btnConsultarProblematicaAcademica.setDisable(true);
+            btnConsultarOfertaAcademica.setDisable(true);
+            btnAsignarExperienciaEducativa.setDisable(true);
+        }else if(rolUsuario.toLowerCase() == "administrador" || rolUsuario.toLowerCase() == "admin"){
+            btnLlenarReporte.setDisable(true);
+            btnRegistrarProblematicaAcademica.setDisable(true);
+            btnConsultarProblematicaAcademica.setDisable(true);
+            btnConsultarOfertaAcademica.setDisable(true);
+        }
     }
     
 }
