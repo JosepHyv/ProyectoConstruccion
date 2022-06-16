@@ -135,5 +135,16 @@ public class FXMLLlenarReorteDeTutoriasController implements Initializable {
             this.idReporte = ReporteTutoriaDAO.getNumeroReporteMasActual();
         }
     }
+
+    @FXML
+    private void btGuardar(ActionEvent event) {
+        guardarReporte();
+
+    }
+
+    private void guardarReporte() {
+        ReporteTutoria reporteRegistro = new ReporteTutoria();
+        ReporteTutoriaDAO.insertarReporteTutoria(reporteRegistro);
+    }
     
 }
