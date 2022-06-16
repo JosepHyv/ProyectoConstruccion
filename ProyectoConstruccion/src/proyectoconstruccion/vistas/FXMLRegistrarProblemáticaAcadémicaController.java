@@ -166,8 +166,8 @@ public class FXMLRegistrarProblemáticaAcadémicaController implements Initializ
         }
     }
 
-    public void configurarIDs(ReporteTutoria reporte, Periodo periodo) {
-        idReporte = reporte.getIdReporte();
+    public void configurarIDs(Integer idReporte, Periodo periodo) {
+        this.idReporte = idReporte;
         idPeriodo = periodo.getIdPeriodo();
     }
 }

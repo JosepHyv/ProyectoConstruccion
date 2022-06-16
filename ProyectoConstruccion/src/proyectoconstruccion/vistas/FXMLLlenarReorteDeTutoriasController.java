@@ -32,6 +32,7 @@ import proyectoconstruccion.modelo.pojo.ReporteTutoria;
 import proyectoconstruccion.util.Utilidades;
 import proyectoconstruccion.modelo.DAO.EstudiantesDAO;
 import proyectoconstruccion.modelo.DAO.PeriodoDAO;
+import proyectoconstruccion.modelo.DAO.ReporteTutoriaDAO;
 
 public class FXMLLlenarReorteDeTutoriasController implements Initializable {
 
@@ -48,7 +49,7 @@ public class FXMLLlenarReorteDeTutoriasController implements Initializable {
     
     private Periodo periodo;
     
-    private ReporteTutoria reporte;
+    private Integer idReporte;
     
     private ObservableList<Estudiante> infoEstudiante;
     @FXML
@@ -80,7 +81,7 @@ public class FXMLLlenarReorteDeTutoriasController implements Initializable {
            FXMLLoader loader = new FXMLLoader(getClass().getResource("FXMLRegistrarProblemáticaAcadémica.fxml"));
            Parent root = loader.load();
            FXMLRegistrarProblemáticaAcadémicaController controlador = loader.getController();
-           controlador.configurarIDs(reporte, periodo);
+           controlador.configurarIDs(idReporte, periodo);
            Scene escenaRegistrarProblematica = new Scene(root);
            Stage escenarioRegistrarProblematica = new Stage();
            escenarioRegistrarProblematica.setScene(escenaRegistrarProblematica);
@@ -128,6 +129,11 @@ public class FXMLLlenarReorteDeTutoriasController implements Initializable {
             Utilidades.mostrarAlerta("Error", "No hay conexion con la base de datos.", Alert.AlertType.ERROR);
         }
         this.periodo = PeriodoDAO.getPeriodoActual();
+        if(ReporteTutoriaDAO.getNumeroReporteMasActual() == Integer.MIN_VALUE){
+            Utilidades.mostrarAlerta("Error", "Error obteniendo número reporte más reciente", Alert.AlertType.ERROR);
+        }else{
+            this.idReporte = ReporteTutoriaDAO.getNumeroReporteMasActual();
+        }
     }
     
 }
