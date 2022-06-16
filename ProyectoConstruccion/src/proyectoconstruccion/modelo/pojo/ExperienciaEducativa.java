@@ -6,6 +6,8 @@
 */
 package proyectoconstruccion.modelo.pojo;
 
+import java.util.Objects;
+
 public class ExperienciaEducativa {
     private String nombre;
 
@@ -77,4 +79,45 @@ public class ExperienciaEducativa {
         this.area = area;
     }
 
+    @Override
+    public String toString() {
+        return "ExperienciaEducativa{" + "nombre=" + nombre + ", nrc=" + nrc + ", programaEducativo=" + programaEducativo + ", semestreRecomendado=" + semestreRecomendado + ", area=" + area + ", idExperienciaEducativa=" + idExperienciaEducativa + '}';
+    }
+    
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final ExperienciaEducativa other = (ExperienciaEducativa) obj;
+        if (this.esOfertada != other.esOfertada) {
+            return false;
+        }
+        if (this.semestreRecomendado != other.semestreRecomendado) {
+            return false;
+        }
+        if (this.idExperienciaEducativa != other.idExperienciaEducativa) {
+            return false;
+        }
+        if (!Objects.equals(this.nombre, other.nombre)) {
+            return false;
+        }
+        if (!Objects.equals(this.nrc, other.nrc)) {
+            return false;
+        }
+        if (!Objects.equals(this.programaEducativo, other.programaEducativo)) {
+            return false;
+        }
+        if (!Objects.equals(this.area, other.area)) {
+            return false;
+        }
+        return true;
+    }
+    
 }

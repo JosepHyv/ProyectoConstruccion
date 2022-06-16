@@ -1,13 +1,14 @@
 /*
 * Autor: Juan Pablo Peredo Martínez
 * Fecha de creacion: 25/05/22
-* Fecha de modificacion: 13/06/22
+* Fecha de modificacion: 15/06/22
 * Descripcion: Clase que representa a un maestro.
 */
 package proyectoconstruccion.modelo.pojo;
 
+import java.util.Objects;
+
 public class Profesor {
-    private String nombreCompleto;
     
     private int idProfesor;
     
@@ -22,14 +23,6 @@ public class Profesor {
     private String tipoProfesor;
 
     private boolean esActivo;
-
-    public String getNombreCompleto() {
-        return nombreCompleto;
-    }
-
-    public void setNombreCompleto(String nombreCompleto) {
-        this.nombreCompleto = nombreCompleto;
-    }
 
     public int getIdProfesor() {
         return idProfesor;
@@ -87,4 +80,46 @@ public class Profesor {
         this.esActivo = esActivo;
     }
 
+    @Override
+    public String toString() {
+        return "Profesor{" + "idProfesor=" + idProfesor + ", nombres=" + nombres + ", apellidoPaterno=" + apellidoPaterno + ", apellidoMaterno=" + apellidoMaterno + ", correo=" + correo + ", tipoProfesor=" + tipoProfesor + ", esActivo=" + esActivo + '}';
+    }
+    
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final Profesor other = (Profesor) obj;
+        if (this.idProfesor != other.idProfesor) {
+            return false;
+        }
+        if (this.esActivo != other.esActivo) {
+            return false;
+        }
+        if (!Objects.equals(this.nombres, other.nombres)) {
+            return false;
+        }
+        if (!Objects.equals(this.apellidoPaterno, other.apellidoPaterno)) {
+            return false;
+        }
+        if (!Objects.equals(this.apellidoMaterno, other.apellidoMaterno)) {
+            return false;
+        }
+        if (!Objects.equals(this.correo, other.correo)) {
+            return false;
+        }
+        if (!Objects.equals(this.tipoProfesor, other.tipoProfesor)) {
+            return false;
+        }
+        return true;
+    }
+    
+    
 }
