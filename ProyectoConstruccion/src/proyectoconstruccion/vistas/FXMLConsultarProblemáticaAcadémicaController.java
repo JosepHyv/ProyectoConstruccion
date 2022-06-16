@@ -9,6 +9,7 @@ package proyectoconstruccion.vistas;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
+import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -56,14 +57,19 @@ public class FXMLConsultarProblemáticaAcadémicaController implements Initializ
         coCategoria.setCellValueFactory(new PropertyValueFactory("categoria"));
         coDescripcion.setCellValueFactory(new PropertyValueFactory("descripcion"));
         coSolucion.setCellValueFactory(new PropertyValueFactory("solucion"));
+        infoProblematicas = FXCollections.observableArrayList();
     }
 
     private void cargarInformacion() {
         ArrayList<ProblemáticaAcadémica> resultadoConsulta = ProblemáticaAcadémicaDAO.obtenerProblemáticaAcadémica();
         if(resultadoConsulta != null){
+            try{
             tbProblematicas.getItems().clear();
             infoProblematicas.addAll(resultadoConsulta);
             tbProblematicas.setItems(infoProblematicas);
+            }catch(NullPointerException e){
+                e.printStackTrace();
+            }
         }else{
             Utilidades.mostrarAlerta("Error", "No hay conexion con la base de datos.", Alert.AlertType.ERROR);
         }
