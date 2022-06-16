@@ -49,7 +49,7 @@ public class ReporteTutoriaDAO {
         Connection conexionBD = ConexionBD.abrirConexionBD();
         if(conexionBD != null){
             try{
-                String sentencia = "SELECT * FROM reportetutoria ORDER BY idPeriodo DESC LIMIT 0,1";
+                String sentencia = "SELECT * FROM reportetutoria ORDER BY idReporteTutoria DESC LIMIT 0,1";
                 PreparedStatement configurarConsulta = conexionBD.prepareStatement(sentencia);
                 ResultSet resultadoConsulta = configurarConsulta.executeQuery();
                 while(resultadoConsulta.next()){
