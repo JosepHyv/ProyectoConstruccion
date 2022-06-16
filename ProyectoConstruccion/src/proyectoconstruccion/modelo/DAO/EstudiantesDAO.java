@@ -34,6 +34,7 @@ public class EstudiantesDAO {
                     estudianteTemporal.setNombres(resultadoConsulta.getString("nombres"));
                     estudianteTemporal.setApellidoPaterno(resultadoConsulta.getString("apellidoPaterno"));
                     estudianteTemporal.setApellidoMaterno(resultadoConsulta.getString("apellidoMaterno"));
+                    estudianteTemporal.setMatricula(resultadoConsulta.getString("matricula"));
                     estudianteTemporal.setCorreo(resultadoConsulta.getString("correo"));
                     estudianteTemporal.setSemestre(resultadoConsulta.getString("semestre"));
                     estudiantes.add(estudianteTemporal);
