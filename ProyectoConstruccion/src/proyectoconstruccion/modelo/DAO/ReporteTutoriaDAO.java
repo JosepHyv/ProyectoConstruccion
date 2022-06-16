@@ -45,7 +45,7 @@ public class ReporteTutoriaDAO {
     }
     
     public static int getNumeroReporteMasActual(){
-        int idReporte = Integer.MIN_VALUE;
+        int idReporte = 1;
         Connection conexionBD = ConexionBD.abrirConexionBD();
         if(conexionBD != null){
             try{
