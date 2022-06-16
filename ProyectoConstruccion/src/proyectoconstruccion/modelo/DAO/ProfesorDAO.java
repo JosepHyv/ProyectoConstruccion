@@ -37,9 +37,6 @@ public class ProfesorDAO {
                     profesorTemp.setApellidoMaterno(resultadoConsulta.getString("apellidoMaterno"));
                     profesorTemp.setCorreo(resultadoConsulta.getString("correo"));
                     profesorTemp.setTipoProfesor(resultadoConsulta.getString("tipoDeProfesor"));
-                    profesorTemp.setNombreCompleto(resultadoConsulta.getString("nombres")+
-                            " "+resultadoConsulta.getString("apellidoPaterno")+
-                            " "+resultadoConsulta.getString("apellidoMaterno"));
                     profesores.add(profesorTemp);
                 }
                 conexionBD.close();

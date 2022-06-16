@@ -104,7 +104,7 @@ public class FXMLAsignarExperienciaAProfesorController implements Initializable{
             Stage escenarioPrincipal = (Stage) tbExperienciasEducativas.getScene().getWindow();
             Scene pantallaAlumnos = new Scene(root);
             escenarioPrincipal.setScene(pantallaAlumnos);
-            escenarioPrincipal.setTitle("Seleccionar profesor");
+            escenarioPrincipal.setTitle("Asignar profesor a experiencia educativa");
             escenarioPrincipal.show();            
         } catch (IOException ex) {
             ex.printStackTrace();
