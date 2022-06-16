@@ -1,7 +1,9 @@
 /*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
+* Autor: Joseph Hynimoto
+* Fecha de creacion: 13/06/22
+* Fecha de modificacion: 15/06/22
+* Descripcion: Operaciones en la base de datos relacionadas con los estudiantes.
+*/
 package proyectoconstruccion.modelo.DAO;
 
 import java.sql.Connection;
