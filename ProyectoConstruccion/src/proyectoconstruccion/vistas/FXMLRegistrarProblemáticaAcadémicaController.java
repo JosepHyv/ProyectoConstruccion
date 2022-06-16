@@ -1,6 +1,8 @@
 /*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/javafx/FXMLController.java to edit this template
+ * Autor: Leonardo Criollo Ramírez
+ * Fecha de creación: 13/05/22
+ * Fecha de modificación: 15/06/22
+ * Descripcion: Controlador de la ventana RegistrarProblemáticaAcadémica
  */
 package proyectoconstruccion.vistas;
 

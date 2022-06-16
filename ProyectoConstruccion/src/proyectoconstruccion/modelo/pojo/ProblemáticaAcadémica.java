@@ -1,3 +1,9 @@
+/*
+ * Autor: Leonardo Criollo Ramírez
+ * Fecha de creación: 24/05/22
+ * Fecha de modificación: 08/06/22
+ * Descripcion: Definición de la clase ProblemáticaAcadémica
+ */
 package proyectoconstruccion.modelo.pojo;
 
 public class ProblemáticaAcadémica {

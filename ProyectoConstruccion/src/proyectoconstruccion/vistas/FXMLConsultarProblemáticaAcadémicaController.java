@@ -1,5 +1,8 @@
 /*
-
+ * Autor: Leonardo Criollo Ramírez
+ * Fecha de creación: 13/05/22
+ * Fecha de modificación: 15/06/22
+ * Descripcion: Controlador de la ventana ConsultarProblemáticaAcadémica
  */
 package proyectoconstruccion.vistas;
 
