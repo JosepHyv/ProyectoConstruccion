@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane id="AnchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="480.0" prefWidth="720.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="proyectoconstruccion.vistas.FXMLRegistrarProblemáticaAcadémicaController">
+   <children>
+      <Label layoutX="40.0" layoutY="32.0" text="Numero de alumnos" />
+      <Label layoutX="40.0" layoutY="150.0" text="Gravedad" />
+      <Label layoutX="40.0" layoutY="288.0" text="Categoria" />
+      <Label layoutX="270.0" layoutY="32.0" text="Descripcion" />
+      <Label layoutX="270.0" layoutY="226.0" text="Solucion" />
+      <TextField fx:id="tfNumeroAlumnos" layoutX="40.0" layoutY="50.0" />
+      <TextField fx:id="tfGravedad" layoutX="40.0" layoutY="168.0" />
+      <TextField fx:id="tfCategoria" layoutX="40.0" layoutY="306.0" />
+      <TextArea fx:id="taDescripcion" layoutX="270.0" layoutY="50.0" prefHeight="175.0" prefWidth="374.0" />
+      <TextArea fx:id="taSolucion" layoutX="270.0" layoutY="244.0" prefHeight="175.0" prefWidth="374.0" />
+      <Button layoutX="634.0" layoutY="438.0" mnemonicParsing="false" onAction="#btnCancelar" style="-fx-background-color: red;" text="Cancelar" />
+      <Button layoutX="552.0" layoutY="438.0" mnemonicParsing="false" onAction="#btnGuardar" style="-fx-background-color: limegreen;" text="Guardar" />
+      <Label fx:id="lbErrorNumero" layoutX="40.0" layoutY="78.0" text="Error Num" textFill="#b51d1d" />
+      <Label fx:id="lbErrorGravedad" layoutX="40.0" layoutY="196.0" text="Error Gravedad" textFill="#b51d1d" />
+      <Label fx:id="lbErrorCategoria" layoutX="40.0" layoutY="334.0" text="Error Categoria" textFill="#b51d1d" />
+   </children>
+</AnchorPane>

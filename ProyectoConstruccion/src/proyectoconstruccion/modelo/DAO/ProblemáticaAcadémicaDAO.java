@@ -1,6 +1,8 @@
 /*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
+ * Autor: Leonardo Criollo Ramírez
+ * Fecha de creación: 11/05/22
+ * Fecha de modificación: 13/06/22
+ * Descripcion: DAO de la clase ProblemáticaAcadémica
  */
 package proyectoconstruccion.modelo.DAO;
 
@@ -13,10 +15,6 @@ import proyectoconstruccion.modelo.ConexionBD;
 import proyectoconstruccion.modelo.pojo.ProblemáticaAcadémica;
 import proyectoconstruccion.util.Constantes;
 
-/**
- *
- * @author ctr305
- */
 public class ProblemáticaAcadémicaDAO {
     
     public static int insertarProblemáticaAcadémica(ProblemáticaAcadémica problematicaAcademicaRegistro){
