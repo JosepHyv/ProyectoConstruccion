@@ -48,7 +48,7 @@ public class FXMLMenuCUsController implements Initializable {
     @FXML
     private void btLlenarReporteTutorias(ActionEvent event) {
         try{
-           FXMLLoader loader = new FXMLLoader(getClass().getResource("FXMLLlenarReporteDeTutoriasAcademicas.fxml"));
+           FXMLLoader loader = new FXMLLoader(getClass().getResource("FXMLLlenarReorteDeTutorias.fxml"));
            Parent root = loader.load();
            Scene escenaReporteTutorias = new Scene(root);
            Stage escenarioReporteTutorias = new Stage();
