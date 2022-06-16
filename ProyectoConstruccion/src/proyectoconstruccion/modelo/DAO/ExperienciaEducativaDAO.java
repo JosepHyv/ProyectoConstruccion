@@ -27,8 +27,8 @@ public class ExperienciaEducativaDAO {
         ArrayList<ExperienciaEducativa> experienciasEducativas = new ArrayList<>();
         Connection conexionBD = ConexionBD.abrirConexionBD();
         if (conexionBD != null) {
-            String query = "SELECT idExperienciaEducativa,nombre,nrc,programaEducativo,semestreRecomendado,area " +
-                "FROM sistematutorias.experienciaeducativa " +
+            String query = "SELECT idExperienciaEducativa,nrc,programaEducativo,semestreRecomendado,area " +
+                "FROM experienciaeducativa " +
                 "WHERE esOfertada = 1;";
             try {
                 PreparedStatement configurarConsulta = conexionBD.prepareStatement(query);
@@ -45,7 +45,9 @@ public class ExperienciaEducativaDAO {
                 }
                 conexionBD.close();
             } catch (SQLException e) {
-                Utilidades.mostrarAlerta("Advertencia", "ERROR: No hay conexión con la base de datos", Alert.AlertType.NONE);
+                //Utilidades.mostrarAlerta("Advertencia", "ERROR: No hay conexión con la base de datos", Alert.AlertType.NONE);
+                Utilidades.mostrarAlertaConfirmacion("Advertencia", "Error: No hay conexión con la base de datos", Alert.AlertType.WARNING);
+                e.printStackTrace();
             }
         }else{
             experienciasEducativas = null;
@@ -70,7 +72,7 @@ public class ExperienciaEducativaDAO {
                 }
                 conexionBD.close();
             } catch (SQLException e) {
-                Utilidades.mostrarAlerta("Advertencia", "No se puede acceder a la base de datos", Alert.AlertType.NONE);
+                Utilidades.mostrarAlertaConfirmacion("Advertencia", "No se puede acceder a la base de datos", Alert.AlertType.WARNING);
             }
         }else{
             experienciasEducativas = null;
