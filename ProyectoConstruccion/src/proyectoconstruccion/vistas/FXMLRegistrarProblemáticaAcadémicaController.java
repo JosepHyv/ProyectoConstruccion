@@ -21,15 +21,12 @@ import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 import proyectoconstruccion.modelo.DAO.ProblemáticaAcadémicaDAO;
+import proyectoconstruccion.modelo.pojo.Periodo;
 import proyectoconstruccion.modelo.pojo.ProblemáticaAcadémica;
+import proyectoconstruccion.modelo.pojo.ReporteTutoria;
 import proyectoconstruccion.util.Constantes;
 import proyectoconstruccion.util.Utilidades;
 
-/**
- * FXML Controller class
- *
- * @author ctr305
- */
 public class FXMLRegistrarProblemáticaAcadémicaController implements Initializable {
 
     @FXML
@@ -48,6 +45,10 @@ public class FXMLRegistrarProblemáticaAcadémicaController implements Initializ
     private Label lbErrorGravedad;
     @FXML
     private Label lbErrorCategoria;
+    
+    private int idReporte;
+
+    private int idPeriodo;
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
@@ -139,6 +140,8 @@ public class FXMLRegistrarProblemáticaAcadémicaController implements Initializ
         problemáticaAcadémicaRegistro.setDescripcion(taDescripcion.getText());
         problemáticaAcadémicaRegistro.setGravedad(tfGravedad.getText());
         problemáticaAcadémicaRegistro.setCategoria(tfCategoria.getText());
+        problemáticaAcadémicaRegistro.setIdReporteTutoria(idReporte);
+        problemáticaAcadémicaRegistro.setIdPeriodo(idPeriodo);
         String solucion;                                                        /*Preparar ingreso de solucion en caso de que esta esté vacía.*/
         if(taSolucion.getText().isEmpty()){
             solucion = null;
@@ -149,7 +152,7 @@ public class FXMLRegistrarProblemáticaAcadémicaController implements Initializ
             
         switch(ProblemáticaAcadémicaDAO.insertarProblemáticaAcadémica(problemáticaAcadémicaRegistro)){
             case Constantes.CODIGO_OPERACION_CORRECTA:
-                Utilidades.mostrarAlerta("Operacion correcta", "La Problemática Académica se registro de forma correcta", Alert.AlertType.CONFIRMATION);
+                Utilidades.mostrarAlerta("Operacion correcta", "La Problemática Académica se registro de forma correcta", Alert.AlertType.INFORMATION);
                 break;
             case Constantes.CODIGO_OPERACION_DML_FALLIDA:
                 Utilidades.mostrarAlerta("Operacion fallida", "No se pudo realizar la operacion.", Alert.AlertType.WARNING);
@@ -161,5 +164,10 @@ public class FXMLRegistrarProblemáticaAcadémicaController implements Initializ
             default:
                 Utilidades.mostrarAlerta("Error", "Ocurrió un error desconocido", Alert.AlertType.ERROR);
         }
+    }
+
+    private void configurarIDs(ReporteTutoria reporte, Periodo periodo) {
+        idReporte = reporte.getIdReporte();
+        idPeriodo = periodo.getIdPeriodo();
     }
 }
