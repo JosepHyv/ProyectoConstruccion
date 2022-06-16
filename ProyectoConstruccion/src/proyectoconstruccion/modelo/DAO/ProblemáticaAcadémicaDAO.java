@@ -22,16 +22,14 @@ public class ProblemáticaAcadémicaDAO {
         Connection conexionBD = ConexionBD.abrirConexionBD();
         if(conexionBD != null){
             try{
-                String sentencia = "INSERT INTO problematicaAcademica "
-                        + "(numAlum, descripcion, gravedad, categoria, idPeriodo, idReporteTutoria) "
-                        + "VALUES (?, ?, ?, ?, ?, ?)";
+                String sentencia = "INSERT INTO problematicaacademica "
+                        + "(numAlum, descripcion, gravedad, categoria) "
+                        + "VALUES (?, ?, ?, ?)";
                 PreparedStatement configurarConsulta = conexionBD.prepareStatement(sentencia);
                 configurarConsulta.setInt(1, problematicaAcademicaRegistro.getNumAlum());
                 configurarConsulta.setString(2, problematicaAcademicaRegistro.getDescripcion());
                 configurarConsulta.setString(3, problematicaAcademicaRegistro.getGravedad());
                 configurarConsulta.setString(4, problematicaAcademicaRegistro.getCategoria());
-                configurarConsulta.setInt(5, problematicaAcademicaRegistro.getIdPeriodo());
-                configurarConsulta.setInt(6, problematicaAcademicaRegistro.getIdReporteTutoria());
                 int filasAfectadas = configurarConsulta.executeUpdate();
                 respuesta = (filasAfectadas == 1) ? Constantes.CODIGO_OPERACION_CORRECTA : Constantes.CODIGO_OPERACION_DML_FALLIDA;
                 conexionBD.close();
@@ -50,7 +48,7 @@ public class ProblemáticaAcadémicaDAO {
 
         Connection conexionBD = ConexionBD.abrirConexionBD();
         if(conexionBD != null){
-            String consulta ="SELECT * FROM problematicaAcademica\n";
+            String consulta ="SELECT * FROM problematicaacademica";
             try{
                 PreparedStatement configurarConsulta = conexionBD.prepareStatement(consulta);
                 ResultSet resultadoConsulta = configurarConsulta.executeQuery();
@@ -62,8 +60,8 @@ public class ProblemáticaAcadémicaDAO {
                     problematicaAcademicaTemp.setGravedad(resultadoConsulta.getString("descripcion"));
                     problematicaAcademicaTemp.setCategoria(resultadoConsulta.getString("categoria"));
                     problematicaAcademicaTemp.setSolucion(resultadoConsulta.getString("solucion"));
-                    problematicaAcademicaTemp.setIdPeriodo(resultadoConsulta.getInt("idPeriodo"));
-                    problematicaAcademicaTemp.setIdReporteTutoria(resultadoConsulta.getInt("idReporteTutoria"));
+                    problematicaAcademicaTemp.setIdPeriodo(null);
+                    problematicaAcademicaTemp.setIdReporteTutoria(null);
                     problemáticaAcadémicaDB.add(problematicaAcademicaTemp);
                 }
                 conexionBD.close();
