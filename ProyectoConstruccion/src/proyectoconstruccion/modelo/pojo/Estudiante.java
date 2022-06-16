@@ -19,51 +19,51 @@ public class Estudiante {
 
     private String semestre;
 
-    private String getNombres() {
+    public String getNombres() {
         return nombres;
     }
 
-    private String getApellidoPaterno() {
+    public String getApellidoPaterno() {
         return apellidoPaterno;
     }
 
-    private String getApellidoMaterno() {
+    public String getApellidoMaterno() {
         return apellidoMaterno;
     }
 
-    private String getCorreo() {
+    public String getCorreo() {
         return correo;
     }
 
-    private String getMatricula() {
+    public String getMatricula() {
         return matricula;
     }
 
-    private String getSemestre() {
+    public String getSemestre() {
         return semestre;
     }
 
-    private void setNombres(String nombres) {
+    public void setNombres(String nombres) {
         this.nombres = nombres;
     }
 
-    private void setApellidoPaterno(String apellidoPaterno) {
+    public void setApellidoPaterno(String apellidoPaterno) {
         this.apellidoPaterno = apellidoPaterno;
     }
 
-    private void setApellidoMaterno(String apellidoMaterno) {
+    public void setApellidoMaterno(String apellidoMaterno) {
         this.apellidoMaterno = apellidoMaterno;
     }
 
-    private void setCorreo(String correo) {
+    public void setCorreo(String correo) {
         this.correo = correo;
     }
 
-    private void setMatricula(String matricula) {
+    public void setMatricula(String matricula) {
         this.matricula = matricula;
     }
 
-    private void setSemestre(String semestre) {
+    public void setSemestre(String semestre) {
         this.semestre = semestre;
     }
 
