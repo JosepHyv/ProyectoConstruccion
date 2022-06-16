@@ -144,6 +144,11 @@ public class FXMLLlenarReorteDeTutoriasController implements Initializable {
 
     private void guardarReporte() {
         ReporteTutoria reporteRegistro = new ReporteTutoria();
+        reporteRegistro.setComentarios(taComentarios.getText());
+        reporteRegistro.setProgramaEducativo("Ingeniería en Software");
+        reporteRegistro.setFecha("null");
+        reporteRegistro.setNumAsistencia(tbReporte.getItems().size());
+        reporteRegistro.setNumReporte(tbReporte.getItems().size());
         ReporteTutoriaDAO.insertarReporteTutoria(reporteRegistro);
     }
     
