@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+
+<AnchorPane id="AnchorPane" prefHeight="480.0" prefWidth="720.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8" fx:controller="proyectoconstruccion.vistas.FXMLLlenarReorteDeTutoriasController">
+   <children>
+      <TableView fx:id="tbReporte" layoutX="25.0" layoutY="25.0" prefHeight="182.0" prefWidth="674.0">
+        <columns>
+          <TableColumn prefWidth="95.0" text="Asistencia" />
+          <TableColumn prefWidth="82.0" text="Nombre" />
+            <TableColumn prefWidth="90.0" text="Apellido P." />
+            <TableColumn prefWidth="89.0" text="Apellido M." />
+            <TableColumn prefWidth="84.0" text="Matricula" />
+            <TableColumn prefWidth="76.0" text="Semestre" />
+            <TableColumn minWidth="0.0" prefWidth="89.0" text="Correo" />
+            <TableColumn prefWidth="68.0" text="Riesgo" />
+        </columns>
+      </TableView>
+      <TextArea fx:id="taComentarios" layoutX="25.0" layoutY="260.0" prefHeight="151.0" prefWidth="423.0" />
+      <Button fx:id="btnRegistroProblematica" layoutX="502.0" layoutY="260.0" mnemonicParsing="false" onAction="#irRegistrarProblematica" prefHeight="70.0" prefWidth="174.0" text="Registrar Problemática Académica" textAlignment="CENTER" textOverrun="CENTER_ELLIPSIS" wrapText="true" />
+      <Button fx:id="btnGuardar" layoutX="478.0" layoutY="427.0" mnemonicParsing="false" text="Guardar" />
+      <Button fx:id="btnCancelar" layoutX="616.0" layoutY="427.0" mnemonicParsing="false" text="Cancelar" />
+      <Label layoutX="25.0" layoutY="240.0" text="Comentarios generales:" />
+   </children>
+</AnchorPane>
