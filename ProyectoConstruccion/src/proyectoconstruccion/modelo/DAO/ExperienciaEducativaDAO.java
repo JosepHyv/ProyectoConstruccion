@@ -27,7 +27,7 @@ public class ExperienciaEducativaDAO {
         ArrayList<ExperienciaEducativa> experienciasEducativas = new ArrayList<>();
         Connection conexionBD = ConexionBD.abrirConexionBD();
         if (conexionBD != null) {
-            String query = "SELECT idExperienciaEducativa,nrc,programaEducativo,semestreRecomendado,area " +
+            String query = "SELECT nombre,idExperienciaEducativa,nrc,programaEducativo,semestreRecomendado,area " +
                 "FROM experienciaeducativa " +
                 "WHERE esOfertada = 1;";
             try {
