@@ -3,18 +3,29 @@
 # debajo de esta linea comenzamos con los archivos separados
 
 
+# Cambios para solucionar conflictos en el merge y las librerias utilizadas
+
 *.log 
 *.a
 *.class
 *.o
-*.jar
+
 # permitiendo que el .jar de libs jale
+
 !/ProyectoConstruccion/libs/*.jar
+!/ProyectoConstruccion/test/*.jar
 
 # ahora con las depenendcias
 
-/ProyectoConstruccion/*.xml
 /ProyectoConstruccion/*.mf
-/ProyectoConstruccion/build/
+/ProyectoConstruccion/*.xml
 /ProyectoConstruccion/dist/
+/ProyectoConstruccion/dist/*.*
+/ProyectoConstruccion/dist/*.jar
+/ProyectoConstruccion/build/
+/ProyectoConstruccion/build/*.*
+/ProyectoConstruccion/build/*.jar
+/ProyectoConstruccion/nbproject/private/private.*
+
+#en esta ultima linea ignoramos los private que son los principales conflictos
 
