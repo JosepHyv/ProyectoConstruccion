@@ -21,7 +21,7 @@ import proyectoconstruccion.modelo.pojo.InformacionSesion;
  */
 public class EstudiantesDAO {
     public static ArrayList<Estudiante> obtenerEstudiantesPorTutor(){
-        ArrayList<Estudiante> estudiantes = new ArrayList<>();
+        ArrayList<Estudiante> estudiantes = new ArrayList<Estudiante>();
         Connection conexionBD = ConexionBD.abrirConexionBD();
         if(conexionBD != null){
             String query = "SELECT * FROM estudiante WHERE idTutorAcademico = ?;";

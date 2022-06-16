@@ -8,7 +8,10 @@ package proyectoconstruccion.vistas;
 
 import java.io.IOException;
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.ResourceBundle;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -17,18 +20,22 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
+import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextArea;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 import proyectoconstruccion.modelo.pojo.Periodo;
+import proyectoconstruccion.modelo.pojo.Estudiante;
 import proyectoconstruccion.modelo.pojo.ReporteTutoria;
 import proyectoconstruccion.util.Utilidades;
+import proyectoconstruccion.modelo.DAO.EstudiantesDAO;
 
 public class FXMLLlenarReorteDeTutoriasController implements Initializable {
 
     @FXML
-    private TableView<?> tbReporte;
+    private TableView<Estudiante> tbReporte;
     @FXML
     private TextArea taComentarios;
     @FXML
@@ -41,9 +48,29 @@ public class FXMLLlenarReorteDeTutoriasController implements Initializable {
     private Periodo periodo;
     
     private ReporteTutoria reporte;
+    
+    private ObservableList<Estudiante> infoEstudiante;
+    @FXML
+    private TableColumn coAsistencia;
+    @FXML
+    private TableColumn coNombre;
+    @FXML
+    private TableColumn coApellidoPaterno;
+    @FXML
+    private TableColumn coApellidoMaterno;
+    @FXML
+    private TableColumn coMatricula;
+    @FXML
+    private TableColumn coSemestre;
+    @FXML
+    private TableColumn coCorreo;
+    @FXML
+    private TableColumn coRiesgo;
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
+        configurarColumnasTabla();
+        cargarInformacion();
     }    
 
     @FXML
@@ -72,6 +99,31 @@ public class FXMLLlenarReorteDeTutoriasController implements Initializable {
     private void cerrarVentana() {
         Stage escenario = (Stage) btnCancelar.getScene().getWindow();
         escenario.close();
+    }
+    
+    private void configurarColumnasTabla() {
+        coNombre.setCellValueFactory(new PropertyValueFactory("nombres"));
+        coApellidoPaterno.setCellValueFactory(new PropertyValueFactory("apellidoPaterno"));
+        coApellidoMaterno.setCellValueFactory(new PropertyValueFactory("apellidoMaterno"));
+        coMatricula.setCellValueFactory(new PropertyValueFactory("matricula"));
+        coSemestre.setCellValueFactory(new PropertyValueFactory("semestre"));
+        coCorreo.setCellValueFactory(new PropertyValueFactory("correo"));
+        infoEstudiante = FXCollections.observableArrayList();
+    }
+    
+    private void cargarInformacion() {
+        ArrayList<Estudiante> resultadoConsulta = EstudiantesDAO.obtenerEstudiantesPorTutor();
+        if(resultadoConsulta != null){
+            try{
+            tbReporte.getItems().clear();
+            infoEstudiante.addAll(resultadoConsulta);
+            tbReporte.setItems(infoEstudiante);
+            }catch(NullPointerException e){
+                e.printStackTrace();
+            }
+        }else{
+            Utilidades.mostrarAlerta("Error", "No hay conexion con la base de datos.", Alert.AlertType.ERROR);
+        }
     }
     
 }
