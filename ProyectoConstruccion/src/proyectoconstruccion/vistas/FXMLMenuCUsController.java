@@ -22,6 +22,7 @@ import javafx.stage.Modality;
 import javafx.stage.Stage;
 import proyectoconstruccion.modelo.pojo.Usuario;
 import proyectoconstruccion.util.Utilidades;
+import proyectoconstruccion.modelo.pojo.InformacionSesion;
 
 public class FXMLMenuCUsController implements Initializable {
 
@@ -40,7 +41,8 @@ public class FXMLMenuCUsController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        
+        final String ROL_USUARIO = InformacionSesion.getInformacionSesion().getRol();
+        configurarBotones(ROL_USUARIO);
     }    
 
     @FXML
@@ -133,8 +135,7 @@ public class FXMLMenuCUsController implements Initializable {
         escenario.close();
     }
 
-    private void configurarBotones(Usuario usuarioLogin) {
-        String rolUsuario = usuarioLogin.getRol();
+    private void configurarBotones(String rolUsuario) {
         if(rolUsuario.toLowerCase() == "tutor"){
             btnAsignarExperienciaEducativa.setDisable(true);
         }else if(rolUsuario.toLowerCase() == "coordinador"){

@@ -24,6 +24,7 @@ import proyectoconstruccion.util.Utilidades;
 import proyectoconstruccion.util.Constantes;
 import proyectoconstruccion.modelo.DAO.UsuarioDAO;
 import proyectoconstruccion.modelo.pojo.Usuario;
+import proyectoconstruccion.modelo.pojo.InformacionSesion;
 
 public class FXMLInicioDeSesionController implements Initializable {
 
@@ -48,28 +49,24 @@ public class FXMLInicioDeSesionController implements Initializable {
 
     @FXML
     private void clicIniciarSesion(ActionEvent event) {
-        if(validarCampos())
-        {
+        if(validarCampos()){
             ValidarUsuarioBD(tfUsuario.getText(), pfPassword.getText());
         }
     }
     
     
-    public boolean validarCampos()
-    {
+    public boolean validarCampos(){
         boolean validos = true;
         lbPassword.setText("");
         lbUsuario.setText("");
         String MESSAGE = "El campo es obligatorio";
         
-        if(tfUsuario.getText().isEmpty())
-        {
+        if(tfUsuario.getText().isEmpty()){
             validos = false;
             lbUsuario.setText(MESSAGE);
         }
         
-        if(pfPassword.getText().isEmpty())
-        {
+        if(pfPassword.getText().isEmpty()){
             validos = false;
             lbPassword.setText(MESSAGE);
         }
@@ -81,6 +78,7 @@ public class FXMLInicioDeSesionController implements Initializable {
         Usuario usuarioLogin = UsuarioDAO.IniciarSesion(username, password);
         if(usuarioLogin.getCodigoRespuesta() == Constantes.CODIGO_OPERACION_CORRECTA){
             Utilidades.mostrarAlerta("Usuario Verificado","Bienvenido al sistema.",Alert.AlertType.INFORMATION);
+            InformacionSesion.getInformacionSesion().setRol(usuarioLogin.getRol());
             irPantallaPrincipal();
         }else if(usuarioLogin.getCodigoRespuesta() == Constantes.CODIGO_CREDENCIALES_INCORRECTAS){
             Utilidades.mostrarAlerta("Credenciales incorrectas","Usuario o contraseña incorrectas.",Alert.AlertType.WARNING);
@@ -92,12 +90,12 @@ public class FXMLInicioDeSesionController implements Initializable {
     private void irPantallaPrincipal(){
         try{
         Stage escenarioPrincipal = (Stage) tfUsuario.getScene().getWindow();
-        Scene pantallaAlumnos = new Scene(FXMLLoader.load(getClass().getResource("FXMLMenuCUs.fxml")));
-        escenarioPrincipal.setScene(pantallaAlumnos);
-        escenarioPrincipal.setTitle("Ventana principal");
+        Scene menu = new Scene(FXMLLoader.load(getClass().getResource("FXMLMenuCUs.fxml")));
+        escenarioPrincipal.setScene(menu);
+        escenarioPrincipal.setTitle("Menu");
         escenarioPrincipal.show();
         } catch (IOException e) {
-            Utilidades.mostrarAlertaConfirmacion("Error", "No se puede cargar la pantalla principal", Alert.AlertType.ERROR);
+            Utilidades.mostrarAlertaConfirmacion("Error", "No se puede cargar el menu", Alert.AlertType.ERROR);
             e.printStackTrace();
         }
     }
