@@ -1,13 +1,11 @@
 /*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
+* Autor: Leonardo Criollo Ramírez
+* Fecha de creacion: 29/05/22
+* Fecha de modificacion: 15/06/22
+* Descripcion: Clase contenedora de constantes para el proyecto.
+*/
 package proyectoconstruccion.util;
 
-/**
- *
- * @author ctr305
- */
 public class Constantes {
     
     public static final int CODIGO_ERROR_CONEXIONBD = 500;

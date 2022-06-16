@@ -1,3 +1,9 @@
+/*
+* Autor: Leonardo Criollo Ramírez
+* Fecha de creacion: 29/05/22
+* Fecha de modificacion: 15/06/22
+* Descripcion: DAO de la clase Usuario.
+*/
 package proyectoconstruccion.modelo.DAO;
 
 import java.sql.Connection;
