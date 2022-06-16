@@ -2,7 +2,7 @@
 * Autor: Joseph Hynimoto
 * Fecha de creacion: 13/06/22
 * Fecha de modificacion: 15/06/22
-* Descripcion: Controlador de la Ventana de inicio de sesión.
+* Descripcion: Operaciones en la base de datos relacionadas con los estudiantes.
 */
 package proyectoconstruccion.modelo.DAO;
 
