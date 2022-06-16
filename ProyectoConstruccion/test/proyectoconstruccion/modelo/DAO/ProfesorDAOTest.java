@@ -47,12 +47,12 @@ public class ProfesorDAOTest {
     public void testObtenerProfesores() {
         System.out.println("obtenerProfesores");
         Profesor profesor = new Profesor();
-        profesor.setIdProfesor(1);
-        profesor.setNombres("Jaun");
-        profesor.setApellidoPaterno("Clau");
-        profesor.setApellidoMaterno("Van Dame");
-        profesor.setCorreo("correo@example.com");
-        profesor.setTipoProfesor("tiempo completo");
+        profesor.setIdProfesor(2);
+        profesor.setNombres("Peter");
+        profesor.setApellidoPaterno("Benjamin");
+        profesor.setApellidoMaterno("Parker");
+        profesor.setCorreo("peterParker@uv.mx");
+        profesor.setTipoProfesor("Doctor");
         ArrayList<Profesor> expResult = new ArrayList<>();
         expResult.add(profesor);
         ArrayList<Profesor> result = ProfesorDAO.obtenerProfesores();

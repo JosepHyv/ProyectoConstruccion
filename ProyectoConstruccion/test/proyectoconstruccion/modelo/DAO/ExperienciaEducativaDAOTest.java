@@ -48,12 +48,12 @@ public class ExperienciaEducativaDAOTest {
     public void testObtenerExperienciaEducativas() {
         System.out.println("obtenerExperienciaEducativas");
         ExperienciaEducativa experienciaEducativa = new ExperienciaEducativa();
-        experienciaEducativa.setNombre("Matematicas");
+        experienciaEducativa.setNombre("Redes");
         experienciaEducativa.setIdExperienciaEducativa(1);
-        experienciaEducativa.setNrc("739685");
+        experienciaEducativa.setNrc("0001");
         experienciaEducativa.setProgramaEducativo("Ingenieria en Software");
-        experienciaEducativa.setArea("Básica");
-        experienciaEducativa.setSemestreRecomendado(4);
+        experienciaEducativa.setArea("Economico Administrativa");
+        experienciaEducativa.setSemestreRecomendado(5);
         ArrayList<ExperienciaEducativa> expResult = new ArrayList<>();
         expResult.add(experienciaEducativa);
         ArrayList<ExperienciaEducativa> result = ExperienciaEducativaDAO.obtenerExperienciaEducativas();
@@ -67,9 +67,9 @@ public class ExperienciaEducativaDAOTest {
     public void testObtenerExperienciaEducativasSinProfesor() {
         System.out.println("obtenerExperienciaEducativasSinProfesor");
         ExperienciaEducativa experienciaEducativa = new ExperienciaEducativa();
-        experienciaEducativa.setNombre("Matematicas");
-        experienciaEducativa.setIdExperienciaEducativa(1);
-        experienciaEducativa.setNrc("739685");
+        experienciaEducativa.setNombre("Principios De Construccion de Software");
+        experienciaEducativa.setIdExperienciaEducativa(3);
+        experienciaEducativa.setNrc("0003");
         experienciaEducativa.setProgramaEducativo("Ingenieria en Software");
         experienciaEducativa.setArea(null);
         experienciaEducativa.setSemestreRecomendado(0);
@@ -86,19 +86,19 @@ public class ExperienciaEducativaDAOTest {
     public void testAsignarProfesorAExperiencia() {
         System.out.println("asignarProfesorAExperiencia");
         Profesor profesor = new Profesor();
-        profesor.setIdProfesor(1);
-        profesor.setNombres("Jaun");
-        profesor.setApellidoPaterno("Clau");
-        profesor.setApellidoMaterno("Van Dame");
-        profesor.setCorreo("correo@example.com");
-        profesor.setTipoProfesor("tiempo completo");
+        profesor.setIdProfesor(2);
+        profesor.setNombres("Peter");
+        profesor.setApellidoPaterno("Benjamin");
+        profesor.setApellidoMaterno("Parker");
+        profesor.setCorreo("peterParker@uv.mx");
+        profesor.setTipoProfesor("Doctor");
         ExperienciaEducativa experienciaEducativa = new ExperienciaEducativa();
-        experienciaEducativa.setNombre("Matematicas");
-        experienciaEducativa.setIdExperienciaEducativa(1);
-        experienciaEducativa.setNrc("739685");
-        experienciaEducativa.setProgramaEducativo("Ingenieria en software");
-        experienciaEducativa.setArea("Básica");
-        experienciaEducativa.setSemestreRecomendado(4);
+        experienciaEducativa.setNombre("Principios De Construccion de Software");
+        experienciaEducativa.setIdExperienciaEducativa(3);
+        experienciaEducativa.setNrc("0003");
+        experienciaEducativa.setProgramaEducativo("Ingenieria en Software");
+        experienciaEducativa.setArea(null);
+        experienciaEducativa.setSemestreRecomendado(0);
         int expResult = 200;
         int result = ExperienciaEducativaDAO.asignarProfesorAExperiencia(profesor, experienciaEducativa);
         assertEquals(expResult, result);
