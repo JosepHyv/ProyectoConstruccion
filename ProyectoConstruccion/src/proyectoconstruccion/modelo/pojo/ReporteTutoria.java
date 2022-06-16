@@ -7,63 +7,74 @@
 package proyectoconstruccion.modelo.pojo;
 
 public class ReporteTutoria {
-    private int numReporte;
+    
+    private Integer idReporte;
+    
+    private Integer numReporte;
 
     private String fecha;
 
     private String programaEducativo;
 
-    private int numAsistencia;
+    private Integer numAsistencia;
 
-    private int numRiesgo;
+    private Integer numRiesgo;
 
     private String comentarios;
 
-    private int getNumReporte() {
+    public Integer getIdReporte() {
+        return idReporte;
+    }
+
+    public void setIdReporte(Integer idReporte) {
+        this.idReporte = idReporte;
+    }
+
+    public Integer getNumReporte() {
         return numReporte;
     }
 
-    private String getFecha() {
-        return fecha;
-    }
-
-    private String getProgramaEducativo() {
-        return programaEducativo;
-    }
-
-    private int getNumAsistencia() {
-        return numAsistencia;
-    }
-
-    private int getNumRiesgo() {
-        return numRiesgo;
-    }
-
-    private String getComentarios() {
-        return comentarios;
-    }
-
-    private void setNumReporte(int numReporte) {
+    public void setNumReporte(Integer numReporte) {
         this.numReporte = numReporte;
     }
 
-    private void setFecha(String fecha) {
+    public String getFecha() {
+        return fecha;
+    }
+
+    public void setFecha(String fecha) {
         this.fecha = fecha;
     }
 
-    private void setProgramaEducativo(String programaEducativo) {
+    public String getProgramaEducativo() {
+        return programaEducativo;
+    }
+
+    public void setProgramaEducativo(String programaEducativo) {
         this.programaEducativo = programaEducativo;
     }
 
-    private void setNumAsistencia(int numAsistencia) {
+    public Integer getNumAsistencia() {
+        return numAsistencia;
+    }
+
+    public void setNumAsistencia(Integer numAsistencia) {
         this.numAsistencia = numAsistencia;
     }
 
-    private void setNumRiesgo(int numRiesgo) {
+    public Integer getNumRiesgo() {
+        return numRiesgo;
+    }
+
+    public void setNumRiesgo(Integer numRiesgo) {
         this.numRiesgo = numRiesgo;
     }
 
-    private void setComentarios(String comentarios) {
+    public String getComentarios() {
+        return comentarios;
+    }
+
+    public void setComentarios(String comentarios) {
         this.comentarios = comentarios;
     }
 

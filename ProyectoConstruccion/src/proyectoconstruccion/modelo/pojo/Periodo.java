@@ -7,23 +7,34 @@
 package proyectoconstruccion.modelo.pojo;
 
 public class Periodo {
+    
+    private Integer idPeriodo;
+    
     private String fechaInicio;
 
     private String fechaFin;
 
-    private String getFechaInicio() {
+    public Integer getIdPeriodo() {
+        return idPeriodo;
+    }
+
+    public void setIdPeriodo(Integer idPeriodo) {
+        this.idPeriodo = idPeriodo;
+    }
+
+    public String getFechaInicio() {
         return fechaInicio;
     }
 
-    private String getFechaFin() {
-        return fechaFin;
-    }
-
-    private void setFechaInicio(String fechaInicio) {
+    public void setFechaInicio(String fechaInicio) {
         this.fechaInicio = fechaInicio;
     }
 
-    private void setFechaFin(String fechaFin) {
+    public String getFechaFin() {
+        return fechaFin;
+    }
+
+    public void setFechaFin(String fechaFin) {
         this.fechaFin = fechaFin;
     }
 
