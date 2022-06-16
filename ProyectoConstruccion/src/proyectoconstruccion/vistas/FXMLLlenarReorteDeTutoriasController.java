@@ -33,6 +33,7 @@ import proyectoconstruccion.util.Utilidades;
 import proyectoconstruccion.modelo.DAO.EstudiantesDAO;
 import proyectoconstruccion.modelo.DAO.PeriodoDAO;
 import proyectoconstruccion.modelo.DAO.ReporteTutoriaDAO;
+import proyectoconstruccion.util.Constantes;
 
 public class FXMLLlenarReorteDeTutoriasController implements Initializable {
 
@@ -150,7 +151,21 @@ public class FXMLLlenarReorteDeTutoriasController implements Initializable {
         reporteRegistro.setNumAsistencia(tbReporte.getItems().size());
         reporteRegistro.setNumReporte(tbReporte.getItems().size());
         reporteRegistro.setNumRiesgo(0);
-        ReporteTutoriaDAO.insertarReporteTutoria(reporteRegistro);
+        switch(ReporteTutoriaDAO.insertarReporteTutoria(reporteRegistro)){
+            case Constantes.CODIGO_OPERACION_CORRECTA:
+                Utilidades.mostrarAlerta("Operacion correcta", "La Problemática Académica se registro de forma correcta", Alert.AlertType.INFORMATION);
+                cerrarVentana();
+                break;
+            case Constantes.CODIGO_OPERACION_DML_FALLIDA:
+                Utilidades.mostrarAlerta("Operacion fallida", "No se pudo realizar la operacion.", Alert.AlertType.WARNING);
+                break;
+            case Constantes.CODIGO_ERROR_CONEXIONBD:
+                Utilidades.mostrarAlerta("Error de conexion", "Nose pudo conectar con la base de datos, "
+                        + "por favor intentelo de nuevo más tarde.", Alert.AlertType.ERROR);
+                break;
+            default:
+                Utilidades.mostrarAlerta("Error", "Ocurrió un error desconocido", Alert.AlertType.ERROR);
+        }
     }
     
 }
