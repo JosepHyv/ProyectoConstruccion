@@ -31,6 +31,7 @@ import proyectoconstruccion.modelo.pojo.Estudiante;
 import proyectoconstruccion.modelo.pojo.ReporteTutoria;
 import proyectoconstruccion.util.Utilidades;
 import proyectoconstruccion.modelo.DAO.EstudiantesDAO;
+import proyectoconstruccion.modelo.DAO.PeriodoDAO;
 
 public class FXMLLlenarReorteDeTutoriasController implements Initializable {
 
@@ -124,6 +125,7 @@ public class FXMLLlenarReorteDeTutoriasController implements Initializable {
         }else{
             Utilidades.mostrarAlerta("Error", "No hay conexion con la base de datos.", Alert.AlertType.ERROR);
         }
+        this.periodo = PeriodoDAO.getPeriodoActual();
     }
     
 }
