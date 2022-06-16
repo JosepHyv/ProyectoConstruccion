@@ -8,6 +8,7 @@ package proyectoconstruccion.modelo.DAO;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import proyectoconstruccion.modelo.ConexionBD;
 import proyectoconstruccion.modelo.pojo.ReporteTutoria;
@@ -41,5 +42,26 @@ public class ReporteTutoriaDAO {
             respuesta = Constantes.CODIGO_ERROR_CONEXIONBD;
         }
         return respuesta;
+    }
+    
+    public static int getNumeroReporteMasActual(){
+        int idReporte = Integer.MIN_VALUE;
+        Connection conexionBD = ConexionBD.abrirConexionBD();
+        if(conexionBD != null){
+            try{
+                String sentencia = "SELECT * FROM reportetutoria ORDER BY idPeriodo DESC LIMIT 0,1";
+                PreparedStatement configurarConsulta = conexionBD.prepareStatement(sentencia);
+                ResultSet resultadoConsulta = configurarConsulta.executeQuery();
+                while(resultadoConsulta.next()){
+                    idReporte = resultadoConsulta.getInt("idReporteTutoria") + 1;
+                }
+            }catch (SQLException e){
+                e.printStackTrace();
+                idReporte = Integer.MIN_VALUE;
+            }
+        }else {
+            idReporte = Integer.MIN_VALUE;
+        }
+        return idReporte;
     }
 }
