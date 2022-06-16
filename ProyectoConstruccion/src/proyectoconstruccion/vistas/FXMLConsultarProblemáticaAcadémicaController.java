@@ -66,7 +66,6 @@ public class FXMLConsultarProblemáticaAcadémicaController implements Initializ
             tbProblematicas.setItems(infoProblematicas);
         }else{
             Utilidades.mostrarAlerta("Error", "No hay conexion con la base de datos.", Alert.AlertType.ERROR);
-            cerrarVentana();
         }
     }
 
