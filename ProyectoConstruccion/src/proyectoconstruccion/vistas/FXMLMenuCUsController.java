@@ -31,8 +31,6 @@ public class FXMLMenuCUsController implements Initializable {
     @FXML
     private Button btnLlenarReporte;
     @FXML
-    private Button btnRegistrarProblematicaAcademica;
-    @FXML
     private Button btnConsultarProblematicaAcademica;
     @FXML
     private Button btnConsultarOfertaAcademica;
@@ -140,14 +138,11 @@ public class FXMLMenuCUsController implements Initializable {
             System.out.println("Soy " +  rolUsuario);
             btnAsignarExperienciaEducativa.setVisible(false);
         }else if(rolUsuario.toLowerCase().equals("coordinador")){
-            
             btnLlenarReporte.setVisible(false);
-            btnRegistrarProblematicaAcademica.setVisible(false);
             btnConsultarProblematicaAcademica.setVisible(false);
             btnAsignarExperienciaEducativa.setVisible(false);
         }else if(rolUsuario.toLowerCase().equals("administrador")){
             btnLlenarReporte.setVisible(false);
-            btnRegistrarProblematicaAcademica.setVisible(false);
             btnConsultarProblematicaAcademica.setVisible(false);
             btnConsultarOfertaAcademica.setVisible(false);
         }
