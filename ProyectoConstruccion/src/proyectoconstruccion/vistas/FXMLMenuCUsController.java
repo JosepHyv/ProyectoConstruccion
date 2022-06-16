@@ -136,24 +136,20 @@ public class FXMLMenuCUsController implements Initializable {
     }
 
     private void configurarBotones(String rolUsuario) {
-        if(rolUsuario.toLowerCase() == "tutor"){
-            btnAsignarExperienciaEducativa.setDisable(true);
-        }else if(rolUsuario.toLowerCase() == "coordinador"){
-            btnLlenarReporte.setDisable(true);
-            btnRegistrarProblematicaAcademica.setDisable(true);
-            btnConsultarProblematicaAcademica.setDisable(true);
-            btnAsignarExperienciaEducativa.setDisable(true);
-        }else if(rolUsuario.toLowerCase() == "jefedecarrera"){
-            btnLlenarReporte.setDisable(true);
-            btnRegistrarProblematicaAcademica.setDisable(true);
-            btnConsultarProblematicaAcademica.setDisable(true);
-            btnConsultarOfertaAcademica.setDisable(true);
-            btnAsignarExperienciaEducativa.setDisable(true);
-        }else if(rolUsuario.toLowerCase() == "administrador" || rolUsuario.toLowerCase() == "admin"){
-            btnLlenarReporte.setDisable(true);
-            btnRegistrarProblematicaAcademica.setDisable(true);
-            btnConsultarProblematicaAcademica.setDisable(true);
-            btnConsultarOfertaAcademica.setDisable(true);
+        if(rolUsuario.toLowerCase().equals("tutor")){
+            System.out.println("Soy " +  rolUsuario);
+            btnAsignarExperienciaEducativa.setVisible(false);
+        }else if(rolUsuario.toLowerCase().equals("coordinador")){
+            
+            btnLlenarReporte.setVisible(false);
+            btnRegistrarProblematicaAcademica.setVisible(false);
+            btnConsultarProblematicaAcademica.setVisible(false);
+            btnAsignarExperienciaEducativa.setVisible(false);
+        }else if(rolUsuario.toLowerCase().equals("administrador")){
+            btnLlenarReporte.setVisible(false);
+            btnRegistrarProblematicaAcademica.setVisible(false);
+            btnConsultarProblematicaAcademica.setVisible(false);
+            btnConsultarOfertaAcademica.setVisible(false);
         }
     }
     
