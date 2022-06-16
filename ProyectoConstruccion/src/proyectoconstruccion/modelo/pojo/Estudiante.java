@@ -6,6 +6,8 @@
  */
 package proyectoconstruccion.modelo.pojo;
 
+import javafx.scene.control.CheckBox;
+
 public class Estudiante {
     private String nombres;
 
@@ -18,6 +20,15 @@ public class Estudiante {
     private String matricula;
 
     private String semestre;
+    
+    private CheckBox cbAsistencia;
+
+    private CheckBox cbRiesgo;
+    
+    public Estudiante(){
+        this.cbAsistencia = new CheckBox();
+        this.cbRiesgo = new CheckBox();
+    }
 
     public String getNombres() {
         return nombres;
@@ -67,4 +78,23 @@ public class Estudiante {
         this.semestre = semestre;
     }
 
+    public void setCbAsistencia(CheckBox select)
+    {
+        this.cbAsistencia = select;
+    }
+    
+    public CheckBox getCbAsistencia()
+    {
+        return this.cbAsistencia;
+    }
+    
+    public void setCbRiesgo(CheckBox select)
+    {
+        this.cbRiesgo = select;
+    }
+    
+    public CheckBox getCbRiesgo()
+    {
+        return this.cbRiesgo;
+    }
 }

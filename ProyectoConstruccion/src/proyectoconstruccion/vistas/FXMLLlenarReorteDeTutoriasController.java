@@ -103,12 +103,14 @@ public class FXMLLlenarReorteDeTutoriasController implements Initializable {
     }
     
     private void configurarColumnasTabla() {
+        coAsistencia.setCellValueFactory(new PropertyValueFactory("cbAsistencia"));
         coNombre.setCellValueFactory(new PropertyValueFactory("nombres"));
         coApellidoPaterno.setCellValueFactory(new PropertyValueFactory("apellidoPaterno"));
         coApellidoMaterno.setCellValueFactory(new PropertyValueFactory("apellidoMaterno"));
         coMatricula.setCellValueFactory(new PropertyValueFactory("matricula"));
         coSemestre.setCellValueFactory(new PropertyValueFactory("semestre"));
         coCorreo.setCellValueFactory(new PropertyValueFactory("correo"));
+        coRiesgo.setCellValueFactory(new PropertyValueFactory("cbRiesgo"));
         infoEstudiante = FXCollections.observableArrayList();
     }
     
