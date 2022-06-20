@@ -209,7 +209,7 @@ public class FXMLLlenarReorteDeTutoriasController implements Initializable {
                     Utilidades.mostrarAlerta("Operacion fallida", "No se pudo realizar la operacion.", Alert.AlertType.WARNING);
                     break;
                 case Constantes.CODIGO_ERROR_CONEXIONBD:
-                    Utilidades.mostrarAlerta("Error de conexion", "Nose pudo conectar con la base de datos, "
+                    Utilidades.mostrarAlerta("Error de conexion", "No se pudo conectar con la base de datos, "
                             + "por favor intentelo de nuevo más tarde.", Alert.AlertType.ERROR);
                     break;
                 default:
