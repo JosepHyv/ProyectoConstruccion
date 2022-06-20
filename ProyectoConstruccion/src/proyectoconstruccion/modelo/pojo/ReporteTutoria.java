@@ -6,13 +6,15 @@
 */
 package proyectoconstruccion.modelo.pojo;
 
+import java.time.LocalDate;
+
 public class ReporteTutoria {
     
     private Integer idReporte;
     
     private Integer numReporte;
 
-    private String fecha;
+    private LocalDate fecha;
 
     private String programaEducativo;
 
@@ -38,11 +40,11 @@ public class ReporteTutoria {
         this.numReporte = numReporte;
     }
 
-    public String getFecha() {
+    public LocalDate getFecha() {
         return fecha;
     }
 
-    public void setFecha(String fecha) {
+    public void setFecha(LocalDate fecha) {
         this.fecha = fecha;
     }
 

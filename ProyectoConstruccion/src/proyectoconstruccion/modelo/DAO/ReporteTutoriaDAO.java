@@ -26,7 +26,7 @@ public class ReporteTutoriaDAO {
                         + "VALUES (?, ?, ?, ?, ?, ?)";
                 PreparedStatement configurarConsulta = conexionBD.prepareStatement(sentencia);
                 configurarConsulta.setInt(1, reporteTutoriaRegistro.getNumReporte());
-                configurarConsulta.setString(2, reporteTutoriaRegistro.getFecha());
+                configurarConsulta.setObject(2, reporteTutoriaRegistro.getFecha());
                 configurarConsulta.setString(3, reporteTutoriaRegistro.getProgramaEducativo());
                 configurarConsulta.setInt(4, reporteTutoriaRegistro.getNumAsistencia());
                 configurarConsulta.setInt(5, reporteTutoriaRegistro.getNumRiesgo());

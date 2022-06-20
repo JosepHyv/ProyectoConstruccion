@@ -8,6 +8,7 @@ package proyectoconstruccion.vistas;
 
 import java.io.IOException;
 import java.net.URL;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
 import javafx.collections.FXCollections;
@@ -47,11 +48,7 @@ public class FXMLLlenarReorteDeTutoriasController implements Initializable {
     private Button btnGuardar;
     @FXML
     private Button btnCancelar;
-    
-    private Periodo periodo;
-    
-    private Integer idReporte;
-    
+
     private ObservableList<Estudiante> infoEstudiante;
     @FXML
     private TableColumn coAsistencia;
@@ -69,6 +66,11 @@ public class FXMLLlenarReorteDeTutoriasController implements Initializable {
     private TableColumn coCorreo;
     @FXML
     private TableColumn coRiesgo;
+    
+    private Periodo periodo;
+    
+    private Integer idReporte;
+    
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
@@ -147,10 +149,11 @@ public class FXMLLlenarReorteDeTutoriasController implements Initializable {
         ReporteTutoria reporteRegistro = new ReporteTutoria();
         reporteRegistro.setComentarios(taComentarios.getText());
         reporteRegistro.setProgramaEducativo("Ingeniería en Software");
-        reporteRegistro.setFecha("null");
-        reporteRegistro.setNumAsistencia(tbReporte.getItems().size());
         reporteRegistro.setNumReporte(tbReporte.getItems().size());
-        reporteRegistro.setNumRiesgo(0);
+        reporteRegistro.setNumAsistencia(contarAsistencia());
+        reporteRegistro.setNumRiesgo(contarRiesgo());
+        reporteRegistro.setFecha(LocalDate.now());
+
         switch(ReporteTutoriaDAO.insertarReporteTutoria(reporteRegistro)){
             case Constantes.CODIGO_OPERACION_CORRECTA:
                 Utilidades.mostrarAlerta("Operacion correcta", "El reporte se registro de forma correcta", Alert.AlertType.INFORMATION);
@@ -167,5 +170,24 @@ public class FXMLLlenarReorteDeTutoriasController implements Initializable {
                 Utilidades.mostrarAlerta("Error", "Ocurrió un error desconocido", Alert.AlertType.ERROR);
         }
     }
-    
+
+    private Integer contarAsistencia() {
+        int numAsistencia = 0;
+        for (Estudiante estudiante : infoEstudiante){
+            if(estudiante.getCbAsistencia().isSelected()){
+                numAsistencia++;
+            }
+        }
+        return numAsistencia;
+    }
+
+    private Integer contarRiesgo() {
+        int numRiesgo = 0;
+        for (Estudiante estudiante : infoEstudiante){
+            if(estudiante.getCbRiesgo().isSelected()){
+                numRiesgo++;
+            }
+        }
+        return numRiesgo;
+    }
 }
