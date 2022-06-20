@@ -18,8 +18,7 @@
          </font>
       </Label>
       <Button fx:id="btnLlenarReporte" layoutX="54.0" layoutY="150.0" mnemonicParsing="false" onAction="#btLlenarReporteTutorias" prefHeight="28.0" prefWidth="267.0" text="Llenar Reporte de Tutorias Academicas" />
-      <Button fx:id="btnRegistrarProblematicaAcademica" layoutX="54.0" layoutY="240.0" mnemonicParsing="false" onAction="#btRegistrarProblematica" prefHeight="28.0" prefWidth="267.0" text="Registrar Problematica Academica" />
-      <Button fx:id="btnConsultarProblematicaAcademica" layoutX="55.0" layoutY="339.0" mnemonicParsing="false" onAction="#btnConsultarProblematica" prefHeight="28.0" prefWidth="267.0" text="Consultar Problematica Academica" />
+      <Button fx:id="btnConsultarProblematicaAcademica" layoutX="54.0" layoutY="240.0" mnemonicParsing="false" onAction="#btnConsultarProblematica" prefHeight="28.0" prefWidth="267.0" text="Consultar Problematica Academica" />
       <Button fx:id="btnConsultarOfertaAcademica" layoutX="357.0" layoutY="150.0" mnemonicParsing="false" onAction="#btConsultarOfertaAcademica" prefHeight="28.0" prefWidth="267.0" text="Consultar Oferta Academica" />
       <Button fx:id="btnAsignarExperienciaEducativa" layoutX="357.0" layoutY="240.0" mnemonicParsing="false" onAction="#btAsignarExperienciaEducativa" prefHeight="28.0" prefWidth="267.0" text="Asignar Experiencia Educativa a Profesor" />
       <Button layoutX="357.0" layoutY="339.0" mnemonicParsing="false" onAction="#btSalir" prefHeight="28.0" prefWidth="267.0" text="Salir" />

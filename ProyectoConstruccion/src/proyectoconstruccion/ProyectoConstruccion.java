@@ -1,7 +1,9 @@
 /*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/javafx/FXMain.java to edit this template
- */
+* Autor: Leonardo Criollo Ramírez
+* Fecha de creacion: 17/05/22
+* Fecha de modificacion: 15/06/22
+* Descripcion: Clase principal del programa.
+*/
 package proyectoconstruccion;
 
 import javafx.application.Application;
@@ -11,10 +13,6 @@ import javafx.scene.Scene;
 import javafx.scene.image.Image;
 import javafx.stage.Stage;
 
-/**
- *
- * @author ctr305
- */
 public class ProyectoConstruccion extends Application {
     
     @Override
@@ -29,9 +27,6 @@ public class ProyectoConstruccion extends Application {
         stage.show();
     }
 
-    /**
-     * @param args the command line arguments
-     */
     public static void main(String[] args) {
         launch(args);
     }

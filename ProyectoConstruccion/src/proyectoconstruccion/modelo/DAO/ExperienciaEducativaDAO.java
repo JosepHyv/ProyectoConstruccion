@@ -18,10 +18,6 @@ import proyectoconstruccion.modelo.pojo.Profesor;
 import proyectoconstruccion.util.Constantes;
 import proyectoconstruccion.util.Utilidades;
 
-/**
- *
- * @author Panther
- */
 public class ExperienciaEducativaDAO {
     public static ArrayList<ExperienciaEducativa> obtenerExperienciaEducativas(){
         ArrayList<ExperienciaEducativa> experienciasEducativas = new ArrayList<>();

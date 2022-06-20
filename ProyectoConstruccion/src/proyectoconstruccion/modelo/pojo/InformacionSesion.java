@@ -1,7 +1,9 @@
 /*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
+* Autor: Joseph Hynimoto
+* Fecha de creacion: 13/06/22
+* Fecha de modificacion: 15/06/22
+* Descripcion: Clase base para recuperar los tipos de usuario.
+*/
 package proyectoconstruccion.modelo.pojo;
 
 /**
@@ -10,6 +12,7 @@ package proyectoconstruccion.modelo.pojo;
  */
 public class InformacionSesion {
     private String roolUsuario;
+    private int idUsuario;
     private static InformacionSesion instancia;
     private InformacionSesion(){
         
@@ -29,4 +32,13 @@ public class InformacionSesion {
     public void setRol(String rol){
         this.roolUsuario = rol;
     }
+    
+    public int getIdUsuario(){
+        return this.idUsuario;
+    }
+    
+    public void setIdUsuario(int idUser){
+        this.idUsuario = idUser;
+    }
+    
 }
