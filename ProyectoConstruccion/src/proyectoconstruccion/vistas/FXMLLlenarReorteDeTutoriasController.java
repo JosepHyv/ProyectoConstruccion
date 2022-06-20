@@ -1,7 +1,7 @@
 /*
 * Autor: Joseph Hynimoto
 * Fecha de creacion: 13/06/22
-* Fecha de modificacion: 15/06/22
+* Fecha de modificacion: 19/06/22
 * Descripcion: Controlador de la Ventana de llenado de reporte de tutorias.
 */
 package proyectoconstruccion.vistas;
@@ -34,6 +34,7 @@ import proyectoconstruccion.modelo.pojo.ReporteTutoria;
 import proyectoconstruccion.util.Utilidades;
 import proyectoconstruccion.modelo.DAO.EstudiantesDAO;
 import proyectoconstruccion.modelo.DAO.PeriodoDAO;
+import proyectoconstruccion.modelo.DAO.ProblemáticaAcadémicaDAO;
 import proyectoconstruccion.modelo.DAO.ReporteTutoriaDAO;
 import proyectoconstruccion.util.Constantes;
 
@@ -70,8 +71,6 @@ public class FXMLLlenarReorteDeTutoriasController implements Initializable {
     
     private Periodo periodo;
     
-    private ReporteTutoria reporte;
-  
     private Integer idReporte;
     
     private ArrayList<ProblemáticaAcadémica> problematicas = new ArrayList();
@@ -89,7 +88,7 @@ public class FXMLLlenarReorteDeTutoriasController implements Initializable {
            FXMLLoader loader = new FXMLLoader(getClass().getResource("FXMLRegistrarProblemáticaAcadémica.fxml"));
            Parent root = loader.load();
            FXMLRegistrarProblemáticaAcadémicaController controlador = loader.getController();
-           controlador.configurarIDs(idReporte, periodo);
+           controlador.configurarIDs(periodo);
            Scene escenaRegistrarProblematica = new Scene(root);
            Stage escenarioRegistrarProblematica = new Stage();
            escenarioRegistrarProblematica.setScene(escenaRegistrarProblematica);
@@ -150,7 +149,7 @@ public class FXMLLlenarReorteDeTutoriasController implements Initializable {
     @FXML
     private void btGuardar(ActionEvent event) {
         guardarReporte();
-
+        guardarProblematicas();
     }
 
     private void guardarReporte() {
@@ -197,5 +196,12 @@ public class FXMLLlenarReorteDeTutoriasController implements Initializable {
             }
         }
         return numRiesgo;
+    }
+
+    private void guardarProblematicas() {
+        for(ProblemáticaAcadémica problematicaAcademica : problematicas){
+            problematicaAcademica.setIdReporteTutoria(idReporte);
+            ProblemáticaAcadémicaDAO.insertarProblemáticaAcadémica(problematicaAcademica);
+        }
     }
 }

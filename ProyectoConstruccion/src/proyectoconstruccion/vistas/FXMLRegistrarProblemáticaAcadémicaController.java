@@ -150,8 +150,8 @@ public class FXMLRegistrarProblemáticaAcadémicaController implements Initializ
         }else{
             solucion = taSolucion.getText();
         }
-            
-        /*switch(ProblemáticaAcadémicaDAO.insertarProblemáticaAcadémica(problemáticaAcadémicaRegistro)){
+        
+        switch(ProblemáticaAcadémicaDAO.insertarProblemáticaAcadémica(problematicaAcademicaRegistro)){
             case Constantes.CODIGO_OPERACION_CORRECTA:
                 Utilidades.mostrarAlerta("Operacion correcta", "La Problemática Académica se registro de forma correcta", Alert.AlertType.INFORMATION);
                 break;
@@ -164,11 +164,10 @@ public class FXMLRegistrarProblemáticaAcadémicaController implements Initializ
                 break;
             default:
                 Utilidades.mostrarAlerta("Error", "Ocurrió un error desconocido", Alert.AlertType.ERROR);
-        }*/
+        }
     }
 
-    public void configurarIDs(Integer idReporte, Periodo periodo) {
-        this.idReporte = idReporte;
+    public void configurarIDs(Periodo periodo) {
         idPeriodo = periodo.getIdPeriodo();
     }
 
