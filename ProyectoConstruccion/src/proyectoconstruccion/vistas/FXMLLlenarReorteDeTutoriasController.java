@@ -28,6 +28,7 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 import proyectoconstruccion.modelo.pojo.Periodo;
+import proyectoconstruccion.modelo.pojo.ProblemáticaAcadémica;
 import proyectoconstruccion.modelo.pojo.Estudiante;
 import proyectoconstruccion.modelo.pojo.ReporteTutoria;
 import proyectoconstruccion.util.Utilidades;
@@ -69,7 +70,11 @@ public class FXMLLlenarReorteDeTutoriasController implements Initializable {
     
     private Periodo periodo;
     
+    private ReporteTutoria reporte;
+  
     private Integer idReporte;
+    
+    private ArrayList<ProblemáticaAcadémica> problematicas = new ArrayList();
     
 
     @Override
@@ -90,6 +95,9 @@ public class FXMLLlenarReorteDeTutoriasController implements Initializable {
            escenarioRegistrarProblematica.setScene(escenaRegistrarProblematica);
            escenarioRegistrarProblematica.initModality(Modality.APPLICATION_MODAL);
            escenarioRegistrarProblematica.showAndWait();
+           if(controlador.getProblematicaAcademicaRegistro() != null){
+               problematicas.add(controlador.getProblematicaAcademicaRegistro());
+           }
         }catch(IOException e){
             Utilidades.mostrarAlerta("Error", "Error al mostrar ventana", Alert.AlertType.ERROR);
             e.printStackTrace();

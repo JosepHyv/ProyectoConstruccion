@@ -49,6 +49,8 @@ public class FXMLRegistrarProblemáticaAcadémicaController implements Initializ
     private int idReporte;
 
     private int idPeriodo;
+    
+    private ProblemáticaAcadémica problematicaAcademicaRegistro;
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
@@ -135,22 +137,21 @@ public class FXMLRegistrarProblemáticaAcadémicaController implements Initializ
     }
 
     private void insertarProblemáticaAcadémica() {
-        ProblemáticaAcadémica problemáticaAcadémicaRegistro = new ProblemáticaAcadémica();
-        problemáticaAcadémicaRegistro.setNumAlum(parseInt(tfNumeroAlumnos.getText()));
-        problemáticaAcadémicaRegistro.setDescripcion(taDescripcion.getText());
-        problemáticaAcadémicaRegistro.setGravedad(tfGravedad.getText());
-        problemáticaAcadémicaRegistro.setCategoria(tfCategoria.getText());
-        problemáticaAcadémicaRegistro.setIdReporteTutoria(idReporte);
-        problemáticaAcadémicaRegistro.setIdPeriodo(idPeriodo);
+        problematicaAcademicaRegistro = new ProblemáticaAcadémica();
+        problematicaAcademicaRegistro.setNumAlum(parseInt(tfNumeroAlumnos.getText()));
+        problematicaAcademicaRegistro.setDescripcion(taDescripcion.getText());
+        problematicaAcademicaRegistro.setGravedad(tfGravedad.getText());
+        problematicaAcademicaRegistro.setCategoria(tfCategoria.getText());
+        problematicaAcademicaRegistro.setIdReporteTutoria(idReporte);
+        problematicaAcademicaRegistro.setIdPeriodo(idPeriodo);
         String solucion;                                                        /*Preparar ingreso de solucion en caso de que esta esté vacía.*/
         if(taSolucion.getText().isEmpty()){
             solucion = null;
         }else{
             solucion = taSolucion.getText();
         }
-        problemáticaAcadémicaRegistro.setSolucion(solucion);
             
-        switch(ProblemáticaAcadémicaDAO.insertarProblemáticaAcadémica(problemáticaAcadémicaRegistro)){
+        /*switch(ProblemáticaAcadémicaDAO.insertarProblemáticaAcadémica(problemáticaAcadémicaRegistro)){
             case Constantes.CODIGO_OPERACION_CORRECTA:
                 Utilidades.mostrarAlerta("Operacion correcta", "La Problemática Académica se registro de forma correcta", Alert.AlertType.INFORMATION);
                 break;
@@ -163,11 +164,15 @@ public class FXMLRegistrarProblemáticaAcadémicaController implements Initializ
                 break;
             default:
                 Utilidades.mostrarAlerta("Error", "Ocurrió un error desconocido", Alert.AlertType.ERROR);
-        }
+        }*/
     }
 
     public void configurarIDs(Integer idReporte, Periodo periodo) {
         this.idReporte = idReporte;
         idPeriodo = periodo.getIdPeriodo();
+    }
+
+    public ProblemáticaAcadémica getProblematicaAcademicaRegistro() {
+        return problematicaAcademicaRegistro;
     }
 }
