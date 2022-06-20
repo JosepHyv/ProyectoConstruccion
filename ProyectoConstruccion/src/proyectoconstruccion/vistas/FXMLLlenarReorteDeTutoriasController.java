@@ -8,6 +8,7 @@ package proyectoconstruccion.vistas;
 
 import java.io.IOException;
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -22,6 +23,7 @@ import javafx.scene.control.TextArea;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 import proyectoconstruccion.modelo.pojo.Periodo;
+import proyectoconstruccion.modelo.pojo.ProblemáticaAcadémica;
 import proyectoconstruccion.modelo.pojo.ReporteTutoria;
 import proyectoconstruccion.util.Utilidades;
 
@@ -41,6 +43,8 @@ public class FXMLLlenarReorteDeTutoriasController implements Initializable {
     private Periodo periodo;
     
     private ReporteTutoria reporte;
+    
+    private ArrayList<ProblemáticaAcadémica> problematicas = new ArrayList();
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
@@ -58,6 +62,7 @@ public class FXMLLlenarReorteDeTutoriasController implements Initializable {
            escenarioRegistrarProblematica.setScene(escenaRegistrarProblematica);
            escenarioRegistrarProblematica.initModality(Modality.APPLICATION_MODAL);
            escenarioRegistrarProblematica.showAndWait();
+           problematicas.add(controlador.getProblematicaAcademicaRegistro());
         }catch(IOException e){
             Utilidades.mostrarAlerta("Error", "Error al mostrar ventana", Alert.AlertType.ERROR);
             e.printStackTrace();
