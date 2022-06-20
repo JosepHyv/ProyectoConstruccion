@@ -62,7 +62,9 @@ public class FXMLLlenarReorteDeTutoriasController implements Initializable {
            escenarioRegistrarProblematica.setScene(escenaRegistrarProblematica);
            escenarioRegistrarProblematica.initModality(Modality.APPLICATION_MODAL);
            escenarioRegistrarProblematica.showAndWait();
-           problematicas.add(controlador.getProblematicaAcademicaRegistro());
+           if(controlador.getProblematicaAcademicaRegistro() != null){
+               problematicas.add(controlador.getProblematicaAcademicaRegistro());
+           }
         }catch(IOException e){
             Utilidades.mostrarAlerta("Error", "Error al mostrar ventana", Alert.AlertType.ERROR);
             e.printStackTrace();
