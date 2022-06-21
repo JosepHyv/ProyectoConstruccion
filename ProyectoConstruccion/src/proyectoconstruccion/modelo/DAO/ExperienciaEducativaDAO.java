@@ -23,9 +23,21 @@ public class ExperienciaEducativaDAO {
         ArrayList<ExperienciaEducativa> experienciasEducativas = new ArrayList<>();
         Connection conexionBD = ConexionBD.abrirConexionBD();
         if (conexionBD != null) {
-            String query = "SELECT nombre,idExperienciaEducativa,nrc,programaEducativo,semestreRecomendado,area " +
-                "FROM experienciaeducativa " +
-                "WHERE esOfertada = 1;";
+            String query = "SELECT idExperienciaEducativa,nombre,nrc,programaEducativo,semestreRecomendado,area,\n" +
+            "CASE WHEN materia.idAcademico IS NULL THEN null ELSE profesoresImparte.nombres END AS nombreProfesor\n" +
+            "FROM (\n" +
+            "SELECT experienciaeducativa.idExperienciaEducativa,experienciaeducativa.nrc,\n" +
+            "experienciaeducativa.nombre,experienciaeducativa.area,\n" +
+            "experienciaeducativa.programaEducativo,experienciaeducativa.semestreRecomendado,imparte.idAcademico\n" +
+            "FROM experienciaeducativa INNER JOIN imparte\n" +
+            "ON experienciaeducativa.idExperienciaEducativa = imparte.idExperienciaEducativa\n" +
+            "WHERE esOfertada = 1\n" +
+            ") AS materia\n" +
+            "JOIN (\n" +
+            "SELECT academico.nombres FROM academico\n" +
+            "INNER JOIN imparte\n" +
+            "ON academico.idAcademico = imparte.idAcademico\n" +
+            ") AS profesoresImparte;";
             try {
                 PreparedStatement configurarConsulta = conexionBD.prepareStatement(query);
                 ResultSet resultadoConsulta = configurarConsulta.executeQuery();
@@ -37,12 +49,12 @@ public class ExperienciaEducativaDAO {
                     experienciaEducativaTemp.setProgramaEducativo(resultadoConsulta.getString("programaEducativo"));
                     experienciaEducativaTemp.setSemestreRecomendado(resultadoConsulta.getInt("semestreRecomendado"));
                     experienciaEducativaTemp.setArea(resultadoConsulta.getString("area"));
+                    experienciaEducativaTemp.setProfesor(resultadoConsulta.getString("nombreProfesor"));
                     experienciasEducativas.add (experienciaEducativaTemp);
                 }
                 conexionBD.close();
             } catch (SQLException e) {
-                //Utilidades.mostrarAlerta("Advertencia", "ERROR: No hay conexión con la base de datos", Alert.AlertType.NONE);
-                Utilidades.mostrarAlertaConfirmacion("Advertencia", "Error: No hay conexión con la base de datos", Alert.AlertType.WARNING);
+                Utilidades.mostrarAlerta("Advertencia", "Error: No hay conexión con la base de datos", Alert.AlertType.WARNING);
                 e.printStackTrace();
             }
         }else{
@@ -54,7 +66,11 @@ public class ExperienciaEducativaDAO {
         ArrayList<ExperienciaEducativa> experienciasEducativas = new ArrayList<>();
         Connection conexionBD = ConexionBD.abrirConexionBD();
         if (conexionBD != null) {
-            String query = "SELECT * FROM experienciaeducativa WHERE idProfesor IS NULL;";
+            String query = "SELECT experienciaeducativa.idExperienciaEducativa,nombre,nrc,programaEducativo,semestreRecomendado,area\n" +
+            "FROM experienciaeducativa\n" +
+            "INNER JOIN imparte\n" +
+            "ON experienciaeducativa.idExperienciaEducativa = imparte.idExperienciaEducativa\n" +
+            "WHERE imparte.idAcademico IS NULL;";
             try {
                 PreparedStatement configurarConsulta = conexionBD.prepareStatement(query);
                 ResultSet resultadoConsulta = configurarConsulta.executeQuery();
@@ -64,11 +80,12 @@ public class ExperienciaEducativaDAO {
                     experienciaEducativaTemp.setNombre(resultadoConsulta.getString("nombre"));
                     experienciaEducativaTemp.setNrc(resultadoConsulta.getString("nrc"));
                     experienciaEducativaTemp.setProgramaEducativo(resultadoConsulta.getString("programaEducativo"));
+                    experienciaEducativaTemp.setProfesor(resultadoConsulta.getString("nombreProfesor"));
                     experienciasEducativas.add (experienciaEducativaTemp);
                 }
                 conexionBD.close();
             } catch (SQLException e) {
-                Utilidades.mostrarAlertaConfirmacion("Advertencia", "No se puede acceder a la base de datos", Alert.AlertType.WARNING);
+                Utilidades.mostrarAlerta("Advertencia", "No se puede acceder a la base de datos", Alert.AlertType.WARNING);
             }
         }else{
             experienciasEducativas = null;
@@ -79,7 +96,7 @@ public class ExperienciaEducativaDAO {
         int respuesta;
         Connection conexionBD = ConexionBD.abrirConexionBD();
         if (conexionBD != null) {
-            String query = "UPDATE experienciaeducativa SET idProfesor = ? WHERE idExperienciaEducativa = ?;";
+            String query = "UPDATE imparte SET idAcademico = ? WHERE idExperienciaEducativa = ?;";
             try {
                 PreparedStatement configurarConsulta = conexionBD.prepareStatement(query);
                 configurarConsulta.setInt(1, profesor.getIdProfesor());

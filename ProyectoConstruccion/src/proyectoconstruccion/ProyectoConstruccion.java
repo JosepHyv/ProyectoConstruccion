@@ -24,6 +24,8 @@ public class ProyectoConstruccion extends Application {
         stage.getIcons().add(new Image("proyectoconstruccion/resources/icono.png"));
         stage.setScene(scene);
         stage.setTitle("Inicio de Sesión");
+        stage.setX(0);
+        stage.setY(0);
         stage.show();
     }
 
