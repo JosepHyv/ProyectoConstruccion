@@ -1,7 +1,7 @@
 /*
 * Autor: Joseph Hynimoto
 * Fecha de creacion: 13/06/22
-* Fecha de modificacion: 15/06/22
+* Fecha de modificacion: 19/06/22
 * Descripcion: Controlador de la Ventana de llenado de reporte de tutorias.
 */
 package proyectoconstruccion.vistas;
@@ -34,6 +34,7 @@ import proyectoconstruccion.modelo.pojo.ReporteTutoria;
 import proyectoconstruccion.util.Utilidades;
 import proyectoconstruccion.modelo.DAO.EstudiantesDAO;
 import proyectoconstruccion.modelo.DAO.PeriodoDAO;
+import proyectoconstruccion.modelo.DAO.ProblemáticaAcadémicaDAO;
 import proyectoconstruccion.modelo.DAO.ReporteTutoriaDAO;
 import proyectoconstruccion.util.Constantes;
 
@@ -70,8 +71,6 @@ public class FXMLLlenarReorteDeTutoriasController implements Initializable {
     
     private Periodo periodo;
     
-    private ReporteTutoria reporte;
-  
     private Integer idReporte;
     
     private ArrayList<ProblemáticaAcadémica> problematicas = new ArrayList();
@@ -89,7 +88,7 @@ public class FXMLLlenarReorteDeTutoriasController implements Initializable {
            FXMLLoader loader = new FXMLLoader(getClass().getResource("FXMLRegistrarProblemáticaAcadémica.fxml"));
            Parent root = loader.load();
            FXMLRegistrarProblemáticaAcadémicaController controlador = loader.getController();
-           controlador.configurarIDs(idReporte, periodo);
+           controlador.configurarIDs(periodo);
            Scene escenaRegistrarProblematica = new Scene(root);
            Stage escenarioRegistrarProblematica = new Stage();
            escenarioRegistrarProblematica.setScene(escenaRegistrarProblematica);
@@ -150,7 +149,7 @@ public class FXMLLlenarReorteDeTutoriasController implements Initializable {
     @FXML
     private void btGuardar(ActionEvent event) {
         guardarReporte();
-
+        guardarProblematicas();
     }
 
     private void guardarReporte() {
@@ -197,5 +196,25 @@ public class FXMLLlenarReorteDeTutoriasController implements Initializable {
             }
         }
         return numRiesgo;
+    }
+
+    private void guardarProblematicas() {
+        for(ProblemáticaAcadémica problematicaAcademica : problematicas){
+            problematicaAcademica.setIdReporteTutoria(idReporte);
+            switch(ProblemáticaAcadémicaDAO.insertarProblemáticaAcadémica(problematicaAcademica)){
+                case Constantes.CODIGO_OPERACION_CORRECTA:
+                    Utilidades.mostrarAlerta("Operacion correcta", "La Problemática Académica se registro de forma correcta", Alert.AlertType.INFORMATION);
+                    break;
+               case Constantes.CODIGO_OPERACION_DML_FALLIDA:
+                    Utilidades.mostrarAlerta("Operacion fallida", "No se pudo realizar la operacion.", Alert.AlertType.WARNING);
+                    break;
+                case Constantes.CODIGO_ERROR_CONEXIONBD:
+                    Utilidades.mostrarAlerta("Error de conexion", "No se pudo conectar con la base de datos, "
+                            + "por favor intentelo de nuevo más tarde.", Alert.AlertType.ERROR);
+                    break;
+                default:
+                    Utilidades.mostrarAlerta("Error", "Ocurrió un error desconocido", Alert.AlertType.ERROR);
+            }
+        }
     }
 }
