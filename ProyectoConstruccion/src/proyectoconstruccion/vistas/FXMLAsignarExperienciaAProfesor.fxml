@@ -6,14 +6,14 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane id="AnchorPane" prefHeight="480.0" prefWidth="720.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="proyectoconstruccion.vistas.FXMLAsignarExperienciaAProfesorController">
+<AnchorPane id="AnchorPane" prefHeight="640.0" prefWidth="960.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="proyectoconstruccion.vistas.FXMLAsignarExperienciaAProfesorController">
    <children>
-      <TableView fx:id="tbExperienciasEducativas" onMouseClicked="#clicExperienciaEducativa" prefHeight="414.0" prefWidth="720.0">
+      <TableView fx:id="tbExperienciasEducativas" layoutX="20.0" layoutY="80.0" onMouseClicked="#clicExperienciaEducativa" prefHeight="480.0" prefWidth="920.0">
         <columns>
-          <TableColumn fx:id="colExperienciaEducativa" prefWidth="433.0" text="Experiencia Educativa" />
-          <TableColumn fx:id="colNRC" minWidth="0.0" prefWidth="286.0" text="NRC" />
+          <TableColumn fx:id="colExperienciaEducativa" prefWidth="642.0" text="Experiencia Educativa" />
+          <TableColumn fx:id="colNRC" minWidth="0.0" prefWidth="277.0" text="NRC" />
         </columns>
       </TableView>
-      <Button layoutX="636.0" layoutY="433.0" mnemonicParsing="false" onAction="#btnCancelar" text="Cancelar" />
+      <Button layoutX="896.0" layoutY="601.0" mnemonicParsing="false" onAction="#btnCancelar" text="Cancelar" />
    </children>
 </AnchorPane>

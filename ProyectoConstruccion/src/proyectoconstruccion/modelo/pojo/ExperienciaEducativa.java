@@ -22,7 +22,20 @@ public class ExperienciaEducativa {
     private String area;
     
     private int idExperienciaEducativa;
+    
+    private String profesor;
 
+    public ExperienciaEducativa() {
+    }
+    
+    public String getProfesor() {
+        return profesor;
+    }
+
+    public void setProfesor(String profesor) {
+        this.profesor = profesor;
+    }
+    
     public int getIdExperienciaEducativa() {
         return idExperienciaEducativa;
     }

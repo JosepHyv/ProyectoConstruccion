@@ -49,11 +49,14 @@ public class FXMLOfertaAcademicaController implements Initializable {
     private TableColumn colSemestreRecomendado;
     @FXML
     private TableColumn colArea;
+    @FXML
+    private TableColumn colProfesor;
     
     private ObservableList<ExperienciaEducativa> infoExperienciasEducativas;
-    
     /**
      * Initializes the controller class.
+     * @param url
+     * @param rb
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
@@ -67,6 +70,7 @@ public class FXMLOfertaAcademicaController implements Initializable {
         colProgramaEducativo.setCellValueFactory (new PropertyValueFactory ("programaEducativo"));
         colSemestreRecomendado.setCellValueFactory (new PropertyValueFactory ("semestreRecomendado"));
         colArea.setCellValueFactory (new PropertyValueFactory ("area"));
+        colProfesor.setCellValueFactory(new PropertyValueFactory("profesor"));
         infoExperienciasEducativas = FXCollections.observableArrayList();
     }
 
