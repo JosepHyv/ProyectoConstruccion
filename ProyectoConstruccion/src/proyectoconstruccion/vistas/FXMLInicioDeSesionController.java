@@ -79,7 +79,7 @@ public class FXMLInicioDeSesionController implements Initializable {
         if(usuarioLogin.getCodigoRespuesta() == Constantes.CODIGO_OPERACION_CORRECTA){
             Utilidades.mostrarAlerta("Usuario Verificado","Bienvenido al sistema.",Alert.AlertType.INFORMATION);
             InformacionSesion.getInformacionSesion().setRol(usuarioLogin.getRol());
-            InformacionSesion.getInformacionSesion().setIdUsuario(usuarioLogin.getIdUsuario());
+            InformacionSesion.getInformacionSesion().setIdUsuario(usuarioLogin.getIdAcademico());
             irPantallaPrincipal();
         }else if(usuarioLogin.getCodigoRespuesta() == Constantes.CODIGO_CREDENCIALES_INCORRECTAS){
             Utilidades.mostrarAlerta("Credenciales incorrectas","Usuario o contraseña incorrectas.",Alert.AlertType.WARNING);

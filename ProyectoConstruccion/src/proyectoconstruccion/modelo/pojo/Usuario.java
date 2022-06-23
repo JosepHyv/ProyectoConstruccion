@@ -10,7 +10,7 @@ public class Usuario {
 
     public static Usuario usuarioLogin;
 
-    private Integer idUsuario;
+    private Integer idAcademico;
     private String username;
     private String password;
     private String rol;
@@ -19,8 +19,8 @@ public class Usuario {
     public Usuario(){
     }
 
-    public Usuario(Integer idUsuario, String username, String password, String rol, Integer codigoRespuesta){
-        this.idUsuario = idUsuario;
+    public Usuario(Integer idAcademico, String username, String password, String rol, Integer codigoRespuesta){
+        this.idAcademico = idAcademico;
         this.username = username;
         this.password = password;
         this.rol = rol;
@@ -35,12 +35,12 @@ public class Usuario {
         Usuario.usuarioLogin = usuarioLogin;
     }
 
-    public Integer getIdUsuario() {
-        return idUsuario;
+    public Integer getIdAcademico() {
+        return this.idAcademico;
     }
 
-    public void setIdUsuario(Integer idUsuario) {
-        this.idUsuario = idUsuario;
+    public void setIdAcademico(Integer idAcademico) {
+        this.idAcademico = idAcademico;
     }
 
     public String getUsername() {

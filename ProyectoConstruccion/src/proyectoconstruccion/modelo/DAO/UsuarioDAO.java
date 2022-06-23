@@ -23,7 +23,7 @@ public class UsuarioDAO{
         if(conexionBD != null){
             try{
                 String consulta = "select usuarios.idUsuario, usuarios.username, usuarios.password, "  
-                        + "roles.nombreRol from usuarios inner join rolesacademicousuarios on rolesacademicousuarios.idRolUsuario " 
+                        + "roles.nombreRol, rolesacademicousuarios.idAcademico from usuarios inner join rolesacademicousuarios on rolesacademicousuarios.idRolUsuario " 
                         + " = usuarios.idRolUsuario inner join roles on roles.idRol = rolesacademicousuarios.idRol " 
                         + "WHERE username = ? AND password = ?";
                 PreparedStatement prepararConsulta = conexionBD.prepareStatement(consulta);
@@ -31,7 +31,7 @@ public class UsuarioDAO{
                 prepararConsulta.setString(2, password);
                 ResultSet resultadoConsulta = prepararConsulta.executeQuery();
                 if(resultadoConsulta.next()){
-                    usuarioLogin.setIdUsuario(resultadoConsulta.getInt("idUsuario"));
+                    usuarioLogin.setIdAcademico(resultadoConsulta.getInt("idAcademico"));
                     usuarioLogin.setUsername(resultadoConsulta.getString("username"));
                     usuarioLogin.setPassword(resultadoConsulta.getString("password"));
                     usuarioLogin.setRol(resultadoConsulta.getString("nombreRol"));

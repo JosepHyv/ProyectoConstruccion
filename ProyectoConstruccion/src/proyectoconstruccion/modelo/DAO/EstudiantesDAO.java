@@ -29,6 +29,7 @@ public class EstudiantesDAO {
             String query = "SELECT * FROM estudiante WHERE idTutorAcademico = ?;";
             try{
                 PreparedStatement configurarConsulta = conexionBD.prepareStatement(query);
+                System.out.println(InformacionSesion.getInformacionSesion().getIdUsuario());
                 configurarConsulta.setInt(1,InformacionSesion.getInformacionSesion().getIdUsuario());
                 ResultSet resultadoConsulta = configurarConsulta.executeQuery();
                 while(resultadoConsulta.next()){
