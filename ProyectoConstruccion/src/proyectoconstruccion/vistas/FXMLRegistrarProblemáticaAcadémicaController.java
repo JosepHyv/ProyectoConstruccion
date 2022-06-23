@@ -60,9 +60,9 @@ public class FXMLRegistrarProblemáticaAcadémicaController implements Initializ
         tfNumeroAlumnos.textProperty().addListener(new ChangeListener<String>() {
             @Override
             public void changed(ObservableValue<? extends String> ov, String oldValue, String newValue) {
-                if(newValue.matches("[a-zA-Z]+")){
+                if(!newValue.matches("^[0-9]+$")){
                     lbErrorNumero.setText("Campo inválido.");
-                }else if(newValue.isEmpty()){
+                }else{
                     lbErrorNumero.setText("");
                 }
             }
@@ -110,7 +110,7 @@ public class FXMLRegistrarProblemáticaAcadémicaController implements Initializ
 
     private boolean comprobarCampos() {
         boolean camposCorrectos = true;
-        if(tfNumeroAlumnos.getText().isEmpty() || tfNumeroAlumnos.getText().matches("[a-zA-Z]+")){
+        if(tfNumeroAlumnos.getText().isEmpty() || !tfNumeroAlumnos.getText().matches("^[0-9]+$")){
             camposCorrectos = false;
         }
         if(cbGravedad.getSelectionModel().isEmpty()){
