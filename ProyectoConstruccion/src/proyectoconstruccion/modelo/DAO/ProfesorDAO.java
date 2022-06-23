@@ -30,7 +30,7 @@ public class ProfesorDAO {
             "FROM academico\n" +
             "INNER JOIN rolesacademicousuarios\n" +
             "ON rolesacademicousuarios.idAcademico = academico.idAcademico\n" +
-            "WHERE academico.esActivo = 1;";
+            "WHERE academico.esActivo = 1 AND rolesacademicousuarios.idRol = 4;";
             try{
                 PreparedStatement configurarConsulta = conexionBD.prepareStatement(query);
                 ResultSet resultadoConsulta = configurarConsulta.executeQuery();
