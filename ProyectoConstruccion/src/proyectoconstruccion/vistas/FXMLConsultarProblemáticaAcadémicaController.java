@@ -19,6 +19,7 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
+import proyectoconstruccion.modelo.DAO.PeriodoDAO;
 import proyectoconstruccion.modelo.DAO.ProblemáticaAcadémicaDAO;
 import proyectoconstruccion.modelo.pojo.ProblemáticaAcadémica;
 import proyectoconstruccion.util.Utilidades;
@@ -37,6 +38,8 @@ public class FXMLConsultarProblemáticaAcadémicaController implements Initializ
     private TableColumn coDescripcion;
     @FXML
     private TableColumn coSolucion;
+    @FXML
+    private TableColumn coIdReporte;
     
     private ObservableList<ProblemáticaAcadémica> infoProblematicas;
 
@@ -57,11 +60,12 @@ public class FXMLConsultarProblemáticaAcadémicaController implements Initializ
         coCategoria.setCellValueFactory(new PropertyValueFactory("categoria"));
         coDescripcion.setCellValueFactory(new PropertyValueFactory("descripcion"));
         coSolucion.setCellValueFactory(new PropertyValueFactory("solucion"));
+        coIdReporte.setCellValueFactory(new PropertyValueFactory("idReporteTutoria"));
         infoProblematicas = FXCollections.observableArrayList();
     }
 
     private void cargarInformacion() {
-        ArrayList<ProblemáticaAcadémica> resultadoConsulta = ProblemáticaAcadémicaDAO.obtenerProblemáticaAcadémica();
+        ArrayList<ProblemáticaAcadémica> resultadoConsulta = ProblemáticaAcadémicaDAO.obtenerProblemáticaAcadémicas(PeriodoDAO.getPeriodoActual().getIdPeriodo());
         if(resultadoConsulta != null){
             try{
             tbProblematicas.getItems().clear();

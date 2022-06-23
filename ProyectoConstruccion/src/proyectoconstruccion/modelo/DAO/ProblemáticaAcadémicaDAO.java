@@ -44,12 +44,12 @@ public class ProblemáticaAcadémicaDAO {
         return respuesta;
     }
     
-    public static ArrayList<ProblemáticaAcadémica> obtenerProblemáticaAcadémica(){
+    public static ArrayList<ProblemáticaAcadémica> obtenerProblemáticaAcadémicas(int periodo){
         ArrayList<ProblemáticaAcadémica> problemáticaAcadémicaDB = new ArrayList();
 
         Connection conexionBD = ConexionBD.abrirConexionBD();
         if(conexionBD != null){
-            String consulta ="SELECT * FROM problematicaacademica";
+            String consulta ="SELECT * FROM problematicaacademica WHERE idPeriodo ="+Integer.toString(periodo);
             try{
                 PreparedStatement configurarConsulta = conexionBD.prepareStatement(consulta);
                 ResultSet resultadoConsulta = configurarConsulta.executeQuery();

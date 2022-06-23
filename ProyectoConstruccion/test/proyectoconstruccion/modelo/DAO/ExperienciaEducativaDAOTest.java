@@ -41,9 +41,6 @@ public class ExperienciaEducativaDAOTest {
     public void tearDown() {
     }
 
-    /**
-     * Test of obtenerExperienciaEducativas method, of class ExperienciaEducativaDAO.
-     */
     @Test
     public void testObtenerExperienciaEducativas() {
         System.out.println("obtenerExperienciaEducativas");
@@ -60,9 +57,6 @@ public class ExperienciaEducativaDAOTest {
         assertEquals(expResult.get(0), result.get(0));
     }
 
-    /**
-     * Test of obtenerExperienciaEducativasSinProfesor method, of class ExperienciaEducativaDAO.
-     */
     @Test
     public void testObtenerExperienciaEducativasSinProfesor() {
         System.out.println("obtenerExperienciaEducativasSinProfesor");
@@ -79,9 +73,6 @@ public class ExperienciaEducativaDAOTest {
         assertEquals(expResult.get(0), result.get(0));
     }
 
-    /**
-     * Test of asignarProfesorAExperiencia method, of class ExperienciaEducativaDAO.
-     */
     @Test
     public void testAsignarProfesorAExperiencia() {
         System.out.println("asignarProfesorAExperiencia");
