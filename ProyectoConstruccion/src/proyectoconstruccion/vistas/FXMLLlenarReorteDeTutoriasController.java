@@ -8,6 +8,7 @@ package proyectoconstruccion.vistas;
 
 import java.io.IOException;
 import java.net.URL;
+import java.sql.Date;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
@@ -153,7 +154,7 @@ public class FXMLLlenarReorteDeTutoriasController implements Initializable {
 
     private void guardarReporte() {
         ReporteTutoria reporteRegistro = new ReporteTutoria();
-        reporteRegistro.setFecha(LocalDate.now());
+        reporteRegistro.setFecha(Date.valueOf(LocalDate.now()));
         reporteRegistro.setProgramaEducativo("Ingeniería en Software");
         reporteRegistro.setNumReporte(tbReporte.getItems().size());
         reporteRegistro.setNumAsistencia(contarAsistencia());

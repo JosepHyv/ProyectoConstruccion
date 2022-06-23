@@ -27,8 +27,8 @@ public class PeriodoDAO {
                 ResultSet resultadoConsulta = configurarConsulta.executeQuery();
                 while(resultadoConsulta.next()){
                     periodoActual.setIdPeriodo(resultadoConsulta.getInt("idPeriodo"));
-                    periodoActual.setFechaInicio(resultadoConsulta.getString("fechaInicio"));
-                    periodoActual.setFechaFin(resultadoConsulta.getString("fechaFin"));
+                    periodoActual.setFechaInicio(resultadoConsulta.getDate("fechaInicio"));
+                    periodoActual.setFechaFin(resultadoConsulta.getDate("fechaFin"));
                 }
                 conexionBD.close();
             }catch(SQLException ex){

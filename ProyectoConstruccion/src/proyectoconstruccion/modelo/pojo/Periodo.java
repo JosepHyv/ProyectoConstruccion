@@ -6,13 +6,15 @@
  */
 package proyectoconstruccion.modelo.pojo;
 
+import java.util.Date;
+
 public class Periodo {
     
     private Integer idPeriodo;
     
-    private String fechaInicio;
+    private Date fechaInicio;
 
-    private String fechaFin;
+    private Date fechaFin;
 
     public Integer getIdPeriodo() {
         return idPeriodo;
@@ -22,19 +24,19 @@ public class Periodo {
         this.idPeriodo = idPeriodo;
     }
 
-    public String getFechaInicio() {
+    public Date getFechaInicio() {
         return fechaInicio;
     }
 
-    public void setFechaInicio(String fechaInicio) {
+    public void setFechaInicio(Date fechaInicio) {
         this.fechaInicio = fechaInicio;
     }
 
-    public String getFechaFin() {
+    public Date getFechaFin() {
         return fechaFin;
     }
 
-    public void setFechaFin(String fechaFin) {
+    public void setFechaFin(Date fechaFin) {
         this.fechaFin = fechaFin;
     }
 
