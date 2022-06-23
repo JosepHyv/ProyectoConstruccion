@@ -30,7 +30,7 @@ public class ProfesorDAO {
             "FROM academico\n" +
             "INNER JOIN rolesacademicousuarios\n" +
             "ON rolesacademicousuarios.idAcademico = academico.idAcademico\n" +
-            "WHERE academico.esActivo = 1;";
+            "WHERE academico.esActivo = 1 AND rolesacademicousuarios.idRol = 4;";
             try{
                 PreparedStatement configurarConsulta = conexionBD.prepareStatement(query);
                 ResultSet resultadoConsulta = configurarConsulta.executeQuery();
@@ -41,6 +41,7 @@ public class ProfesorDAO {
                     profesorTemp.setApellidoPaterno(resultadoConsulta.getString("apellidoPaterno"));
                     profesorTemp.setApellidoMaterno(resultadoConsulta.getString("apellidoMaterno"));
                     profesorTemp.setCorreo(resultadoConsulta.getString("correo"));
+                    profesorTemp.setEsActivo(true);
                     profesores.add(profesorTemp);
                 }
                 conexionBD.close();

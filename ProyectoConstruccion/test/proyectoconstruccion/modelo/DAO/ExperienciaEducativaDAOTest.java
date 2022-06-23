@@ -1,7 +1,7 @@
 /*
 * Autor: Juan Pablo Peredo Martínez
 * Fecha de creacion: 15/06/22
-* Fecha de modificacion: 15/06/22
+* Fecha de modificacion: 22/06/22
 * Descripcion: Archivo de pruebas para las operaciones del DAO de experiencia educativa.
 */
 package proyectoconstruccion.modelo.DAO;
@@ -45,12 +45,12 @@ public class ExperienciaEducativaDAOTest {
     public void testObtenerExperienciaEducativas() {
         System.out.println("obtenerExperienciaEducativas");
         ExperienciaEducativa experienciaEducativa = new ExperienciaEducativa();
-        experienciaEducativa.setNombre("Matematicas");
+        experienciaEducativa.setNombre("Matemáticas");
         experienciaEducativa.setIdExperienciaEducativa(1);
-        experienciaEducativa.setNrc("739685");
-        experienciaEducativa.setProgramaEducativo("Ingenieria en Software");
+        experienciaEducativa.setNrc("74282");
+        experienciaEducativa.setProgramaEducativo("Ingenieria de Software");
         experienciaEducativa.setArea("Básica");
-        experienciaEducativa.setSemestreRecomendado(4);
+        experienciaEducativa.setSemestreRecomendado(2);
         ArrayList<ExperienciaEducativa> expResult = new ArrayList<>();
         expResult.add(experienciaEducativa);
         ArrayList<ExperienciaEducativa> result = ExperienciaEducativaDAO.obtenerExperienciaEducativas();
@@ -61,10 +61,10 @@ public class ExperienciaEducativaDAOTest {
     public void testObtenerExperienciaEducativasSinProfesor() {
         System.out.println("obtenerExperienciaEducativasSinProfesor");
         ExperienciaEducativa experienciaEducativa = new ExperienciaEducativa();
-        experienciaEducativa.setNombre("Matematicas");
-        experienciaEducativa.setIdExperienciaEducativa(1);
-        experienciaEducativa.setNrc("739685");
-        experienciaEducativa.setProgramaEducativo("Ingenieria en Software");
+        experienciaEducativa.setNombre("Inglés");
+        experienciaEducativa.setIdExperienciaEducativa(2);
+        experienciaEducativa.setNrc("45689");
+        experienciaEducativa.setProgramaEducativo("Ingenieria de Software");
         experienciaEducativa.setArea(null);
         experienciaEducativa.setSemestreRecomendado(0);
         ArrayList<ExperienciaEducativa> expResult = new ArrayList<>();
@@ -78,18 +78,8 @@ public class ExperienciaEducativaDAOTest {
         System.out.println("asignarProfesorAExperiencia");
         Profesor profesor = new Profesor();
         profesor.setIdProfesor(1);
-        profesor.setNombres("Jaun");
-        profesor.setApellidoPaterno("Clau");
-        profesor.setApellidoMaterno("Van Dame");
-        profesor.setCorreo("correo@example.com");
-        profesor.setTipoProfesor("tiempo completo");
         ExperienciaEducativa experienciaEducativa = new ExperienciaEducativa();
-        experienciaEducativa.setNombre("Matematicas");
         experienciaEducativa.setIdExperienciaEducativa(1);
-        experienciaEducativa.setNrc("739685");
-        experienciaEducativa.setProgramaEducativo("Ingenieria en software");
-        experienciaEducativa.setArea("Básica");
-        experienciaEducativa.setSemestreRecomendado(4);
         int expResult = 200;
         int result = ExperienciaEducativaDAO.asignarProfesorAExperiencia(profesor, experienciaEducativa);
         assertEquals(expResult, result);
