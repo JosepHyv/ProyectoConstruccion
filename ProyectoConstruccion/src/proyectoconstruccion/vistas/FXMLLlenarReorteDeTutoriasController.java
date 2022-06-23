@@ -158,11 +158,11 @@ public class FXMLLlenarReorteDeTutoriasController implements Initializable {
         ReporteTutoria reporteRegistro = new ReporteTutoria();
         reporteRegistro.setFecha(Date.valueOf(LocalDate.now()));
         reporteRegistro.setProgramaEducativo("Ingeniería en Software");
-        reporteRegistro.setNumReporte(tbReporte.getItems().size());
+        //reporteRegistro.setNumReporte(tbReporte.getItems().size());
         reporteRegistro.setNumAsistencia(contarAsistencia());
         reporteRegistro.setNumRiesgo(contarRiesgo());
         reporteRegistro.setComentarios(taComentarios.getText());
-
+        
         switch(ReporteTutoriaDAO.insertarReporteTutoria(reporteRegistro)){
             case Constantes.CODIGO_OPERACION_CORRECTA:
                 Utilidades.mostrarAlerta("Operacion correcta", "El reporte se registro de forma correcta", Alert.AlertType.INFORMATION);
