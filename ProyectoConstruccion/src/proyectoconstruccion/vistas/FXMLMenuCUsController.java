@@ -1,7 +1,7 @@
 /*
  * Autor: Leonardo Criollo Ramírez
  * Fecha de creación: 15/06/22
- * Fecha de modificación: 15/06/22
+ * Fecha de modificación: 22/06/22
  * Descripcion: Controlador de la ventana MenuCUs
  */
 package proyectoconstruccion.vistas;
@@ -18,6 +18,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.image.Image;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 import proyectoconstruccion.modelo.pojo.Usuario;
@@ -50,6 +51,7 @@ public class FXMLMenuCUsController implements Initializable {
            Parent root = loader.load();
            Scene escenaReporteTutorias = new Scene(root);
            Stage escenarioReporteTutorias = new Stage();
+           escenarioReporteTutorias.getIcons().add(new Image("proyectoconstruccion/resources/icono.png"));
            escenarioReporteTutorias.setScene(escenaReporteTutorias);
            escenarioReporteTutorias.initModality(Modality.APPLICATION_MODAL);
            escenarioReporteTutorias.showAndWait();
@@ -66,6 +68,7 @@ public class FXMLMenuCUsController implements Initializable {
            Parent root = loader.load();
            Scene escenaRegistrarProblematica = new Scene(root);
            Stage escenarioRegistrarProblematica = new Stage();
+           escenarioRegistrarProblematica.getIcons().add(new Image("proyectoconstruccion/resources/icono.png"));
            escenarioRegistrarProblematica.setScene(escenaRegistrarProblematica);
            escenarioRegistrarProblematica.initModality(Modality.APPLICATION_MODAL);
            escenarioRegistrarProblematica.showAndWait();
@@ -82,6 +85,7 @@ public class FXMLMenuCUsController implements Initializable {
            Parent root = loader.load();
            Scene escenaConsultarProblematica = new Scene(root);
            Stage escenarioConsultarProblematica = new Stage();
+           escenarioConsultarProblematica.getIcons().add(new Image("proyectoconstruccion/resources/icono.png"));
            escenarioConsultarProblematica.setScene(escenaConsultarProblematica);
            escenarioConsultarProblematica.initModality(Modality.APPLICATION_MODAL);
            escenarioConsultarProblematica.showAndWait();
@@ -98,6 +102,7 @@ public class FXMLMenuCUsController implements Initializable {
            Parent root = loader.load();
            Scene escenaOfertaAcademica = new Scene(root);
            Stage escenarioOfertaAcademica = new Stage();
+           escenarioOfertaAcademica.getIcons().add(new Image("proyectoconstruccion/resources/icono.png"));
            escenarioOfertaAcademica.setScene(escenaOfertaAcademica);
            escenarioOfertaAcademica.initModality(Modality.APPLICATION_MODAL);
            escenarioOfertaAcademica.showAndWait();
@@ -114,6 +119,7 @@ public class FXMLMenuCUsController implements Initializable {
            Parent root = loader.load();
            Scene escenaAsignarExperiencia = new Scene(root);
            Stage escenarioAsignarExperiencia = new Stage();
+           escenarioAsignarExperiencia.getIcons().add(new Image("proyectoconstruccion/resources/icono.png"));
            escenarioAsignarExperiencia.setScene(escenaAsignarExperiencia);
            escenarioAsignarExperiencia.initModality(Modality.APPLICATION_MODAL);
            escenarioAsignarExperiencia.showAndWait();
