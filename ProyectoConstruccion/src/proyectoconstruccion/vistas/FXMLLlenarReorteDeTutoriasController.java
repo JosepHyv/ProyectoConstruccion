@@ -27,6 +27,7 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.image.Image;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 import proyectoconstruccion.modelo.pojo.Periodo;
@@ -93,6 +94,7 @@ public class FXMLLlenarReorteDeTutoriasController implements Initializable {
            controlador.configurarIDs(periodo);
            Scene escenaRegistrarProblematica = new Scene(root);
            Stage escenarioRegistrarProblematica = new Stage();
+           escenarioRegistrarProblematica.getIcons().add(new Image("proyectoconstruccion/resources/icono.png"));
            escenarioRegistrarProblematica.setScene(escenaRegistrarProblematica);
            escenarioRegistrarProblematica.initModality(Modality.APPLICATION_MODAL);
            escenarioRegistrarProblematica.showAndWait();
