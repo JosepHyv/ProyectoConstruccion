@@ -1,7 +1,7 @@
 /*
 * Autor: Leonardo Criollo Ramírez
 * Fecha de creacion: 17/05/22
-* Fecha de modificacion: 15/06/22
+* Fecha de modificacion: 21/06/22
 * Descripcion: Clase principal del programa.
 */
 package proyectoconstruccion;
