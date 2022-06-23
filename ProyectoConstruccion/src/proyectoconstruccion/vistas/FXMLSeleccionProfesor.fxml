@@ -10,10 +10,10 @@
    <children>
       <TableView fx:id="tbProfesores" layoutX="20.0" layoutY="80.0" prefHeight="480.0" prefWidth="920.0">
         <columns>
-          <TableColumn fx:id="colNombre" prefWidth="124.0" text="Nombre " />
-            <TableColumn fx:id="colApellidoPaterno" prefWidth="228.0" text="Apellido Paterno" />
-            <TableColumn fx:id="colApellidoMaterno" prefWidth="194.0" text="Apellido Materno" />
-            <TableColumn fx:id="colCorreo" prefWidth="133.0" text="Correo" />
+          <TableColumn fx:id="colNombre" prefWidth="238.0" text="Nombre " />
+            <TableColumn fx:id="colApellidoPaterno" prefWidth="237.0" text="Apellido Paterno" />
+            <TableColumn fx:id="colApellidoMaterno" prefWidth="233.0" text="Apellido Materno" />
+            <TableColumn fx:id="colCorreo" prefWidth="211.0" text="Correo" />
         </columns>
       </TableView>
       <Button layoutX="810.0" layoutY="601.0" mnemonicParsing="false" onAction="#btnGuardar" style="-fx-background-color: #0092F7;" text="Guardar" textFill="WHITE" />

@@ -1,7 +1,7 @@
 /*
 * Autor: Juan Pablo Peredo Martínez
 * Fecha de creacion: 25/05/22
-* Fecha de modificacion: 15/06/22
+* Fecha de modificacion: 21/06/22
 * Descripcion: Clase que representa a una experiencia educativa.
 */
 package proyectoconstruccion.modelo.pojo;
