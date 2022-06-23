@@ -1,7 +1,7 @@
 /*
 * Autor: Juan Pablo Peredo Martínez
 * Fecha de creacion: 29/05/22
-* Fecha de modificacion: 13/06/22
+* Fecha de modificacion: 22/06/22
 * Descripcion: Operaciones en la base de datos relacionadas con Profesores.
 */
 package proyectoconstruccion.modelo.DAO;
@@ -25,18 +25,22 @@ public class ProfesorDAO {
         ArrayList<Profesor> profesores = new ArrayList<>();
         Connection conexionBD = ConexionBD.abrirConexionBD();
         if(conexionBD != null){
-            String query = "SELECT * FROM profesor WHERE esActivo = 1;";
+            String query = "SELECT academico.idAcademico,academico.nombres,academico.apellidoPaterno,\n" +
+            "academico.apellidoMaterno,academico.correo\n" +
+            "FROM academico\n" +
+            "INNER JOIN rolesacademicousuarios\n" +
+            "ON rolesacademicousuarios.idAcademico = academico.idAcademico\n" +
+            "WHERE academico.esActivo = 1;";
             try{
                 PreparedStatement configurarConsulta = conexionBD.prepareStatement(query);
                 ResultSet resultadoConsulta = configurarConsulta.executeQuery();
                 while(resultadoConsulta.next()){
                     Profesor profesorTemp = new Profesor();
-                    profesorTemp.setIdProfesor(resultadoConsulta.getInt("idProfesor"));
+                    profesorTemp.setIdProfesor(resultadoConsulta.getInt("idAcademico"));
                     profesorTemp.setNombres(resultadoConsulta.getString("nombres"));
                     profesorTemp.setApellidoPaterno(resultadoConsulta.getString("apellidoPaterno"));
                     profesorTemp.setApellidoMaterno(resultadoConsulta.getString("apellidoMaterno"));
                     profesorTemp.setCorreo(resultadoConsulta.getString("correo"));
-                    profesorTemp.setTipoProfesor(resultadoConsulta.getString("tipoDeProfesor"));
                     profesores.add(profesorTemp);
                 }
                 conexionBD.close();
