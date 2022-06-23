@@ -61,7 +61,6 @@ public class FXMLMenuCUsController implements Initializable {
         }
     }
 
-    @FXML
     private void btRegistrarProblematica(ActionEvent event) {
         try{
            FXMLLoader loader = new FXMLLoader(getClass().getResource("FXMLRegistrarProblemáticaAcadémica.fxml"));
@@ -128,9 +127,9 @@ public class FXMLMenuCUsController implements Initializable {
             e.printStackTrace();
         }
     }
-
+    
     @FXML
-    private void btSalir(ActionEvent event) {
+    private void btCerrarSesion(ActionEvent event) {
         cerrarVentana();
     }
 
