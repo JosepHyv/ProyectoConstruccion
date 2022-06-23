@@ -1,7 +1,7 @@
 /*
  * Autor: Leonardo Criollo Ramírez
  * Fecha de creación: 11/05/22
- * Fecha de modificación: 13/06/22
+ * Fecha de modificación: 22/06/22
  * Descripcion: DAO de la clase ReporteTutoria
  */
 package proyectoconstruccion.modelo.DAO;
@@ -22,15 +22,14 @@ public class ReporteTutoriaDAO {
         if(conexionBD != null){
             try{
                 String sentencia = "INSERT INTO reportetutoria "
-                        + "(numReporte, fecha, programaEducativo, numAsistencia, numRiesgo, comentarios) "
-                        + "VALUES (?, ?, ?, ?, ?, ?)";
+                        + "(fecha, programaEducativo, numAsistencia, numRiesgo, comentarios) "
+                        + "VALUES (?, ?, ?, ?, ?)";
                 PreparedStatement configurarConsulta = conexionBD.prepareStatement(sentencia);
-                configurarConsulta.setInt(1, reporteTutoriaRegistro.getNumReporte());
-                configurarConsulta.setObject(2, reporteTutoriaRegistro.getFecha());
-                configurarConsulta.setString(3, reporteTutoriaRegistro.getProgramaEducativo());
-                configurarConsulta.setInt(4, reporteTutoriaRegistro.getNumAsistencia());
-                configurarConsulta.setInt(5, reporteTutoriaRegistro.getNumRiesgo());
-                configurarConsulta.setString(6, reporteTutoriaRegistro.getComentarios());
+                configurarConsulta.setObject(1, reporteTutoriaRegistro.getFecha());
+                configurarConsulta.setString(2, reporteTutoriaRegistro.getProgramaEducativo());
+                configurarConsulta.setInt(3, reporteTutoriaRegistro.getNumAsistencia());
+                configurarConsulta.setInt(4, reporteTutoriaRegistro.getNumRiesgo());
+                configurarConsulta.setString(5, reporteTutoriaRegistro.getComentarios());
                 int filasAfectadas = configurarConsulta.executeUpdate();
                 respuesta = (filasAfectadas == 1) ? Constantes.CODIGO_OPERACION_CORRECTA : Constantes.CODIGO_OPERACION_DML_FALLIDA;
                 conexionBD.close();
@@ -42,26 +41,5 @@ public class ReporteTutoriaDAO {
             respuesta = Constantes.CODIGO_ERROR_CONEXIONBD;
         }
         return respuesta;
-    }
-    
-    public static int getNumeroReporteMasActual(){
-        int idReporte = 1;
-        Connection conexionBD = ConexionBD.abrirConexionBD();
-        if(conexionBD != null){
-            try{
-                String sentencia = "SELECT * FROM reportetutoria ORDER BY idReporteTutoria DESC LIMIT 0,1";
-                PreparedStatement configurarConsulta = conexionBD.prepareStatement(sentencia);
-                ResultSet resultadoConsulta = configurarConsulta.executeQuery();
-                while(resultadoConsulta.next()){
-                    idReporte = resultadoConsulta.getInt("idReporteTutoria") + 1;
-                }
-            }catch (SQLException e){
-                e.printStackTrace();
-                idReporte = Integer.MIN_VALUE;
-            }
-        }else {
-            idReporte = Integer.MIN_VALUE;
-        }
-        return idReporte;
     }
 }

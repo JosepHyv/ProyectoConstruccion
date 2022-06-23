@@ -21,6 +21,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
+import javafx.scene.control.ButtonType;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextArea;
@@ -109,8 +110,11 @@ public class FXMLLlenarReorteDeTutoriasController implements Initializable {
     }
 
     private void cerrarVentana() {
-        Stage escenario = (Stage) btnCancelar.getScene().getWindow();
-        escenario.close();
+        if(Utilidades.mostrarAlertaConfirmacion("Advertencia", "¿Seguro que desea cancelar la operación?"
+                + " Se perderá toda la informacion y problemáticas guardadas.", Alert.AlertType.CONFIRMATION).get() == ButtonType.OK){
+            Stage escenario = (Stage) btnCancelar.getScene().getWindow();
+            escenario.close();
+        }
     }
     
     private void configurarColumnasTabla() {
@@ -139,11 +143,6 @@ public class FXMLLlenarReorteDeTutoriasController implements Initializable {
             Utilidades.mostrarAlerta("Error", "No hay conexion con la base de datos.", Alert.AlertType.ERROR);
         }
         this.periodo = PeriodoDAO.getPeriodoActual();
-        if(ReporteTutoriaDAO.getNumeroReporteMasActual() == Integer.MIN_VALUE){
-            Utilidades.mostrarAlerta("Error", "Error obteniendo número reporte más reciente", Alert.AlertType.ERROR);
-        }else{
-            this.idReporte = ReporteTutoriaDAO.getNumeroReporteMasActual();
-        }
     }
 
     @FXML
@@ -154,12 +153,12 @@ public class FXMLLlenarReorteDeTutoriasController implements Initializable {
 
     private void guardarReporte() {
         ReporteTutoria reporteRegistro = new ReporteTutoria();
-        reporteRegistro.setComentarios(taComentarios.getText());
+        reporteRegistro.setFecha(LocalDate.now());
         reporteRegistro.setProgramaEducativo("Ingeniería en Software");
         reporteRegistro.setNumReporte(tbReporte.getItems().size());
         reporteRegistro.setNumAsistencia(contarAsistencia());
         reporteRegistro.setNumRiesgo(contarRiesgo());
-        reporteRegistro.setFecha(LocalDate.now());
+        reporteRegistro.setComentarios(taComentarios.getText());
 
         switch(ReporteTutoriaDAO.insertarReporteTutoria(reporteRegistro)){
             case Constantes.CODIGO_OPERACION_CORRECTA:

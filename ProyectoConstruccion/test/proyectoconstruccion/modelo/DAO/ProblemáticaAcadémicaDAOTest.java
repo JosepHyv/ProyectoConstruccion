@@ -52,10 +52,11 @@ public class ProblemáticaAcadémicaDAOTest {
     }
 
     @Test
-    public void testObtenerProblemáticaAcadémica() {
-        System.out.println("obtenerProblem\u00e1ticaAcad\u00e9mica");
+    public void testObtenerProblemáticaAcadémicas() {
+        System.out.println("obtenerProblem\u00e1ticaAcad\u00e9micas");
+        int periodo = 0;
         ArrayList<ProblemáticaAcadémica> expResult = null;
-        ArrayList<ProblemáticaAcadémica> result = ProblemáticaAcadémicaDAO.obtenerProblemáticaAcadémica();
+        ArrayList<ProblemáticaAcadémica> result = ProblemáticaAcadémicaDAO.obtenerProblemáticaAcadémicas(periodo);
         assertEquals(expResult, result);
     }
     

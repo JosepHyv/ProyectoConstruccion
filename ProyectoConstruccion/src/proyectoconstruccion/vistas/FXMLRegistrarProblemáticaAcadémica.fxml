@@ -6,22 +6,22 @@
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane id="AnchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="480.0" prefWidth="720.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="proyectoconstruccion.vistas.FXMLRegistrarProblemáticaAcadémicaController">
+<AnchorPane id="AnchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="640.0" prefWidth="960.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="proyectoconstruccion.vistas.FXMLRegistrarProblemáticaAcadémicaController">
    <children>
-      <Label layoutX="40.0" layoutY="32.0" text="Numero de alumnos" />
-      <Label layoutX="40.0" layoutY="150.0" text="Gravedad" />
-      <Label layoutX="40.0" layoutY="288.0" text="Categoria" />
-      <Label layoutX="270.0" layoutY="32.0" text="Descripcion" />
-      <Label layoutX="270.0" layoutY="226.0" text="Solucion" />
-      <TextField fx:id="tfNumeroAlumnos" layoutX="40.0" layoutY="50.0" />
-      <TextField fx:id="tfGravedad" layoutX="40.0" layoutY="168.0" />
-      <TextField fx:id="tfCategoria" layoutX="40.0" layoutY="306.0" />
-      <TextArea fx:id="taDescripcion" layoutX="270.0" layoutY="50.0" prefHeight="175.0" prefWidth="374.0" />
-      <TextArea fx:id="taSolucion" layoutX="270.0" layoutY="244.0" prefHeight="175.0" prefWidth="374.0" promptText="Opcional" />
-      <Button layoutX="634.0" layoutY="438.0" mnemonicParsing="false" onAction="#btnCancelar" style="-fx-background-color: red;" text="Cancelar" />
-      <Button layoutX="552.0" layoutY="438.0" mnemonicParsing="false" onAction="#btnGuardar" style="-fx-background-color: limegreen;" text="Guardar" />
-      <Label fx:id="lbErrorNumero" layoutX="40.0" layoutY="78.0" text="Error Num" textFill="#b51d1d" />
-      <Label fx:id="lbErrorGravedad" layoutX="40.0" layoutY="196.0" text="Error Gravedad" textFill="#b51d1d" />
-      <Label fx:id="lbErrorCategoria" layoutX="40.0" layoutY="334.0" text="Error Categoria" textFill="#b51d1d" />
+      <Label layoutX="32.0" layoutY="31.0" text="Numero de alumnos" />
+      <Label layoutX="32.0" layoutY="149.0" text="Gravedad" />
+      <Label layoutX="32.0" layoutY="287.0" text="Categoria" />
+      <Label layoutX="249.0" layoutY="22.0" text="Descripcion" />
+      <Label layoutX="249.0" layoutY="310.0" text="Solucion" />
+      <TextField fx:id="tfNumeroAlumnos" layoutX="32.0" layoutY="49.0" promptText="E.j. 3" />
+      <TextField fx:id="tfGravedad" layoutX="32.0" layoutY="167.0" promptText="E.j. Baja" />
+      <TextField fx:id="tfCategoria" layoutX="32.0" layoutY="305.0" promptText="E.j. Catedra" />
+      <TextArea fx:id="taDescripcion" layoutX="249.0" layoutY="42.0" prefHeight="253.0" prefWidth="697.0" promptText="Obligatorio" />
+      <TextArea fx:id="taSolucion" layoutX="249.0" layoutY="330.0" prefHeight="253.0" prefWidth="697.0" promptText="Opcional" />
+      <Button layoutX="874.0" layoutY="598.0" mnemonicParsing="false" onAction="#btnCancelar" style="-fx-background-color: red;" text="Cancelar" />
+      <Button layoutX="792.0" layoutY="598.0" mnemonicParsing="false" onAction="#btnGuardar" style="-fx-background-color: limegreen;" text="Guardar" />
+      <Label fx:id="lbErrorNumero" layoutX="32.0" layoutY="77.0" text="Error Num" textFill="#b51d1d" />
+      <Label fx:id="lbErrorGravedad" layoutX="32.0" layoutY="195.0" text="Error Gravedad" textFill="#b51d1d" />
+      <Label fx:id="lbErrorCategoria" layoutX="32.0" layoutY="333.0" text="Error Categoria" textFill="#b51d1d" />
    </children>
 </AnchorPane>
