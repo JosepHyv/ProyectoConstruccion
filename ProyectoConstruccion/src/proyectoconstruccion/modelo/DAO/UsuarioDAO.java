@@ -22,7 +22,10 @@ public class UsuarioDAO{
         Connection conexionBD = ConexionBD.abrirConexionBD();
         if(conexionBD != null){
             try{
-                String consulta = "SELECT * FROM usuario WHERE username = ? AND password = ?";
+                String consulta = "select usuarios.idUsuario, usuarios.username, usuarios.password, "  
+                        + "roles.nombreRol from usuarios inner join rolesacademicousuarios on rolesacademicousuarios.idRolUsuario " 
+                        + " = usuarios.idRolUsuario inner join roles on roles.idRol = rolesacademicousuarios.idRol " 
+                        + "WHERE username = ? AND password = ?";
                 PreparedStatement prepararConsulta = conexionBD.prepareStatement(consulta);
                 prepararConsulta.setString(1, username);
                 prepararConsulta.setString(2, password);
@@ -31,7 +34,7 @@ public class UsuarioDAO{
                     usuarioLogin.setIdUsuario(resultadoConsulta.getInt("idUsuario"));
                     usuarioLogin.setUsername(resultadoConsulta.getString("username"));
                     usuarioLogin.setPassword(resultadoConsulta.getString("password"));
-                    usuarioLogin.setRol(resultadoConsulta.getString("rol"));
+                    usuarioLogin.setRol(resultadoConsulta.getString("nombreRol"));
                     usuarioLogin.setCodigoRespuesta(Constantes.CODIGO_OPERACION_CORRECTA);
                 }else{
                     usuarioLogin.setCodigoRespuesta(Constantes.CODIGO_CREDENCIALES_INCORRECTAS);
