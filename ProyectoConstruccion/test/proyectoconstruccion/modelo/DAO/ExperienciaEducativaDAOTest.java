@@ -1,7 +1,7 @@
 /*
 * Autor: Juan Pablo Peredo Martínez
 * Fecha de creacion: 15/06/22
-* Fecha de modificacion: 15/06/22
+* Fecha de modificacion: 22/06/22
 * Descripcion: Archivo de pruebas para las operaciones del DAO de experiencia educativa.
 */
 package proyectoconstruccion.modelo.DAO;

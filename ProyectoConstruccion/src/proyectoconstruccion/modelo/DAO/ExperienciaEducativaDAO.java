@@ -1,7 +1,7 @@
 /*
 * Autor: Juan Pablo Peredo Martínez
 * Fecha de creacion: 26/05/22
-* Fecha de modificacion: 21/06/22
+* Fecha de modificacion: 22/06/22
 * Descripcion: Operaciones en la base de datos relacionadas con experiencias educativas.
 */
 package proyectoconstruccion.modelo.DAO;
@@ -78,7 +78,7 @@ public class ExperienciaEducativaDAO {
                 }
                 conexionBD.close();
             } catch (SQLException e) {
-                //Utilidades.mostrarAlerta("Advertencia", "No se puede acceder a la base de datos", Alert.AlertType.WARNING);
+                Utilidades.mostrarAlerta("Advertencia", "No se puede acceder a la base de datos", Alert.AlertType.WARNING);
             }
         }else{
             experienciasEducativas = null;

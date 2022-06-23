@@ -1,7 +1,7 @@
 /*
 * Autor: Juan Pablo Peredo Martínez
 * Fecha de creacion: 15/06/22
-* Fecha de modificacion: 15/06/22
+* Fecha de modificacion: 22/06/22
 * Descripcion: Archivo de pruebas para las operaciones del DAO de profesor.
 */
 package proyectoconstruccion.modelo.DAO;
@@ -48,11 +48,11 @@ public class ProfesorDAOTest {
         System.out.println("obtenerProfesores");
         Profesor profesor = new Profesor();
         profesor.setIdProfesor(1);
-        profesor.setNombres("Jaun");
-        profesor.setApellidoPaterno("Clau");
-        profesor.setApellidoMaterno("Van Dame");
-        profesor.setCorreo("correo@example.com");
-        profesor.setTipoProfesor("tiempo completo");
+        profesor.setNombres("Otto");
+        profesor.setApellidoPaterno("Miguel");
+        profesor.setApellidoMaterno("Jimenez");
+        profesor.setCorreo("ottoMJ@uv.mx");
+        profesor.setEsActivo(true);
         ArrayList<Profesor> expResult = new ArrayList<>();
         expResult.add(profesor);
         ArrayList<Profesor> result = ProfesorDAO.obtenerProfesores();
