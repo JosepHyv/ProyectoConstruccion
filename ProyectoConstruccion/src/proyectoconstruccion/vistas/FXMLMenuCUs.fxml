@@ -9,7 +9,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="660.0" prefWidth="940.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="proyectoconstruccion.vistas.FXMLMenuCUsController">
+<AnchorPane id="AnchorPane" prefHeight="640.0" prefWidth="960.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="proyectoconstruccion.vistas.FXMLMenuCUsController">
    <children>
       <Label fx:id="lbBienvenido" alignment="CENTER" layoutX="115.0" layoutY="45.0" text="Bienvenido al Sistema de Gestion de Tutorias" textAlignment="CENTER">
          <font>

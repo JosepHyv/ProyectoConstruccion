@@ -17,6 +17,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
+import javafx.scene.control.ButtonType;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.stage.Modality;
@@ -130,9 +131,21 @@ public class FXMLMenuCUsController implements Initializable {
     
     @FXML
     private void btCerrarSesion(ActionEvent event) {
-        cerrarVentana();
+        if(Utilidades.mostrarAlertaConfirmacion("Advertencia", "¿Seguro que desea cerrar sesión?", Alert.AlertType.CONFIRMATION).get() == ButtonType.OK){
+            try {
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("FXMLInicioDeSesion.fxml"));
+                Parent root = loader.load();
+                Stage escenarioPrincipal = (Stage) lbBienvenido.getScene().getWindow();
+                Scene pantallaAlumnos = new Scene(root);
+                escenarioPrincipal.setScene(pantallaAlumnos);
+                escenarioPrincipal.setTitle("Asignar profesor a experiencia educativa");
+                escenarioPrincipal.show();
+            } catch (IOException e) {
+                System.err.println("Error al cargar la pantalla...");
+            }
+        }
     }
-
+    
     private void cerrarVentana() {
         Stage escenario = (Stage) lbBienvenido.getScene().getWindow();
         escenario.close();
