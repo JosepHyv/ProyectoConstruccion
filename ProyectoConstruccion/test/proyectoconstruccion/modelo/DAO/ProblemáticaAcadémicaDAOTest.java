@@ -46,7 +46,7 @@ public class ProblemáticaAcadémicaDAOTest {
         problematicaAcademicaRegistro.setGravedad("baja");
         problematicaAcademicaRegistro.setNumAlum(0);
         problematicaAcademicaRegistro.setSolucion("Hablar con el docente.");
-        problematicaAcademicaRegistro.setIdReporteTutoria(0);
+        problematicaAcademicaRegistro.setIdReporteTutoria(1);
         problematicaAcademicaRegistro.setIdPeriodo(PeriodoDAO.getPeriodoActual().getIdPeriodo());
         int expResult = 0;
         int result = ProblemáticaAcadémicaDAO.insertarProblemáticaAcadémica(problematicaAcademicaRegistro);
