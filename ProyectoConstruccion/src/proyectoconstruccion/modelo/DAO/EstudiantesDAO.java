@@ -15,7 +15,7 @@ import javafx.scene.control.Alert;
 import proyectoconstruccion.modelo.ConexionBD;
 import proyectoconstruccion.modelo.pojo.Estudiante;
 import proyectoconstruccion.util.Utilidades;
-import proyectoconstruccion.modelo.pojo.InformacionSesion;
+import proyectoconstruccion.modelo.pojo.Usuario;
 
 /**
  *
@@ -29,8 +29,7 @@ public class EstudiantesDAO {
             String query = "SELECT * FROM estudiante WHERE idTutorAcademico = ?;";
             try{
                 PreparedStatement configurarConsulta = conexionBD.prepareStatement(query);
-                System.out.println(InformacionSesion.getInformacionSesion().getIdUsuario());
-                configurarConsulta.setInt(1,InformacionSesion.getInformacionSesion().getIdUsuario());
+                configurarConsulta.setInt(1,Usuario.usuarioLogin.getIdAcademico());
                 ResultSet resultadoConsulta = configurarConsulta.executeQuery();
                 while(resultadoConsulta.next()){
                     Estudiante estudianteTemporal = new Estudiante();

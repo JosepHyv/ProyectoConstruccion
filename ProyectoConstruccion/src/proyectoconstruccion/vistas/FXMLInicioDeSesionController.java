@@ -24,7 +24,6 @@ import proyectoconstruccion.util.Utilidades;
 import proyectoconstruccion.util.Constantes;
 import proyectoconstruccion.modelo.DAO.UsuarioDAO;
 import proyectoconstruccion.modelo.pojo.Usuario;
-import proyectoconstruccion.modelo.pojo.InformacionSesion;
 
 public class FXMLInicioDeSesionController implements Initializable {
 
@@ -78,8 +77,6 @@ public class FXMLInicioDeSesionController implements Initializable {
         Usuario usuarioLogin = UsuarioDAO.IniciarSesion(username, password);
         if(usuarioLogin.getCodigoRespuesta() == Constantes.CODIGO_OPERACION_CORRECTA){
             Utilidades.mostrarAlerta("Usuario Verificado","Bienvenido al sistema.",Alert.AlertType.INFORMATION);
-            InformacionSesion.getInformacionSesion().setRol(usuarioLogin.getRol());
-            InformacionSesion.getInformacionSesion().setIdUsuario(usuarioLogin.getIdAcademico());
             irPantallaPrincipal();
         }else if(usuarioLogin.getCodigoRespuesta() == Constantes.CODIGO_CREDENCIALES_INCORRECTAS){
             Utilidades.mostrarAlerta("Credenciales incorrectas","Usuario o contraseña incorrectas.",Alert.AlertType.WARNING);
