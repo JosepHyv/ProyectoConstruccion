@@ -24,7 +24,6 @@ import javafx.stage.Modality;
 import javafx.stage.Stage;
 import proyectoconstruccion.modelo.pojo.Usuario;
 import proyectoconstruccion.util.Utilidades;
-import proyectoconstruccion.modelo.pojo.InformacionSesion;
 
 public class FXMLMenuCUsController implements Initializable {
 
@@ -41,7 +40,7 @@ public class FXMLMenuCUsController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        final String ROL_USUARIO = InformacionSesion.getInformacionSesion().getRol();
+        final String ROL_USUARIO = Usuario.usuarioLogin.getRol();//InformacionSesion.getInformacionSesion().getRol();
         configurarBotones(ROL_USUARIO);
     }    
 
