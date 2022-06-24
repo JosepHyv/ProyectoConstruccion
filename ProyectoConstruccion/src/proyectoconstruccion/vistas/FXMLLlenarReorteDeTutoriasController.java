@@ -161,9 +161,7 @@ public class FXMLLlenarReorteDeTutoriasController implements Initializable {
         reporteRegistro.setNumAsistencia(contarAsistencia());
         reporteRegistro.setNumRiesgo(contarRiesgo());
         reporteRegistro.setComentarios(taComentarios.getText());
-        int temp = ReporteTutoriaDAO.insertarReporteTutoria(reporteRegistro);
-        System.out.println("Obtuve " + temp);
-        switch( temp ){ //ReporteTutoriaDAO.insertarReporteTutoria(reporteRegistro)){
+        switch( ReporteTutoriaDAO.insertarReporteTutoria(reporteRegistro) ){
             case Constantes.CODIGO_OPERACION_CORRECTA:
                 Utilidades.mostrarAlerta("Operacion correcta", "El reporte se registro de forma correcta", Alert.AlertType.INFORMATION);
                 break;
