@@ -10,9 +10,11 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import javafx.scene.control.Alert;
 import proyectoconstruccion.modelo.ConexionBD;
 import proyectoconstruccion.modelo.pojo.ReporteTutoria;
 import proyectoconstruccion.util.Constantes;
+import proyectoconstruccion.util.Utilidades;
 
 public class ReporteTutoriaDAO {
     
@@ -34,6 +36,7 @@ public class ReporteTutoriaDAO {
                 respuesta = (filasAfectadas == 1) ? Constantes.CODIGO_OPERACION_CORRECTA : Constantes.CODIGO_OPERACION_DML_FALLIDA;
                 conexionBD.close();
             } catch (SQLException e){
+                Utilidades.mostrarAlerta("Advertencia", "No se puede acceder a la base de datos", Alert.AlertType.ERROR);
                 e.printStackTrace();
                 respuesta = Constantes.CODIGO_ERROR_CONEXIONBD;
             }
@@ -41,5 +44,33 @@ public class ReporteTutoriaDAO {
             respuesta = Constantes.CODIGO_ERROR_CONEXIONBD;
         }
         return respuesta;
+    }
+    
+    public static Integer getIdUltimoReporte(){
+        Connection conexionBD = ConexionBD.abrirConexionBD();
+        Integer ultimoIdReporte = 0;
+        if(conexionBD != null){
+            String query = "SELECT max(idReporteTutoria) " +
+                    "FROM reportetutoria;";
+            try{
+                PreparedStatement configurarConsulta = conexionBD.prepareStatement(query);
+                ResultSet resultadoConsulta = configurarConsulta.executeQuery();
+                if(resultadoConsulta.next()){
+                    ultimoIdReporte = resultadoConsulta.getInt("max(idReporteTutoria)");
+                    conexionBD.close();                    
+                }
+                else{
+                    ultimoIdReporte = Integer.MIN_VALUE;
+                }
+            }catch(SQLException ex){
+                System.out.println("auxilio:(");
+                ex.printStackTrace();
+                Utilidades.mostrarAlerta("Advertencia", "No se puede acceder a la base de datos", Alert.AlertType.ERROR);
+            }
+        }else{
+            ultimoIdReporte = Integer.MIN_VALUE;
+        }
+        System.out.println("ultimo reporte = " + ultimoIdReporte);
+        return ultimoIdReporte;
     }
 }

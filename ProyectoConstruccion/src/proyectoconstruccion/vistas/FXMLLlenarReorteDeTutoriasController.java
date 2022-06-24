@@ -158,15 +158,14 @@ public class FXMLLlenarReorteDeTutoriasController implements Initializable {
         ReporteTutoria reporteRegistro = new ReporteTutoria();
         reporteRegistro.setFecha(Date.valueOf(LocalDate.now()));
         reporteRegistro.setProgramaEducativo("Ingeniería en Software");
-        //reporteRegistro.setNumReporte(tbReporte.getItems().size());
         reporteRegistro.setNumAsistencia(contarAsistencia());
         reporteRegistro.setNumRiesgo(contarRiesgo());
         reporteRegistro.setComentarios(taComentarios.getText());
-        
-        switch(ReporteTutoriaDAO.insertarReporteTutoria(reporteRegistro)){
+        int temp = ReporteTutoriaDAO.insertarReporteTutoria(reporteRegistro);
+        System.out.println("Obtuve " + temp);
+        switch( temp ){ //ReporteTutoriaDAO.insertarReporteTutoria(reporteRegistro)){
             case Constantes.CODIGO_OPERACION_CORRECTA:
                 Utilidades.mostrarAlerta("Operacion correcta", "El reporte se registro de forma correcta", Alert.AlertType.INFORMATION);
-                cerrarVentana();
                 break;
             case Constantes.CODIGO_OPERACION_DML_FALLIDA:
                 Utilidades.mostrarAlerta("Operacion fallida", "No se pudo realizar la operacion.", Alert.AlertType.WARNING);
@@ -201,21 +200,24 @@ public class FXMLLlenarReorteDeTutoriasController implements Initializable {
     }
 
     private void guardarProblematicas() {
-        for(ProblemáticaAcadémica problematicaAcademica : problematicas){
-            problematicaAcademica.setIdReporteTutoria(idReporte);
-            switch(ProblemáticaAcadémicaDAO.insertarProblemáticaAcadémica(problematicaAcademica)){
-                case Constantes.CODIGO_OPERACION_CORRECTA:
-                    Utilidades.mostrarAlerta("Operacion correcta", "La Problemática Académica se registro de forma correcta", Alert.AlertType.INFORMATION);
-                    break;
-               case Constantes.CODIGO_OPERACION_DML_FALLIDA:
-                    Utilidades.mostrarAlerta("Operacion fallida", "No se pudo realizar la operacion.", Alert.AlertType.WARNING);
-                    break;
-                case Constantes.CODIGO_ERROR_CONEXIONBD:
-                    Utilidades.mostrarAlerta("Error de conexion", "No se pudo conectar con la base de datos, "
-                            + "por favor intentelo de nuevo más tarde.", Alert.AlertType.ERROR);
-                    break;
-                default:
-                    Utilidades.mostrarAlerta("Error", "Ocurrió un error desconocido", Alert.AlertType.ERROR);
+        idReporte = ReporteTutoriaDAO.getIdUltimoReporte();
+        if(idReporte != Integer.MIN_VALUE){
+            for(ProblemáticaAcadémica problematicaAcademica : problematicas){
+                problematicaAcademica.setIdReporteTutoria(idReporte);
+                switch(ProblemáticaAcadémicaDAO.insertarProblemáticaAcadémica(problematicaAcademica)){
+                    case Constantes.CODIGO_OPERACION_CORRECTA:
+                        Utilidades.mostrarAlerta("Operacion correcta", "La Problemática Académica se registro de forma correcta", Alert.AlertType.INFORMATION);
+                        break;
+                   case Constantes.CODIGO_OPERACION_DML_FALLIDA:
+                        Utilidades.mostrarAlerta("Operacion fallida", "No se pudo realizar la operacion.", Alert.AlertType.WARNING);
+                        break;
+                    case Constantes.CODIGO_ERROR_CONEXIONBD:
+                        Utilidades.mostrarAlerta("Error de conexion", "No se pudo conectar con la base de datos, "
+                                + "por favor intentelo de nuevo más tarde.", Alert.AlertType.ERROR);
+                        break;
+                    default:
+                        Utilidades.mostrarAlerta("Error", "Ocurrió un error desconocido", Alert.AlertType.ERROR);
+                }
             }
         }
     }
