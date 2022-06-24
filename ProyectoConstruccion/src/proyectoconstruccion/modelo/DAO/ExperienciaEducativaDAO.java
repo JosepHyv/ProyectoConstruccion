@@ -26,7 +26,7 @@ public class ExperienciaEducativaDAO {
             String query = "SELECT distinct experienciaeducativa.idExperienciaEducativa,experienciaeducativa.nrc,\n" +
             "experienciaeducativa.nombre,experienciaeducativa.area,\n" +
             "experienciaeducativa.programaEducativo,experienciaeducativa.semestreRecomendado,imparte.idAcademico,\n" +
-            "CASE WHEN imparte.idAcademico IS NULL THEN NULL ELSE academico.nombres END AS nombreProfesor\n" +
+            "CASE WHEN imparte.idAcademico IS NULL THEN NULL ELSE CONCAT(academico.nombres,\" \",academico.apellidoPaterno,\" \",academico.apellidoMaterno)  END AS nombreProfesor\n" +
             "FROM experienciaeducativa INNER JOIN imparte\n" +
             "ON experienciaeducativa.idExperienciaEducativa = imparte.idExperienciaEducativa\n" +
             "INNER JOIN academico\n" +
