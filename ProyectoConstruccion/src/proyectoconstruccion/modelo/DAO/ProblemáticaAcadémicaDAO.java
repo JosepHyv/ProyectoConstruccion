@@ -60,7 +60,7 @@ public class ProblemáticaAcadémicaDAO {
                     problematicaAcademicaTemp.setIdProblemáticaAcadémica(resultadoConsulta.getInt("idProblematicaAcademica"));
                     problematicaAcademicaTemp.setNumAlum(resultadoConsulta.getInt("numAlum"));
                     problematicaAcademicaTemp.setDescripcion(resultadoConsulta.getString("descripcion"));
-                    problematicaAcademicaTemp.setGravedad(resultadoConsulta.getString("descripcion"));
+                    problematicaAcademicaTemp.setGravedad(resultadoConsulta.getString("gravedad"));
                     problematicaAcademicaTemp.setCategoria(resultadoConsulta.getString("categoria"));
                     problematicaAcademicaTemp.setSolucion(resultadoConsulta.getString("solucion"));
                     problematicaAcademicaTemp.setIdPeriodo(resultadoConsulta.getInt("idPeriodo"));
