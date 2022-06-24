@@ -4,8 +4,8 @@ Sistema Básico para gestión de Tutorias Académicas de la Universidad Veracruz
 
 # Propiedades 
  Se utilizará una configuracion base para todas las pantallas, las cuales son las siguientes:
-## Resolcuion 
-* 720 x 480 en cada una de las escenas.
+## Resolucion 
+* 960 x 640 en cada una de las escenas.
 * Habilitar Set Resizeable.
 ``` java
 

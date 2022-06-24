@@ -99,15 +99,12 @@ public class FXMLOfertaAcademicaController implements Initializable {
                 @Override
                 public void changed(ObservableValue<? extends String> observable, String oldValue, String newValue) {
                     listaFiltrada.setPredicate(busqueda ->{
-                        //Regla 1
                         if(newValue == null || newValue.isEmpty()){
                             return true;
                         }
-                        //Regla 2
                         if(busqueda.getNombre().toLowerCase().contains(newValue.toLowerCase())){
                             return true;
                         }
-                        //Regla 3
                         else if(busqueda.getNrc().toLowerCase().contains(newValue.toLowerCase())){
                             return true;
                         }
