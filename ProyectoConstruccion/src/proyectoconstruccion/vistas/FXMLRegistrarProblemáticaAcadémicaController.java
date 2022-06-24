@@ -1,13 +1,14 @@
 /*
  * Autor: Leonardo Criollo Ramírez
  * Fecha de creación: 13/05/22
- * Fecha de modificación: 15/06/22
+ * Fecha de modificación: 23/06/22
  * Descripcion: Controlador de la ventana RegistrarProblemáticaAcadémica
  */
 package proyectoconstruccion.vistas;
 
 import static java.lang.Integer.parseInt;
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.ResourceBundle;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
@@ -15,8 +16,10 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Alert;
+import javafx.scene.control.ButtonType;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
@@ -44,6 +47,8 @@ public class FXMLRegistrarProblemáticaAcadémicaController implements Initializ
     private int idReporte;
 
     private int idPeriodo;
+    
+    private FXMLLlenarReorteDeTutoriasController controlador;
     
     private ProblemáticaAcadémica problematicaAcademicaRegistro;
 
@@ -84,8 +89,6 @@ public class FXMLRegistrarProblemáticaAcadémicaController implements Initializ
         categorias.add("Acoso");
         categorias.add("Otro");
         cbCategoria.setItems(categorias);
-        
-        
     }
 
     @FXML
@@ -97,12 +100,16 @@ public class FXMLRegistrarProblemáticaAcadémicaController implements Initializ
     private void btnGuardar(ActionEvent event) {
         if(comprobarCampos()){
             insertarProblemáticaAcadémica();
-            cerrarVentana();
+            dialogoRegistro();
         }else{
             Utilidades.mostrarAlertaConfirmacion("Campos inválidos", "Uno o más campos no han sido llenados correctamente.", Alert.AlertType.WARNING);
         }
     }
 
+    public void setControlador(FXMLLlenarReorteDeTutoriasController controlador) {
+        this.controlador = controlador;
+    }
+    
     private void cerrarVentana() {
         Stage escenario = (Stage) tfNumeroAlumnos.getScene().getWindow();
         escenario.close();    
@@ -140,13 +147,27 @@ public class FXMLRegistrarProblemáticaAcadémicaController implements Initializ
             solucion = taSolucion.getText();
         }
         problematicaAcademicaRegistro.setSolucion(solucion);
+
+        ArrayList<ProblemáticaAcadémica> problematicas = controlador.getProblematicas();
+        problematicas.add(problematicaAcademicaRegistro);
+        controlador.setProblematicas(problematicas);
     }
 
     public void configurarIDs(Periodo periodo) {
         idPeriodo = periodo.getIdPeriodo();
     }
 
-    public ProblemáticaAcadémica getProblematicaAcademicaRegistro() {
-        return problematicaAcademicaRegistro;
+    
+    private void dialogoRegistro() {
+        if(Utilidades.mostrarAlertaConfirmacion("Problematica guardada.", "La problemática académica "
+                + "se registró con éxito.\n¿Desea registrar otra?", Alert.AlertType.CONFIRMATION).get() == ButtonType.OK){
+            tfNumeroAlumnos.clear();
+            cbGravedad.getSelectionModel().clearSelection();
+            cbCategoria.getSelectionModel().clearSelection();
+            taDescripcion.clear();
+            taSolucion.clear();
+        }else{
+            cerrarVentana();
+        }
     }
 }

@@ -92,15 +92,13 @@ public class FXMLLlenarReorteDeTutoriasController implements Initializable {
            Parent root = loader.load();
            FXMLRegistrarProblemáticaAcadémicaController controlador = loader.getController();
            controlador.configurarIDs(periodo);
+           controlador.setControlador(this);
            Scene escenaRegistrarProblematica = new Scene(root);
            Stage escenarioRegistrarProblematica = new Stage();
            escenarioRegistrarProblematica.getIcons().add(new Image("proyectoconstruccion/resources/icono.png"));
            escenarioRegistrarProblematica.setScene(escenaRegistrarProblematica);
            escenarioRegistrarProblematica.initModality(Modality.APPLICATION_MODAL);
            escenarioRegistrarProblematica.showAndWait();
-           if(controlador.getProblematicaAcademicaRegistro() != null){
-               problematicas.add(controlador.getProblematicaAcademicaRegistro());
-           }
         }catch(IOException e){
             Utilidades.mostrarAlerta("Error", "Error al mostrar ventana", Alert.AlertType.ERROR);
             e.printStackTrace();
@@ -109,13 +107,17 @@ public class FXMLLlenarReorteDeTutoriasController implements Initializable {
 
     @FXML
     private void btCancelar(ActionEvent event) {
-        cerrarVentana();
+        cerrarVentana(true);
     }
 
-    private void cerrarVentana() {
-        if(Utilidades.mostrarAlertaConfirmacion("Advertencia", "¿Seguro que desea cancelar la operación?"
-                + " Se perderá toda la informacion y problemáticas guardadas.", Alert.AlertType.CONFIRMATION).get() == ButtonType.OK){
-            Stage escenario = (Stage) btnCancelar.getScene().getWindow();
+    private void cerrarVentana(boolean confirmacion) {
+        Stage escenario = (Stage) btnCancelar.getScene().getWindow();
+        if(confirmacion){
+            if(Utilidades.mostrarAlertaConfirmacion("Advertencia", "¿Seguro que desea cancelar la operación?"
+                    + " Se perderá toda la informacion y problemáticas guardadas.", Alert.AlertType.CONFIRMATION).get() == ButtonType.OK){
+                escenario.close();
+            }
+        }else{
             escenario.close();
         }
     }
@@ -152,6 +154,7 @@ public class FXMLLlenarReorteDeTutoriasController implements Initializable {
     private void btGuardar(ActionEvent event) {
         guardarReporte();
         guardarProblematicas();
+        cerrarVentana(false);
     }
 
     private void guardarReporte() {
@@ -161,9 +164,9 @@ public class FXMLLlenarReorteDeTutoriasController implements Initializable {
         reporteRegistro.setNumAsistencia(contarAsistencia());
         reporteRegistro.setNumRiesgo(contarRiesgo());
         reporteRegistro.setComentarios(taComentarios.getText());
-        switch( ReporteTutoriaDAO.insertarReporteTutoria(reporteRegistro) ){
+        switch(ReporteTutoriaDAO.insertarReporteTutoria(reporteRegistro)){
             case Constantes.CODIGO_OPERACION_CORRECTA:
-                Utilidades.mostrarAlerta("Operacion correcta", "El reporte se registro de forma correcta", Alert.AlertType.INFORMATION);
+                Utilidades.mostrarAlerta("Reporte registrado.", "El reporte de tutorias se ha registrado correctamente.", Alert.AlertType.INFORMATION);
                 break;
             case Constantes.CODIGO_OPERACION_DML_FALLIDA:
                 Utilidades.mostrarAlerta("Operacion fallida", "No se pudo realizar la operacion.", Alert.AlertType.WARNING);
@@ -204,7 +207,7 @@ public class FXMLLlenarReorteDeTutoriasController implements Initializable {
                 problematicaAcademica.setIdReporteTutoria(idReporte);
                 switch(ProblemáticaAcadémicaDAO.insertarProblemáticaAcadémica(problematicaAcademica)){
                     case Constantes.CODIGO_OPERACION_CORRECTA:
-                        Utilidades.mostrarAlerta("Operacion correcta", "La Problemática Académica se registro de forma correcta", Alert.AlertType.INFORMATION);
+                        System.out.println("Problematica guardada en DB");
                         break;
                    case Constantes.CODIGO_OPERACION_DML_FALLIDA:
                         Utilidades.mostrarAlerta("Operacion fallida", "No se pudo realizar la operacion.", Alert.AlertType.WARNING);
@@ -218,5 +221,13 @@ public class FXMLLlenarReorteDeTutoriasController implements Initializable {
                 }
             }
         }
+    }
+
+    public ArrayList<ProblemáticaAcadémica> getProblematicas() {
+        return problematicas;
+    }
+
+    public void setProblematicas(ArrayList<ProblemáticaAcadémica> problematicas) {
+        this.problematicas = problematicas;
     }
 }
