@@ -14,6 +14,7 @@ import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 import static org.junit.Assert.*;
+import proyectoconstruccion.modelo.pojo.Periodo;
 
 public class FXMLRegistrarProblemáticaAcadémicaControllerTest {
     
@@ -50,6 +51,32 @@ public class FXMLRegistrarProblemáticaAcadémicaControllerTest {
         System.out.println("configurarCampos");
         FXMLRegistrarProblemáticaAcadémicaController instance = new FXMLRegistrarProblemáticaAcadémicaController();
         instance.configurarCampos();
+    }
+
+    /**
+     * Test of setControlador method, of class FXMLRegistrarProblemáticaAcadémicaController.
+     */
+    @Test
+    public void testSetControlador() {
+        System.out.println("setControlador");
+        FXMLLlenarReorteDeTutoriasController controlador = null;
+        FXMLRegistrarProblemáticaAcadémicaController instance = new FXMLRegistrarProblemáticaAcadémicaController();
+        instance.setControlador(controlador);
+        // TODO review the generated test code and remove the default call to fail.
+        fail("The test case is a prototype.");
+    }
+
+    /**
+     * Test of configurarIDs method, of class FXMLRegistrarProblemáticaAcadémicaController.
+     */
+    @Test
+    public void testConfigurarIDs() {
+        System.out.println("configurarIDs");
+        Periodo periodo = null;
+        FXMLRegistrarProblemáticaAcadémicaController instance = new FXMLRegistrarProblemáticaAcadémicaController();
+        instance.configurarIDs(periodo);
+        // TODO review the generated test code and remove the default call to fail.
+        fail("The test case is a prototype.");
     }
     
 }
