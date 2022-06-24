@@ -109,13 +109,17 @@ public class FXMLLlenarReorteDeTutoriasController implements Initializable {
 
     @FXML
     private void btCancelar(ActionEvent event) {
-        cerrarVentana();
+        cerrarVentana(true);
     }
 
-    private void cerrarVentana() {
-        if(Utilidades.mostrarAlertaConfirmacion("Advertencia", "¿Seguro que desea cancelar la operación?"
-                + " Se perderá toda la informacion y problemáticas guardadas.", Alert.AlertType.CONFIRMATION).get() == ButtonType.OK){
-            Stage escenario = (Stage) btnCancelar.getScene().getWindow();
+    private void cerrarVentana(boolean confirmacion) {
+        Stage escenario = (Stage) btnCancelar.getScene().getWindow();
+        if(confirmacion){
+            if(Utilidades.mostrarAlertaConfirmacion("Advertencia", "¿Seguro que desea cancelar la operación?"
+                    + " Se perderá toda la informacion y problemáticas guardadas.", Alert.AlertType.CONFIRMATION).get() == ButtonType.OK){
+                escenario.close();
+            }
+        }else{
             escenario.close();
         }
     }
@@ -152,6 +156,7 @@ public class FXMLLlenarReorteDeTutoriasController implements Initializable {
     private void btGuardar(ActionEvent event) {
         guardarReporte();
         guardarProblematicas();
+        cerrarVentana(false);
     }
 
     private void guardarReporte() {
@@ -161,11 +166,9 @@ public class FXMLLlenarReorteDeTutoriasController implements Initializable {
         reporteRegistro.setNumAsistencia(contarAsistencia());
         reporteRegistro.setNumRiesgo(contarRiesgo());
         reporteRegistro.setComentarios(taComentarios.getText());
-        int temp = ReporteTutoriaDAO.insertarReporteTutoria(reporteRegistro);
-        System.out.println("Obtuve " + temp);
-        switch( temp ){ //ReporteTutoriaDAO.insertarReporteTutoria(reporteRegistro)){
+        switch(ReporteTutoriaDAO.insertarReporteTutoria(reporteRegistro)){
             case Constantes.CODIGO_OPERACION_CORRECTA:
-                Utilidades.mostrarAlerta("Operacion correcta", "El reporte se registro de forma correcta", Alert.AlertType.INFORMATION);
+                System.out.println("Problematica Registrada");
                 break;
             case Constantes.CODIGO_OPERACION_DML_FALLIDA:
                 Utilidades.mostrarAlerta("Operacion fallida", "No se pudo realizar la operacion.", Alert.AlertType.WARNING);
