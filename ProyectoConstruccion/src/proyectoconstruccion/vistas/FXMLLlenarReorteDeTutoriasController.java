@@ -92,15 +92,13 @@ public class FXMLLlenarReorteDeTutoriasController implements Initializable {
            Parent root = loader.load();
            FXMLRegistrarProblemáticaAcadémicaController controlador = loader.getController();
            controlador.configurarIDs(periodo);
+           controlador.setControlador(this);
            Scene escenaRegistrarProblematica = new Scene(root);
            Stage escenarioRegistrarProblematica = new Stage();
            escenarioRegistrarProblematica.getIcons().add(new Image("proyectoconstruccion/resources/icono.png"));
            escenarioRegistrarProblematica.setScene(escenaRegistrarProblematica);
            escenarioRegistrarProblematica.initModality(Modality.APPLICATION_MODAL);
            escenarioRegistrarProblematica.showAndWait();
-           if(controlador.getProblematicaAcademicaRegistro() != null){
-               problematicas.add(controlador.getProblematicaAcademicaRegistro());
-           }
         }catch(IOException e){
             Utilidades.mostrarAlerta("Error", "Error al mostrar ventana", Alert.AlertType.ERROR);
             e.printStackTrace();
@@ -223,5 +221,13 @@ public class FXMLLlenarReorteDeTutoriasController implements Initializable {
                 }
             }
         }
+    }
+
+    public ArrayList<ProblemáticaAcadémica> getProblematicas() {
+        return problematicas;
+    }
+
+    public void setProblematicas(ArrayList<ProblemáticaAcadémica> problematicas) {
+        this.problematicas = problematicas;
     }
 }
