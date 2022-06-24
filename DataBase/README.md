@@ -14,3 +14,6 @@ La **estructura** de la base de datos puede consultarse en la siguiente imagen.
 la **implementación** fue realizada en la MySQL Ver 8.0.29 y MariaDB Ver 5.0, posteriormente el despliegue del servidor fue mediante la shell que Azure ofrece y git en la versión 2.35, dicho servidor fue desplegado en un contenedor corriendo linux con el kernel 4.8.
 
 El **Script.sql** utilizado para la implementación se encuentra en esta misma pagina, documentado en el [tutoriasFei-script.sql]()
+
+Los archivos **tutoriasfei(<type>).sql** denotan las exportaciones de la base de datos de azure, una de estas es la estructura sin datos y la segunda es el backup de la estructura con los datos de azure (tenga en cuenta que etsos datos pueden estar desactualizados).
+ 
