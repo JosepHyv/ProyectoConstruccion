@@ -159,7 +159,7 @@ public class FXMLRegistrarProblemáticaAcadémicaController implements Initializ
 
     
     private void dialogoRegistro() {
-        if(Utilidades.mostrarAlertaConfirmacion("Problematica guardada.", "La problemática académica"
+        if(Utilidades.mostrarAlertaConfirmacion("Problematica guardada.", "La problemática académica "
                 + "se registró con éxito.\n¿Desea registrar otra?", Alert.AlertType.CONFIRMATION).get() == ButtonType.OK){
             tfNumeroAlumnos.clear();
             cbGravedad.getSelectionModel().clearSelection();

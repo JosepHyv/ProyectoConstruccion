@@ -166,7 +166,7 @@ public class FXMLLlenarReorteDeTutoriasController implements Initializable {
         reporteRegistro.setComentarios(taComentarios.getText());
         switch(ReporteTutoriaDAO.insertarReporteTutoria(reporteRegistro)){
             case Constantes.CODIGO_OPERACION_CORRECTA:
-                System.out.println("Problematica Registrada");
+                Utilidades.mostrarAlerta("Reporte registrado.", "El reporte de tutorias se ha registrado correctamente.", Alert.AlertType.INFORMATION);
                 break;
             case Constantes.CODIGO_OPERACION_DML_FALLIDA:
                 Utilidades.mostrarAlerta("Operacion fallida", "No se pudo realizar la operacion.", Alert.AlertType.WARNING);
@@ -207,7 +207,7 @@ public class FXMLLlenarReorteDeTutoriasController implements Initializable {
                 problematicaAcademica.setIdReporteTutoria(idReporte);
                 switch(ProblemáticaAcadémicaDAO.insertarProblemáticaAcadémica(problematicaAcademica)){
                     case Constantes.CODIGO_OPERACION_CORRECTA:
-                        Utilidades.mostrarAlerta("Operacion correcta", "La Problemática Académica se registro de forma correcta", Alert.AlertType.INFORMATION);
+                        System.out.println("Problematica guardada en DB");
                         break;
                    case Constantes.CODIGO_OPERACION_DML_FALLIDA:
                         Utilidades.mostrarAlerta("Operacion fallida", "No se pudo realizar la operacion.", Alert.AlertType.WARNING);
