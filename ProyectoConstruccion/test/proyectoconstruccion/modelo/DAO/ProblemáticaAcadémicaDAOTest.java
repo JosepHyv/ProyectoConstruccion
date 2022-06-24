@@ -46,6 +46,8 @@ public class ProblemáticaAcadémicaDAOTest {
         problematicaAcademicaRegistro.setGravedad("baja");
         problematicaAcademicaRegistro.setNumAlum(0);
         problematicaAcademicaRegistro.setSolucion("Hablar con el docente.");
+        problematicaAcademicaRegistro.setIdReporteTutoria(1);
+        problematicaAcademicaRegistro.setIdPeriodo(PeriodoDAO.getPeriodoActual().getIdPeriodo());
         int expResult = 0;
         int result = ProblemáticaAcadémicaDAO.insertarProblemáticaAcadémica(problematicaAcademicaRegistro);
         assertEquals(expResult, result);
@@ -54,7 +56,7 @@ public class ProblemáticaAcadémicaDAOTest {
     @Test
     public void testObtenerProblemáticaAcadémicas() {
         System.out.println("obtenerProblem\u00e1ticaAcad\u00e9micas");
-        int periodo = 0;
+        int periodo = 1;
         ArrayList<ProblemáticaAcadémica> expResult = null;
         ArrayList<ProblemáticaAcadémica> result = ProblemáticaAcadémicaDAO.obtenerProblemáticaAcadémicas(periodo);
         assertEquals(expResult, result);
