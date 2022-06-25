@@ -1,7 +1,7 @@
 /*
 * Autor: Leonardo Criollo Ramírez
 * Fecha de creacion: 29/05/22
-* Fecha de modificacion: 15/06/22
+* Fecha de modificacion: 15/06/22 por Joseph Hynimoto Aguilar Lopez
 * Descripcion: DAO de la clase Usuario.
 */
 package proyectoconstruccion.modelo.DAO;

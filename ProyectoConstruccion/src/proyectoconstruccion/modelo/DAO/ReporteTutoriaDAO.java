@@ -1,5 +1,5 @@
 /*
- * Autor: Leonardo Criollo Ramírez
+ * Autor: Leonardo Criollo Ramírez, Joseph Hynimoto Aguilar Lopez
  * Fecha de creación: 11/05/22
  * Fecha de modificación: 22/06/22
  * Descripcion: DAO de la clase ReporteTutoria
