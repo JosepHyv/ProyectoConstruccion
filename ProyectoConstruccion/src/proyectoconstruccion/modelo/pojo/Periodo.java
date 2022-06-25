@@ -7,6 +7,7 @@
 package proyectoconstruccion.modelo.pojo;
 
 import java.util.Date;
+import java.util.Objects;
 
 public class Periodo {
     
@@ -40,4 +41,33 @@ public class Periodo {
         this.fechaFin = fechaFin;
     }
 
+    @Override
+    public String toString() {
+        return "Periodo{" + "idPeriodo=" + idPeriodo + ", fechaInicio=" + fechaInicio + ", fechaFin=" + fechaFin + '}';
+    }
+
+    
+    
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final Periodo other = (Periodo) obj;
+        if (!Objects.equals(this.idPeriodo, other.idPeriodo)) {
+            return false;
+        }
+        if (!Objects.equals(this.fechaInicio, other.fechaInicio)) {
+            return false;
+        }
+        return Objects.equals(this.fechaFin, other.fechaFin);
+    }
+
+    
 }
